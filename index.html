@@ -3,416 +3,468 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Curso Básico de Eletricista Predial — Aula Teórica (Prévia)</title>
-  <meta name="description" content="Apresentação em HTML para ajudantes/auxiliares de elétrica predial, baseada na NBR 5410 e boas práticas de segurança e qualidade." />
+  <title>Curso Básico — Ajudantes de Elétrica Predial (TV • Light)</title>
+  <meta name="description" content="Apresentação otimizada para TV 16:9, fundo claro e texto escuro, com tipografia grande e alto contraste." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0b1220;         /* Fundo escuro para alto contraste */
-      --paper:#0f172a;      /* Cartões */
-      --ink:#e5e7eb;        /* Texto principal */
-      --muted:#9ca3af;      /* Texto secundário */
-      --brand:#38bdf8;      /* Ciano leve */
-      --brand-2:#22d3ee;    /* Ciano intenso */
-      --ok:#22c55e;
-      --warn:#f59e0b;
-      --danger:#ef4444;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--ink);
-      background: radial-gradient(1200px 800px at 80% -10%, rgba(56,189,248,.15), transparent),
-                  radial-gradient(1200px 800px at -10% 110%, rgba(34,211,238,.12), transparent),
-                  var(--bg);
-      overflow:hidden;
-    }
+    :root {
+      /* Sistema de cores otimizado para TV */
+      --bg-primary: #f8fafc;
+      --bg-card: #ffffff;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --accent-primary: #0369a1;
+      --accent-secondary: #0ea5e9;
+      --success: #16a34a;
+      --warning: #d97706;
+      --danger: #dc2626;
+      --border: #e2e8f0;
+      --shadow: rgba(0, 0, 0, 0.08);
 
-    /* Container de slides */
-    .deck{position:relative; width:100vw; height:100vh;}
-    .slide{position:absolute; inset:0; padding:56px 64px; display:none;}
-    .slide.active{display:block;}
-
-    /* Cartão central */
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
-      backdrop-filter: blur(8px);
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow: 0 20px 60px rgba(2,6,23,.45);
-      border-radius:24px; padding:32px; max-width:1200px; margin:0 auto; height:calc(100% - 40px);
-      display:flex; flex-direction:column; gap:20px;
+      /* Sistema de espaçamento para TV */
+      --space-xs: 1vh;
+      --space-sm: 2vh;
+      --space-md: 3vh;
+      --space-lg: 4vh;
+      --space-xl: 5vh;
     }
 
-    h1{font-weight:800; letter-spacing:.2px; line-height:1.15; font-size: clamp(28px, 4.6vw, 54px); margin:0}
-    h2{font-weight:700; font-size: clamp(20px, 2.8vw, 32px); margin:0 0 8px}
-    h3{font-weight:700; font-size: clamp(18px, 2.2vw, 26px); margin:10px 0 6px}
-    p{margin:0; line-height:1.55; font-size: clamp(14px, 1.6vw, 18px); color:var(--ink)}
-    .muted{color:var(--muted)}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; }
 
-    /* Grid utilitário */
-    .grid{display:grid; gap:16px}
-    .cols-2{grid-template-columns:repeat(2, minmax(0,1fr))}
-    .cols-3{grid-template-columns:repeat(3, minmax(0,1fr))}
-    .cols-4{grid-template-columns:repeat(4, minmax(0,1fr))}
-
-    /* Chips e listas */
-    .chip{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); font-weight:600}
-    ul{margin:0; padding-left:20px}
-    li{margin:6px 0;}
-    .ok{color:var(--ok); font-weight:700}
-    .warn{color:var(--warn); font-weight:700}
-    .danger{color:var(--danger); font-weight:700}
-
-    /* Painéis ilustrados */
-    .panel{display:grid; grid-template-columns: 1.2fr 1fr; gap:20px; height:100%}
-    .panel .media{position:relative; border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.08); background:#0b1220}
-    .panel .media img{width:100%; height:100%; object-fit:cover; display:block;}
-    .panel .content{overflow:auto; padding-right:6px}
-
-    /* Barra inferior */
-    .footer{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-top:auto}
-    .progress{height:6px; width:100%; background:rgba(255,255,255,.08); border-radius:999px; overflow:hidden}
-    .progress > i{display:block; height:100%; width:0%; background: linear-gradient(90deg, var(--brand), var(--brand-2));}
-
-    .kbd{font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight:700; padding:.2em .5em; border-radius:6px; border:1px solid rgba(255,255,255,.2)}
-
-    /* Cartões de checklist */
-    .card-list{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px}
-    .card-item{border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:14px 16px; background:rgba(255,255,255,.03)}
-
-    /* Impressão (A4) */
-    @media print{
-      body{background:#fff; color:#111; overflow:visible}
-      .slide{display:block; page-break-after:always; padding:24px}
-      .card{box-shadow:none; border:1px solid #ddd; background:#fff}
-      .panel{grid-template-columns:1fr}
-      .footer{display:none}
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(14,165,233,.05) 0%, transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(3,105,161,.05) 0%, transparent 30%),
+        var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
     }
+
+    /* Container principal para TV */
+    .tv-container { width: 100vw; height: 100vh; display: flex; flex-direction: column; padding: var(--space-sm); gap: var(--space-sm); }
+
+    /* Header fixo */
+    .header { display: flex; justify-content: space-between; align-items: center; padding: var(--space-sm); background: var(--bg-card); border-radius: 20px; box-shadow: 0 4px 20px var(--shadow); border: 1px solid var(--border); }
+    .course-title { font-size: clamp(20px, 2.5vw, 32px); font-weight: 700; color: var(--accent-primary); }
+    .slide-indicator { font-size: clamp(18px, 2vw, 24px); font-weight: 700; background: var(--accent-secondary); color: #fff; padding: 8px 16px; border-radius: 50px; }
+
+    /* Área de conteúdo principal */
+    .main-content { flex: 1; display: flex; gap: var(--space-sm); height: calc(100vh - 120px); }
+
+    /* Navegação lateral */
+    .nav-sidebar { width: 300px; background: var(--bg-card); border-radius: 20px; padding: var(--space-md); box-shadow: 0 4px 20px var(--shadow); border: 1px solid var(--border); overflow-y: auto; }
+    .nav-title { font-size: clamp(18px, 1.8vw, 22px); font-weight: 700; margin-bottom: var(--space-sm); color: var(--accent-primary); }
+    .nav-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .nav-item { padding: 12px 16px; border-radius: 12px; cursor: pointer; transition: all .2s ease; font-size: clamp(16px, 1.5vw, 18px); border: 1px solid transparent; display:flex; align-items:center; gap:.6rem }
+    .nav-item:hover { background: #f1f5f9; }
+    .nav-item.active { background: var(--accent-primary); color: #fff; font-weight: 600; }
+    .nav-item .dot { width:10px; height:10px; border-radius:999px; background: var(--accent-secondary); box-shadow:0 0 0 3px rgba(14,165,233,.15); }
+
+    /* Área do slide */
+    .slide-area { flex: 1; background: var(--bg-card); border-radius: 20px; padding: var(--space-lg); box-shadow: 0 4px 20px var(--shadow); border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; }
+    .slide-content { flex: 1; overflow-y: auto; padding-right: 10px; animation: fadeIn .4s ease; }
+
+    /* Tipografia otimizada para TV */
+    .slide-title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; line-height: 1.1; margin-bottom: var(--space-md); color: var(--text-primary); }
+    .slide-subtitle { font-size: clamp(24px, 2.5vw, 32px); font-weight: 700; margin: var(--space-sm) 0 var(--space-xs); color: var(--accent-primary); }
+    .text-lead { font-size: clamp(18px, 1.8vw, 22px); color: var(--text-secondary); margin-bottom: var(--space-md); }
+    .text-body { font-size: clamp(20px, 1.8vw, 24px); line-height: 1.6; margin-bottom: var(--space-sm); }
+
+    /* Elementos de conteúdo */
+    .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-md) 0; }
+    .content-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 16px; padding: var(--space-md); }
+    .content-card h3 { font-size: clamp(20px, 2vw, 24px); margin-bottom: var(--space-xs); color: var(--accent-primary); }
+
+    .img-card { background:#fff; border:1px solid var(--border); border-radius:16px; overflow:hidden; }
+    .img-card img { display:block; width:100%; height:100%; object-fit:cover; }
+
+    .key-points { list-style: none; }
+    .key-points li { padding: var(--space-xs) 0; font-size: clamp(18px, 1.6vw, 20px); border-bottom: 1px solid var(--border); }
+    .key-points li:last-child { border-bottom: none; }
+
+    /* Cores para ênfase */
+    .text-success { color: var(--success); font-weight: 600; }
+    .text-warning { color: var(--warning); font-weight: 600; }
+    .text-danger { color: var(--danger); font-weight: 600; }
+
+    /* Footer */
+    .footer { display: flex; justify-content: space-between; align-items: center; padding: var(--space-sm) 0 0; margin-top: var(--space-md); border-top: 1px solid var(--border); }
+    .progress-bar { flex: 1; height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; margin: 0 var(--space-md); }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary)); transition: width .3s ease; }
+    .nav-hint { font-size: clamp(16px, 1.5vw, 18px); color: var(--text-secondary); }
+
+    /* Scrollbar personalizada */
+    .slide-content::-webkit-scrollbar { width: 8px; }
+    .slide-content::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+    .slide-content::-webkit-scrollbar-thumb { background: var(--accent-secondary); border-radius: 4px; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Responsividade para diferentes tamanhos de TV */
+    @media (max-width: 1200px) { .nav-sidebar { width: 260px; } }
+    @media (max-width: 900px)  { .main-content { flex-direction: column; } .nav-sidebar { width: 100%; height: auto; max-height: 200px; } }
   </style>
 </head>
 <body>
-  <div class="deck" id="deck" aria-live="polite">
+  <div class="tv-container">
+    <header class="header" role="banner">
+      <div class="course-title">Curso Básico — Ajudantes de Elétrica Predial</div>
+      <div class="slide-indicator" id="slideIndicator" aria-live="polite">1/10</div>
+    </header>
 
-    <!-- SLIDE 1: Capa -->
-    <section class="slide active" data-title="Capa">
-      <div class="card">
-        <div style="display:flex; align-items:center; gap:18px;">
-          <div class="chip">Curso Básico — Ajudantes de Elétrica Predial</div>
-          <div class="chip" title="Base normativa">NBR 5410 — noções essenciais</div>
-          <div class="chip" title="Foco">Segurança • Qualidade • Padrão</div>
-        </div>
-        <div class="panel">
-          <div class="content">
-            <h1>Instalações Prediais de Baixa Tensão</h1>
-            <p class="muted">Prévia da aula teórica (formato apresentação em HTML). Público-alvo: ajudantes/auxiliares iniciando na elétrica predial.</p>
-            <div style="margin-top:16px" class="grid cols-2">
-              <div class="card-item"><strong>Objetivo:</strong> formar base sólida de segurança e procedimento, com linguagem simples e foco no fazer certo.</div>
-              <div class="card-item"><strong>Entrega:</strong> teoria navegável (setas do teclado) + checklists imprimíveis + cartões de bolso.</div>
-            </div>
-          </div>
-          <figure class="media" aria-label="Imagem temática de elétrica">
-            <!-- Exemplo de imagem gratuita (Unsplash). Você pode trocar por imagens específicas. -->
-            <img alt="Eletricista em bancada" src="https://source.unsplash.com/1600x900/?electrician,tools" />
-          </figure>
-        </div>
-        <div class="footer">
-          <small class="muted">Dica: use <span class="kbd">←</span> e <span class="kbd">→</span> para navegar • <span class="kbd">P</span> para imprimir/PDF</small>
-          <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
-        </div>
-      </div>
-    </section>
+    <div class="main-content">
+      <nav class="nav-sidebar" aria-label="Conteúdo do curso">
+        <h3 class="nav-title">Conteúdo do Curso</h3>
+        <ul class="nav-list" id="navList"></ul>
+      </nav>
 
-    <!-- SLIDE 2: Regras do Jogo -->
-    <section class="slide" data-title="Regras do jogo">
-      <div class="card">
-        <h2>Regras do jogo: papel do ajudante e combinação de segurança</h2>
-        <div class="panel">
-          <div class="content">
-            <h3>Papel</h3>
-            <ul>
-              <li>Apoiar o eletricista: preparação de materiais, passagem de cabos, fixações e organização da frente de serviço.</li>
-              <li>Respeitar <strong>limites de atuação</strong>: nada de conexões energizadas, parametrização de proteção ou manobras sem autorização.</li>
-              <li>Comunicar riscos: parou, sinalizou, chamou o responsável.</li>
-            </ul>
-            <h3 style="margin-top:10px">Segurança (não negociável)</h3>
-            <ul>
-              <li><span class="danger">Bloqueio + sinalização</span> antes de qualquer intervenção.</li>
-              <li>EPI básico: luvas adequadas, óculos, proteção facial quando necessário, botas isolantes.</li>
-              <li>Ferramentas em bom estado + teste de ausência de tensão quando aplicável.</li>
-            </ul>
-            <div class="card-list" style="margin-top:10px">
-              <div class="card-item"><strong>Checklist 10s:</strong> ambiente seco/seguro, iluminação ok, escadas estáveis, extensão sem emenda precária.</div>
-              <div class="card-item"><strong>Fala padrão:</strong> “Vou sinalizar e chamar o eletricista para liberar o ponto.”</div>
-            </div>
-          </div>
-          <figure class="media">
-            <img alt="Sinalização e EPI" src="https://source.unsplash.com/1600x900/?safety,construction" />
-          </figure>
-        </div>
-        <div class="footer"><small class="muted">Padrão > Pressa. Qualidade = Segurança.</small><div class="progress"><i></i></div></div>
-      </div>
-    </section>
-
-    <!-- SLIDE 3: NBR 5410 (noções essenciais) -->
-    <section class="slide" data-title="NBR 5410 — noções">
-      <div class="card">
-        <h2>NBR 5410 — noções essenciais para o ajudante</h2>
-        <div class="panel">
-          <div class="content">
-            <h3>Conceitos-chave</h3>
-            <ul>
-              <li>Separação de circuitos (iluminação × TUG × TUE) e identificação por cores.</li>
-              <li>Condutor de proteção (PE) obrigatório e contínuo; emenda com qualidade.</li>
-              <li><strong>DR</strong> protege pessoas; <strong>DPS</strong> protege equipamentos; disjuntor protege condutores.</li>
-              <li>Seções típicas: 1,5 mm² (iluminação), 2,5 mm² (TUG), 4–6–10 mm² (alimentações e TUE).</li>
-            </ul>
-            <h3 style="margin-top:10px">O que você precisa lembrar</h3>
-            <ul>
-              <li>Fase é interrompida no interruptor; neutro segue contínuo até a carga.</li>
-              <li>Raio de curvatura, taxa de ocupação de eletrodutos e fixações no padrão.</li>
-              <li>Organização: caixas limpas, sobras mínimas, etiquetas legíveis.</li>
-            </ul>
-          </div>
-          <figure class="media">
-            <img alt="Quadro e condutores" src="https://source.unsplash.com/1600x900/?electrical,distribution,board" />
-          </figure>
-        </div>
-        <div class="footer"><small class="muted">Detalhe certo hoje = retrabalho zero amanhã.</small><div class="progress"><i></i></div></div>
-      </div>
-    </section>
-
-    <!-- SLIDE 4: Ferramentas e Medição -->
-    <section class="slide" data-title="Ferramentas e medição">
-      <div class="card">
-        <h2>Ferramentas e medição: uso correto e erros comuns</h2>
-        <div class="panel">
-          <div class="content">
-            <div class="grid cols-2">
-              <div>
-                <h3>Essenciais</h3>
-                <ul>
-                  <li>Decapador, crimpador e alicates (universal, corte, bico).</li>
-                  <li>Parafusadeira com controle de torque e bits corretos.</li>
-                  <li>Chave de teste e multímetro (tensão e continuidade).</li>
-                </ul>
-                <h3 style="margin-top:8px">Erros a evitar</h3>
-                <ul>
-                  <li>Decapar demais (exposição de cobre) ou de menos (crimpagem ruim).</li>
-                  <li>Crimpar sem terminal adequado ou sem pressão suficiente.</li>
-                  <li>Medir em escala errada no multímetro.</li>
-                </ul>
-              </div>
-              <div>
-                <h3>Boas práticas</h3>
-                <ul>
-                  <li>Testar DR (botão “T”) e registrar leitura/continuidade em ficha simples.</li>
-                  <li>Separar ferramentas por bandeja: corte, decapar, crimpar, medir.</li>
-                  <li>Limpeza ao final do turno e conferência de inventário.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <figure class="media">
-            <img alt="Ferramentas elétricas" src="https://source.unsplash.com/1600x900/?tools,pliers" />
-          </figure>
-        </div>
-        <div class="footer"><small class="muted">Ferramenta certa + técnica certa = acabamento profissional.</small><div class="progress"><i></i></div></div>
-      </div>
-    </section>
-
-    <!-- SLIDE 5: Materiais e Organização -->
-    <section class="slide" data-title="Materiais e organização">
-      <div class="card">
-        <h2>Materiais e organização de frente de serviço</h2>
-        <div class="panel">
-          <div class="content">
-            <div class="grid cols-2">
-              <div>
-                <h3>Condutores e eletrodutos</h3>
-                <ul>
-                  <li>Bitolas típicas: 1,5 / 2,5 / 4 / 6 / 10 mm² — respeitar cores e função.</li>
-                  <li>Eletroduto flexível e PVC rígido: raios de curva e taxa de ocupação.</li>
-                  <li>Perfilado/eletrocalha: fixações e aterramento de partes metálicas.</li>
-                </ul>
-              </div>
-              <div>
-                <h3>Organização</h3>
-                <ul>
-                  <li>Etiquetagem nas extremidades e nas caixas (legíveis).</li>
-                  <li>Rotas limpas, sem esmagamento, sem cruzar com hidráulica indevidamente.</li>
-                  <li>Check de materiais antes de subir para a frente de serviço.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <figure class="media">
-            <img alt="Materiais e organização" src="https://source.unsplash.com/1600x900/?cable,management" />
-          </figure>
-        </div>
-        <div class="footer"><small class="muted">Organizar = ganhar tempo e qualidade.</small><div class="progress"><i></i></div></div>
-      </div>
-    </section>
-
-    <!-- SLIDE 6: Proteções e QDC -->
-    <section class="slide" data-title="Proteções e QDC">
-      <div class="card">
-        <h2>Proteções e QDC (Quadro de Distribuição de Circuitos)</h2>
-        <div class="panel">
-          <div class="content">
-            <h3>Entender o papel de cada dispositivo</h3>
-            <ul>
-              <li><strong>Disjuntor:</strong> protege o condutor contra sobrecorrente/curto.</li>
-              <li><strong>DR:</strong> proteção diferencial-residual para pessoas. Teste periódico (botão “T”).</li>
-              <li><strong>DPS:</strong> proteção contra surtos; ligar com condutores curtos ao PE e ao barramento adequado.</li>
-            </ul>
-            <h3 style="margin-top:10px">Acabamento e inspeção</h3>
-            <ul>
-              <li>Torque nos bornes conforme fabricante (registro em checklist).</li>
-              <li>Identificação dos circuitos no espelho do quadro.</li>
-              <li>Limpeza, tampas fechando sem forçar condutores, reserva organizada.</li>
-            </ul>
-          </div>
-          <figure class="media">
-            <img alt="Quadro elétrico" src="https://source.unsplash.com/1600x900/?breaker,panel" />
-          </figure>
-        </div>
-        <div class="footer"><small class="muted">Proteção certa no lugar certo salva vidas e equipamentos.</small><div class="progress"><i></i></div></div>
-      </div>
-    </section>
-
-    <!-- SLIDE 7: Boas práticas e Qualidade -->
-    <section class="slide" data-title="Qualidade e boas práticas">
-      <div class="card">
-        <h2>Qualidade visível: boas práticas que evitam retrabalho</h2>
-        <div class="panel">
-          <div class="content">
-            <div class="card-list">
-              <div class="card-item"><strong>Rotas limpas:</strong> nada de zigue-zague; curvas suaves; sem esmagar condutores.</div>
-              <div class="card-item"><strong>Caixas:</strong> sem emendas soltas; margens iguais; sobras mínimas; tampa fecha.</div>
-              <div class="card-item"><strong>Separação:</strong> iluminação, TUG e TUE em condutas distintas quando aplicável.</div>
-              <div class="card-item"><strong>Identificação:</strong> etiquetas legíveis e consistentes de ponta a ponta.</div>
-            </div>
-          </div>
-          <figure class="media">
-            <img alt="Acabamento e qualidade" src="https://source.unsplash.com/1600x900/?wiring,quality" />
-          </figure>
-        </div>
-        <div class="footer"><small class="muted">Acabamento fala pelo profissional — mesmo do ajudante.</small><div class="progress"><i></i></div></div>
-      </div>
-    </section>
-
-    <!-- SLIDE 8: Mini-Quiz (teórico) -->
-    <section class="slide" data-title="Mini-quiz">
-      <div class="card">
-        <h2>Mini‑quiz — verifique sua compreensão</h2>
-        <div class="grid cols-2" style="margin-top:6px">
-          <div class="card-item">
-            <strong>1)</strong> Qual dispositivo protege pessoas contra choques por corrente de fuga?<br/>
-            <span class="muted">A) DPS  B) DR  C) Disjuntor</span>
-          </div>
-          <div class="card-item">
-            <strong>2)</strong> Em qual condutor o interruptor deve atuar?<br/>
-            <span class="muted">A) Neutro  B) Fase  C) PE</span>
-          </div>
-          <div class="card-item">
-            <strong>3)</strong> Indique uma boa prática ao lançar cabos em eletroduto.
-            <ul class="muted"><li>Respeitar raio de curvatura e taxa de ocupação.</li></ul>
-          </div>
-          <div class="card-item">
-            <strong>4)</strong> Cite um item obrigatório antes de iniciar qualquer tarefa.
-            <ul class="muted"><li>Bloqueio/sinalização e EPI apropriado.</li></ul>
-          </div>
-        </div>
-        <div class="footer"><small class="muted">Respostas: 1‑B, 2‑B.</small><div class="progress"><i></i></div></div>
-      </div>
-    </section>
-
-    <!-- SLIDE 9: Checklists de bolso -->
-    <section class="slide" data-title="Checklists de bolso">
-      <div class="card">
-        <h2>Checklists de bolso (imprimíveis)</h2>
-        <div class="grid cols-2" style="margin-top:6px">
-          <div class="card-item">
-            <h3>Antes de energizar</h3>
-            <ul>
-              <li>Fixações conferidas; condutores sem feridas/exposição.</li>
-              <li>DR testado (botão T) quando aplicável.</li>
-              <li>Torque registrado no QDC.</li>
-              <li>Etiquetas legíveis em ambas as pontas.</li>
-            </ul>
-          </div>
-          <div class="card-item">
-            <h3>Passagem de cabos</h3>
-            <ul>
-              <li>Curvas suaves; guia e lubrificante quando preciso.</li>
-              <li>Sem esmagar; sem cruzar com hidráulica indevida.</li>
-              <li>Margem de sobra mínima e organizada.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer"><small class="muted">Use <span class="kbd">P</span> para imprimir ou “Salvar como PDF”.</small><div class="progress"><i></i></div></div>
-      </div>
-    </section>
-
-    <!-- SLIDE 10: Encerramento e chamada para prática -->
-    <section class="slide" data-title="Encerramento">
-      <div class="card">
-        <h2>Fechamento da teoria → vamos para a bancada</h2>
-        <div class="panel">
-          <div class="content">
-            <ul>
-              <li>Você viu o essencial: segurança, NBR 5410 (noções), ferramentas, materiais, proteção e qualidade.</li>
-              <li>Na prática, vamos montar circuitos simples, paralelo, TUG com DR e DPS no mini‑QDC.</li>
-              <li>Critérios de aceitação claros: funcionamento, continuidade/isolação preservadas e acabamento.</li>
-            </ul>
-            <p class="muted" style="margin-top:10px">Dúvidas? Anote agora e leve para a estação de bancada. A prática fixa o aprendizado.</p>
-          </div>
-          <figure class="media">
-            <img alt="Bancada didática" src="https://source.unsplash.com/1600x900/?workbench,electronics" />
-          </figure>
-        </div>
-        <div class="footer"><small class="muted">Próximo: Estação A — Decapagem, emenda e terminação.</small><div class="progress"><i></i></div></div>
-      </div>
-    </section>
-
+      <main class="slide-area" role="main">
+        <div class="slide-content" id="slideContent" tabindex="0" aria-live="polite"></div>
+        <footer class="footer">
+          <div class="nav-hint">Use ← → para navegar</div>
+          <div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progressFill" style="width: 10%"></div></div>
+          <div class="nav-hint" id="pageHint">Página 1 de 10</div>
+        </footer>
+      </main>
+    </div>
   </div>
 
   <script>
-    (function(){
-      const deck = document.getElementById('deck');
-      const slides = Array.from(deck.querySelectorAll('.slide'));
-      const progressBars = () => Array.from(deck.querySelectorAll('.slide.active .progress > i'));
-      let idx = 0;
-
-      function go(n){
-        idx = Math.max(0, Math.min(slides.length-1, n));
-        slides.forEach((s,i)=> s.classList.toggle('active', i===idx));
-        const pct = ((idx+1)/slides.length)*100;
-        progressBars().forEach(pb=> pb.style.width = pct+"%");
-        document.title = slides[idx].dataset.title + ' — Curso Básico';
+    // Slides estruturados (HTML pronto para injeção). Imagens livres (Unsplash) — podem ser trocadas por fotos da obra.
+    const slides = [
+      {
+        title: 'Introdução e Objetivos',
+        icon: '📘',
+        content: `
+          <h1 class="slide-title">Instalações Prediais de Baixa Tensão</h1>
+          <p class="text-lead">Aula teórica otimizada para TV — foco em clareza, contraste e leitura à distância.</p>
+          <div class="content-grid">
+            <div class="content-card">
+              <h3>Objetivo Principal</h3>
+              <p class="text-body">Construir uma base prática de <strong>segurança</strong> e <strong>procedimento</strong> para quem está começando na elétrica predial.</p>
+              <ul class="key-points">
+                <li>Vocabulário simples e direto</li>
+                <li>Exemplos de obra e padrões de qualidade</li>
+                <li>Conexão com as práticas de bancada</li>
+              </ul>
+            </div>
+            <div class="img-card"><img alt="Eletricista em bancada" src="https://images.unsplash.com/photo-1607863680170-54366b6cb3a8?q=80&w=1920&auto=format&fit=crop"/></div>
+          </div>
+          <h2 class="slide-subtitle">Programa</h2>
+          <ul class="key-points">
+            <li>Regras e segurança • NBR 5410 (noções) • Ferramentas e medição</li>
+            <li>Materiais e organização • Proteções e QDC • Qualidade</li>
+            <li>Mini‑quiz • Checklists • Chamada para prática</li>
+          </ul>
+        `
+      },
+      {
+        title: 'Regras e Segurança',
+        icon: '🦺',
+        content: `
+          <h1 class="slide-title">Regras do jogo: papel do ajudante + segurança</h1>
+          <div class="content-grid">
+            <div class="content-card">
+              <h3>Papel do ajudante</h3>
+              <ul class="key-points">
+                <li>Apoiar: materiais, passagem de cabos, fixações, organização</li>
+                <li><strong>Limites:</strong> sem conexões energizadas/manobras sem autorização</li>
+                <li>Comunicar e sinalizar riscos imediatamente</li>
+              </ul>
+              <h3 style="margin-top:1vh">Segurança (não negociável)</h3>
+              <ul class="key-points">
+                <li><span class="text-danger">Bloqueio + Sinalização</span> antes de qualquer intervenção</li>
+                <li>EPI: luvas, óculos, botas • Ferramentas íntegras</li>
+                <li>Teste de ausência de tensão quando aplicável</li>
+              </ul>
+            </div>
+            <div class="img-card"><img alt="Sinalização e EPI" src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=1920&auto=format&fit=crop"/></div>
+          </div>
+          <div class="content-grid">
+            <div class="content-card">
+              <h3>Checklist 10s</h3>
+              <ul class="key-points">
+                <li>Ambiente seco e iluminado</li>
+                <li>Escadas estáveis • Extensões sem emenda precária</li>
+                <li>Área sinalizada (fitas/cones)</li>
+              </ul>
+            </div>
+            <div class="content-card">
+              <h3>Fala padrão</h3>
+              <p class="text-body">“Vou <strong>sinalizar</strong> e chamar o eletricista para <strong>liberar</strong> o ponto.”</p>
+            </div>
+          </div>
+        `
+      },
+      {
+        title: 'NBR 5410 — Noções',
+        icon: '📑',
+        content: `
+          <h1 class="slide-title">NBR 5410 — noções essenciais</h1>
+          <div class="content-grid">
+            <div class="content-card">
+              <h3>Conceitos‑chave</h3>
+              <ul class="key-points">
+                <li>Separação de circuitos: iluminação × TUG × TUE</li>
+                <li>Condutor de proteção (PE) contínuo</li>
+                <li>DR → pessoas • DPS → equipamentos • Disjuntor → condutores</li>
+                <li>Seções típicas: 1,5 (ilum.), 2,5 (TUG), 4–6–10 mm² (alimentações/TUE)</li>
+              </ul>
+            </div>
+            <div class="img-card"><img alt="Quadro e condutores" src="https://images.unsplash.com/photo-1607706009773-c5c42b3fa9a5?q=80&w=1920&auto=format&fit=crop"/></div>
+          </div>
+          <h2 class="slide-subtitle">Lembretes práticos</h2>
+          <ul class="key-points">
+            <li>Fase é interrompida no interruptor; neutro segue à carga</li>
+            <li>Raio de curvatura e taxa de ocupação respeitados</li>
+            <li>Etiquetagem legível da caixa ao quadro</li>
+          </ul>
+        `
+      },
+      {
+        title: 'Ferramentas e Medição',
+        icon: '🧰',
+        content: `
+          <h1 class="slide-title">Ferramentas e Medição</h1>
+          <div class="content-grid">
+            <div class="content-card">
+              <h3>Essenciais</h3>
+              <ul class="key-points">
+                <li>Decapador, crimpador, alicates (universal, corte, bico)</li>
+                <li>Parafusadeira com controle de torque</li>
+                <li>Chave de teste e multímetro (tensão/continuidade)</li>
+              </ul>
+              <h3 style="margin-top:1vh">Erros a evitar</h3>
+              <ul class="key-points">
+                <li>Decapar demais/de menos (cobre exposto ou crimpagem ruim)</li>
+                <li>Terminal inadequado ou pouca pressão</li>
+                <li>Escala errada no multímetro</li>
+              </ul>
+            </div>
+            <div class="img-card"><img alt="Ferramentas" src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1920&auto=format&fit=crop"/></div>
+          </div>
+          <div class="content-grid">
+            <div class="content-card">
+              <h3>Boas práticas</h3>
+              <ul class="key-points">
+                <li>Testar DR (botão “T”) • Registrar leituras básicas</li>
+                <li>Bandejas por função: cortar, decapar, crimpar, medir</li>
+                <li>Inventário e limpeza ao final do turno</li>
+              </ul>
+            </div>
+            <div class="content-card">
+              <h3>Demonstração em bancada</h3>
+              <p class="text-body">Na prática: decapagem correta, crimpagem sem “pescoço”, tração mínima e recomposição do isolamento.</p>
+            </div>
+          </div>
+        `
+      },
+      {
+        title: 'Materiais e Organização',
+        icon: '🧱',
+        content: `
+          <h1 class="slide-title">Materiais e Organização</h1>
+          <div class="content-grid">
+            <div class="content-card">
+              <h3>Condutores e Eletrodutos</h3>
+              <ul class="key-points">
+                <li>Bitolas usuais: 1,5 / 2,5 / 4 / 6 / 10 mm² — cores e função</li>
+                <li>Eletroduto flexível e PVC rígido: curvas suaves e ocupação</li>
+                <li>Perfilado/eletrocalha: fixações e aterramento quando metálico</li>
+              </ul>
+            </div>
+            <div class="img-card"><img alt="Organização de cabos" src="https://images.unsplash.com/photo-1599556476310-ef48e7d9e0a0?q=80&w=1920&auto=format&fit=crop"/></div>
+          </div>
+          <div class="content-grid">
+            <div class="content-card">
+              <h3>Organização da frente de serviço</h3>
+              <ul class="key-points">
+                <li>Etiquetas nas extremidades e no quadro</li>
+                <li>Rotas limpas, sem esmagamentos, sem cruzar hidráulica indevida</li>
+                <li>Conferência de materiais antes de subir</li>
+              </ul>
+            </div>
+            <div class="content-card">
+              <h3>Qualidade visual</h3>
+              <p class="text-body">Caixas limpas, margem de sobras mínima, tampa fecha sem esforço — acabamento comunica profissionalismo.</p>
+            </div>
+          </div>
+        `
+      },
+      {
+        title: 'Proteções e QDC',
+        icon: '🛡️',
+        content: `
+          <h1 class="slide-title">Proteções e QDC (Quadro de Distribuição)</h1>
+          <div class="content-grid">
+            <div class="content-card">
+              <h3>Papel de cada dispositivo</h3>
+              <ul class="key-points">
+                <li><strong>Disjuntor:</strong> protege condutor contra sobrecorrente/curto</li>
+                <li><strong>DR:</strong> protege pessoas; testar regularmente</li>
+                <li><strong>DPS:</strong> protege contra surtos; condutores curtos ao PE e barramento</li>
+              </ul>
+            </div>
+            <div class="img-card"><img alt="Quadro elétrico" src="https://images.unsplash.com/photo-1621905251345-3ffaf43b5c02?q=80&w=1920&auto=format&fit=crop"/></div>
+          </div>
+          <div class="content-grid">
+            <div class="content-card">
+              <h3>Acabamento e inspeção</h3>
+              <ul class="key-points">
+                <li>Torque conforme fabricante (registrar)</li>
+                <li>Etiqueta dos circuitos no espelho</li>
+                <li>Limpeza e reserva organizada</li>
+              </ul>
+            </div>
+            <div class="content-card">
+              <h3>Dica de segurança</h3>
+              <p class="text-body">Nunca atuar em partes energizadas — ajudante não realiza manobras sem autorização expressa.</p>
+            </div>
+          </div>
+        `
+      },
+      {
+        title: 'Qualidade e Boas Práticas',
+        icon: '✅',
+        content: `
+          <h1 class="slide-title">Qualidade visível: boas práticas</h1>
+          <div class="content-grid">
+            <div class="content-card">
+              <h3>Padronização</h3>
+              <ul class="key-points">
+                <li>Rotas retas, curvas suaves, sem zigue‑zague</li>
+                <li>Separação de circuitos (iluminação, TUG, TUE)</li>
+                <li>Etiquetas consistentes (fonte legível / posição padrão)</li>
+              </ul>
+            </div>
+            <div class="content-card">
+              <h3>Acabamento</h3>
+              <ul class="key-points">
+                <li>Caixas: emendas seguras, tampa fecha sem esmagar condutor</li>
+                <li>Cabos sem feridas, isolamento preservado</li>
+                <li>Limpeza final da frente de serviço</li>
+              </ul>
+            </div>
+          </div>
+        `
+      },
+      {
+        title: 'Verificação de Conhecimento',
+        icon: '📝',
+        content: `
+          <h1 class="slide-title">Mini‑quiz (rápido)</h1>
+          <div class="content-grid">
+            <div class="content-card">
+              <h3>Perguntas</h3>
+              <ol class="key-points" style="list-style:decimal inside">
+                <li>Qual dispositivo protege pessoas contra corrente de fuga? (Dica: botão "T")</li>
+                <li>Em qual condutor o interruptor deve atuar?</li>
+                <li>Cite uma boa prática na passagem de cabos em eletroduto.</li>
+                <li>Antes de iniciar um serviço, cite um item obrigatório.</li>
+              </ol>
+            </div>
+            <div class="content-card">
+              <h3>Gabarito</h3>
+              <ul class="key-points">
+                <li><strong>DR</strong></li>
+                <li><strong>Fase</strong></li>
+                <li>Respeitar raio de curvatura e taxa de ocupação</li>
+                <li>Bloqueio/sinalização e EPI adequado</li>
+              </ul>
+            </div>
+          </div>
+        `
+      },
+      {
+        title: 'Checklists Práticos',
+        icon: '🧾',
+        content: `
+          <h1 class="slide-title">Checklists de bolso</h1>
+          <div class="content-grid">
+            <div class="content-card">
+              <h3>Antes de energizar</h3>
+              <ul class="key-points">
+                <li>Fixações conferidas; condutores sem feridas</li>
+                <li>DR testado (botão T) quando aplicável</li>
+                <li>Torque registrado no QDC</li>
+                <li>Etiquetas legíveis nas pontas</li>
+              </ul>
+            </div>
+            <div class="content-card">
+              <h3>Passagem de cabos</h3>
+              <ul class="key-points">
+                <li>Curvas suaves; guia e lubrificante quando preciso</li>
+                <li>Sem esmagar; sem cruzar com hidráulica indevida</li>
+                <li>Sobra mínima e organizada</li>
+              </ul>
+            </div>
+          </div>
+        `
+      },
+      {
+        title: 'Encerramento',
+        icon: '🏁',
+        content: `
+          <h1 class="slide-title">Teoria concluída → Vamos para a bancada</h1>
+          <p class="text-lead">Próximo passo: montar circuito simples + paralelo, TUG com DR e DPS no mini‑QDC.</p>
+          <ul class="key-points">
+            <li>Critérios de aceitação: funcionamento, continuidade/isolação e acabamento</li>
+            <li>Dúvidas anotadas vão para a estação de prática</li>
+            <li>Qualidade = Segurança + Padrão</li>
+          </ul>
+        `
       }
+    ];
 
-      function onKey(e){
-        if(e.key==='ArrowRight' || e.key==='PageDown') go(idx+1);
-        if(e.key==='ArrowLeft'  || e.key==='PageUp')   go(idx-1);
-        if(e.key==='Home') go(0);
-        if(e.key==='End') go(slides.length-1);
-        if(e.key.toLowerCase()==='p') window.print();
-      }
+    // Gera navegação a partir do array de slides
+    const navList = document.getElementById('navList');
+    slides.forEach((s, i) => {
+      const li = document.createElement('li');
+      li.className = 'nav-item' + (i === 0 ? ' active' : '');
+      li.setAttribute('role', 'button');
+      li.setAttribute('tabindex', '0');
+      li.innerHTML = `<span class="dot" aria-hidden="true"></span> ${s.title}`;
+      li.addEventListener('click', () => navigateTo(i));
+      li.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') navigateTo(i); });
+      navList.appendChild(li);
+    });
 
-      document.addEventListener('keydown', onKey);
+    const slideContent = document.getElementById('slideContent');
+    const slideIndicator = document.getElementById('slideIndicator');
+    const progressFill = document.getElementById('progressFill');
+    const pageHint = document.getElementById('pageHint');
 
-      // Navegação por clique nas laterais
-      deck.addEventListener('click', (e)=>{
-        const x = e.clientX / window.innerWidth;
-        if(x>0.66) go(idx+1); else if(x<0.34) go(idx-1);
-      });
+    let currentSlide = 0;
 
-      // Atualiza barra ao carregar
-      go(0);
-    })();
+    function updateSlide(){
+      slideContent.innerHTML = slides[currentSlide].content;
+      slideIndicator.textContent = `${currentSlide+1}/${slides.length}`;
+      progressFill.style.width = `${((currentSlide+1)/slides.length)*100}%`;
+      pageHint.textContent = `Página ${currentSlide+1} de ${slides.length}`;
+      document.title = `${slides[currentSlide].title} — Curso Básico (TV)`;
+      // Atualiza estado do menu
+      Array.from(navList.children).forEach((el, idx)=> el.classList.toggle('active', idx === currentSlide));
+      // Foco acessível para leitura em TV/PC
+      slideContent.focus({preventScroll:true});
+    }
+
+    function navigateTo(i){ currentSlide = Math.max(0, Math.min(slides.length-1, i)); updateSlide(); }
+
+    // Navegação por teclado
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowRight' || e.key==='PageDown') navigateTo(currentSlide+1);
+      if(e.key==='ArrowLeft'  || e.key==='PageUp')   navigateTo(currentSlide-1);
+      if(e.key==='Home') navigateTo(0);
+      if(e.key==='End') navigateTo(slides.length-1);
+    });
+
+    // Inicializa
+    updateSlide();
   </script>
 </body>
 </html>
+
