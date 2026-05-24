@@ -1,470 +1,183 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Curso Básico — Ajudantes de Elétrica Predial (TV • Light)</title>
-  <meta name="description" content="Apresentação otimizada para TV 16:9, fundo claro e texto escuro, com tipografia grande e alto contraste." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      /* Sistema de cores otimizado para TV */
-      --bg-primary: #f8fafc;
-      --bg-card: #ffffff;
-      --text-primary: #0f172a;
-      --text-secondary: #475569;
-      --accent-primary: #0369a1;
-      --accent-secondary: #0ea5e9;
-      --success: #16a34a;
-      --warning: #d97706;
-      --danger: #dc2626;
-      --border: #e2e8f0;
-      --shadow: rgba(0, 0, 0, 0.08);
-
-      /* Sistema de espaçamento para TV */
-      --space-xs: 1vh;
-      --space-sm: 2vh;
-      --space-md: 3vh;
-      --space-lg: 4vh;
-      --space-xl: 5vh;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; overflow: hidden; }
-
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(14,165,233,.05) 0%, transparent 30%),
-        radial-gradient(circle at 90% 80%, rgba(3,105,161,.05) 0%, transparent 30%),
-        var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.5;
-    }
-
-    /* Container principal para TV */
-    .tv-container { width: 100vw; height: 100vh; display: flex; flex-direction: column; padding: var(--space-sm); gap: var(--space-sm); }
-
-    /* Header fixo */
-    .header { display: flex; justify-content: space-between; align-items: center; padding: var(--space-sm); background: var(--bg-card); border-radius: 20px; box-shadow: 0 4px 20px var(--shadow); border: 1px solid var(--border); }
-    .course-title { font-size: clamp(20px, 2.5vw, 32px); font-weight: 700; color: var(--accent-primary); }
-    .slide-indicator { font-size: clamp(18px, 2vw, 24px); font-weight: 700; background: var(--accent-secondary); color: #fff; padding: 8px 16px; border-radius: 50px; }
-
-    /* Área de conteúdo principal */
-    .main-content { flex: 1; display: flex; gap: var(--space-sm); height: calc(100vh - 120px); }
-
-    /* Navegação lateral */
-    .nav-sidebar { width: 300px; background: var(--bg-card); border-radius: 20px; padding: var(--space-md); box-shadow: 0 4px 20px var(--shadow); border: 1px solid var(--border); overflow-y: auto; }
-    .nav-title { font-size: clamp(18px, 1.8vw, 22px); font-weight: 700; margin-bottom: var(--space-sm); color: var(--accent-primary); }
-    .nav-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .nav-item { padding: 12px 16px; border-radius: 12px; cursor: pointer; transition: all .2s ease; font-size: clamp(16px, 1.5vw, 18px); border: 1px solid transparent; display:flex; align-items:center; gap:.6rem }
-    .nav-item:hover { background: #f1f5f9; }
-    .nav-item.active { background: var(--accent-primary); color: #fff; font-weight: 600; }
-    .nav-item .dot { width:10px; height:10px; border-radius:999px; background: var(--accent-secondary); box-shadow:0 0 0 3px rgba(14,165,233,.15); }
-
-    /* Área do slide */
-    .slide-area { flex: 1; background: var(--bg-card); border-radius: 20px; padding: var(--space-lg); box-shadow: 0 4px 20px var(--shadow); border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; }
-    .slide-content { flex: 1; overflow-y: auto; padding-right: 10px; animation: fadeIn .4s ease; }
-
-    /* Tipografia otimizada para TV */
-    .slide-title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; line-height: 1.1; margin-bottom: var(--space-md); color: var(--text-primary); }
-    .slide-subtitle { font-size: clamp(24px, 2.5vw, 32px); font-weight: 700; margin: var(--space-sm) 0 var(--space-xs); color: var(--accent-primary); }
-    .text-lead { font-size: clamp(18px, 1.8vw, 22px); color: var(--text-secondary); margin-bottom: var(--space-md); }
-    .text-body { font-size: clamp(20px, 1.8vw, 24px); line-height: 1.6; margin-bottom: var(--space-sm); }
-
-    /* Elementos de conteúdo */
-    .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-md) 0; }
-    .content-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 16px; padding: var(--space-md); }
-    .content-card h3 { font-size: clamp(20px, 2vw, 24px); margin-bottom: var(--space-xs); color: var(--accent-primary); }
-
-    .img-card { background:#fff; border:1px solid var(--border); border-radius:16px; overflow:hidden; }
-    .img-card img { display:block; width:100%; height:100%; object-fit:cover; }
-
-    .key-points { list-style: none; }
-    .key-points li { padding: var(--space-xs) 0; font-size: clamp(18px, 1.6vw, 20px); border-bottom: 1px solid var(--border); }
-    .key-points li:last-child { border-bottom: none; }
-
-    /* Cores para ênfase */
-    .text-success { color: var(--success); font-weight: 600; }
-    .text-warning { color: var(--warning); font-weight: 600; }
-    .text-danger { color: var(--danger); font-weight: 600; }
-
-    /* Footer */
-    .footer { display: flex; justify-content: space-between; align-items: center; padding: var(--space-sm) 0 0; margin-top: var(--space-md); border-top: 1px solid var(--border); }
-    .progress-bar { flex: 1; height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; margin: 0 var(--space-md); }
-    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary)); transition: width .3s ease; }
-    .nav-hint { font-size: clamp(16px, 1.5vw, 18px); color: var(--text-secondary); }
-
-    /* Scrollbar personalizada */
-    .slide-content::-webkit-scrollbar { width: 8px; }
-    .slide-content::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
-    .slide-content::-webkit-scrollbar-thumb { background: var(--accent-secondary); border-radius: 4px; }
-
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* Responsividade para diferentes tamanhos de TV */
-    @media (max-width: 1200px) { .nav-sidebar { width: 260px; } }
-    @media (max-width: 900px)  { .main-content { flex-direction: column; } .nav-sidebar { width: 100%; height: auto; max-height: 200px; } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curso Eletricista Predial — Energia Desligada</title>
+<meta name="description" content="Curso completo e gratuito de Eletricista Predial com ênfase em trabalho com energia desligada. 7 módulos, quizzes e certificado.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="tv-container">
-    <header class="header" role="banner">
-      <div class="course-title">Curso Básico — Ajudantes de Elétrica Predial</div>
-      <div class="slide-indicator" id="slideIndicator" aria-live="polite">1/10</div>
-    </header>
-
-    <div class="main-content">
-      <nav class="nav-sidebar" aria-label="Conteúdo do curso">
-        <h3 class="nav-title">Conteúdo do Curso</h3>
-        <ul class="nav-list" id="navList"></ul>
-      </nav>
-
-      <main class="slide-area" role="main">
-        <div class="slide-content" id="slideContent" tabindex="0" aria-live="polite"></div>
-        <footer class="footer">
-          <div class="nav-hint">Use ← → para navegar</div>
-          <div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progressFill" style="width: 10%"></div></div>
-          <div class="nav-hint" id="pageHint">Página 1 de 10</div>
-        </footer>
-      </main>
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-brand">⚡ Eletricista Predial</div>
+    <div class="nav-links">
+      <a href="#modulos">Módulos</a>
+      <a href="#sobre">Sobre o Curso</a>
+      <a href="curso.html" class="btn btn-primary btn-sm" id="navCta">Acessar Curso</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#modulos" onclick="document.getElementById('navMobile').classList.remove('open')">Módulos</a>
+    <a href="#sobre" onclick="document.getElementById('navMobile').classList.remove('open')">Sobre o Curso</a>
+    <a href="curso.html" class="btn btn-primary">⚡ Começar Agora</a>
+  </div>
+</nav>
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">⚡ Curso Gratuito &middot; Online &middot; Certificado &middot; 100% em Português</div>
+    <h1 class="hero-title">Eletricista Predial<br><span class="hero-accent">com Energia Desligada</span></h1>
+    <p class="hero-subtitle">Aprenda os procedimentos corretos de segurança, ferramentas, instalações residenciais e boas práticas — do zero ao certificado, no seu ritmo.</p>
+    <div class="hero-stats">
+      <div class="stat">📚 <strong>7 módulos</strong> completos</div>
+      <div class="stat">📝 <strong>30+ lições</strong> práticas</div>
+      <div class="stat">📋 <strong>7 quizzes</strong> de fixação</div>
+      <div class="stat">🏆 <strong>Certificado</strong> ao concluir</div>
+    </div>
+    <div class="hero-cta">
+      <a href="#" class="btn btn-primary btn-lg" id="ctaBtn">⚡ Começar Agora</a>
+      <a href="#modulos" class="btn btn-secondary btn-lg">Ver Módulos</a>
     </div>
   </div>
-
-  <script>
-    // Slides estruturados (HTML pronto para injeção). Imagens livres (Unsplash) — podem ser trocadas por fotos da obra.
-    const slides = [
-      {
-        title: 'Introdução e Objetivos',
-        icon: '📘',
-        content: `
-          <h1 class="slide-title">Instalações Prediais de Baixa Tensão</h1>
-          <p class="text-lead">Aula teórica otimizada para TV — foco em clareza, contraste e leitura à distância.</p>
-          <div class="content-grid">
-            <div class="content-card">
-              <h3>Objetivo Principal</h3>
-              <p class="text-body">Construir uma base prática de <strong>segurança</strong> e <strong>procedimento</strong> para quem está começando na elétrica predial.</p>
-              <ul class="key-points">
-                <li>Vocabulário simples e direto</li>
-                <li>Exemplos de obra e padrões de qualidade</li>
-                <li>Conexão com as práticas de bancada</li>
-              </ul>
-            </div>
-            <div class="img-card"><img alt="Eletricista em bancada" src="https://images.unsplash.com/photo-1607863680170-54366b6cb3a8?q=80&w=1920&auto=format&fit=crop"/></div>
-          </div>
-          <h2 class="slide-subtitle">Programa</h2>
-          <ul class="key-points">
-            <li>Regras e segurança • NBR 5410 (noções) • Ferramentas e medição</li>
-            <li>Materiais e organização • Proteções e QDC • Qualidade</li>
-            <li>Mini‑quiz • Checklists • Chamada para prática</li>
-          </ul>
-        `
-      },
-      {
-        title: 'Regras e Segurança',
-        icon: '🦺',
-        content: `
-          <h1 class="slide-title">Regras do jogo: papel do ajudante + segurança</h1>
-          <div class="content-grid">
-            <div class="content-card">
-              <h3>Papel do ajudante</h3>
-              <ul class="key-points">
-                <li>Apoiar: materiais, passagem de cabos, fixações, organização</li>
-                <li><strong>Limites:</strong> sem conexões energizadas/manobras sem autorização</li>
-                <li>Comunicar e sinalizar riscos imediatamente</li>
-              </ul>
-              <h3 style="margin-top:1vh">Segurança (não negociável)</h3>
-              <ul class="key-points">
-                <li><span class="text-danger">Bloqueio + Sinalização</span> antes de qualquer intervenção</li>
-                <li>EPI: luvas, óculos, botas • Ferramentas íntegras</li>
-                <li>Teste de ausência de tensão quando aplicável</li>
-              </ul>
-            </div>
-            <div class="img-card"><img alt="Sinalização e EPI" src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=1920&auto=format&fit=crop"/></div>
-          </div>
-          <div class="content-grid">
-            <div class="content-card">
-              <h3>Checklist 10s</h3>
-              <ul class="key-points">
-                <li>Ambiente seco e iluminado</li>
-                <li>Escadas estáveis • Extensões sem emenda precária</li>
-                <li>Área sinalizada (fitas/cones)</li>
-              </ul>
-            </div>
-            <div class="content-card">
-              <h3>Fala padrão</h3>
-              <p class="text-body">“Vou <strong>sinalizar</strong> e chamar o eletricista para <strong>liberar</strong> o ponto.”</p>
-            </div>
-          </div>
-        `
-      },
-      {
-        title: 'NBR 5410 — Noções',
-        icon: '📑',
-        content: `
-          <h1 class="slide-title">NBR 5410 — noções essenciais</h1>
-          <div class="content-grid">
-            <div class="content-card">
-              <h3>Conceitos‑chave</h3>
-              <ul class="key-points">
-                <li>Separação de circuitos: iluminação × TUG × TUE</li>
-                <li>Condutor de proteção (PE) contínuo</li>
-                <li>DR → pessoas • DPS → equipamentos • Disjuntor → condutores</li>
-                <li>Seções típicas: 1,5 (ilum.), 2,5 (TUG), 4–6–10 mm² (alimentações/TUE)</li>
-              </ul>
-            </div>
-            <div class="img-card"><img alt="Quadro e condutores" src="https://images.unsplash.com/photo-1607706009773-c5c42b3fa9a5?q=80&w=1920&auto=format&fit=crop"/></div>
-          </div>
-          <h2 class="slide-subtitle">Lembretes práticos</h2>
-          <ul class="key-points">
-            <li>Fase é interrompida no interruptor; neutro segue à carga</li>
-            <li>Raio de curvatura e taxa de ocupação respeitados</li>
-            <li>Etiquetagem legível da caixa ao quadro</li>
-          </ul>
-        `
-      },
-      {
-        title: 'Ferramentas e Medição',
-        icon: '🧰',
-        content: `
-          <h1 class="slide-title">Ferramentas e Medição</h1>
-          <div class="content-grid">
-            <div class="content-card">
-              <h3>Essenciais</h3>
-              <ul class="key-points">
-                <li>Decapador, crimpador, alicates (universal, corte, bico)</li>
-                <li>Parafusadeira com controle de torque</li>
-                <li>Chave de teste e multímetro (tensão/continuidade)</li>
-              </ul>
-              <h3 style="margin-top:1vh">Erros a evitar</h3>
-              <ul class="key-points">
-                <li>Decapar demais/de menos (cobre exposto ou crimpagem ruim)</li>
-                <li>Terminal inadequado ou pouca pressão</li>
-                <li>Escala errada no multímetro</li>
-              </ul>
-            </div>
-            <div class="img-card"><img alt="Ferramentas" src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1920&auto=format&fit=crop"/></div>
-          </div>
-          <div class="content-grid">
-            <div class="content-card">
-              <h3>Boas práticas</h3>
-              <ul class="key-points">
-                <li>Testar DR (botão “T”) • Registrar leituras básicas</li>
-                <li>Bandejas por função: cortar, decapar, crimpar, medir</li>
-                <li>Inventário e limpeza ao final do turno</li>
-              </ul>
-            </div>
-            <div class="content-card">
-              <h3>Demonstração em bancada</h3>
-              <p class="text-body">Na prática: decapagem correta, crimpagem sem “pescoço”, tração mínima e recomposição do isolamento.</p>
-            </div>
-          </div>
-        `
-      },
-      {
-        title: 'Materiais e Organização',
-        icon: '🧱',
-        content: `
-          <h1 class="slide-title">Materiais e Organização</h1>
-          <div class="content-grid">
-            <div class="content-card">
-              <h3>Condutores e Eletrodutos</h3>
-              <ul class="key-points">
-                <li>Bitolas usuais: 1,5 / 2,5 / 4 / 6 / 10 mm² — cores e função</li>
-                <li>Eletroduto flexível e PVC rígido: curvas suaves e ocupação</li>
-                <li>Perfilado/eletrocalha: fixações e aterramento quando metálico</li>
-              </ul>
-            </div>
-            <div class="img-card"><img alt="Organização de cabos" src="https://images.unsplash.com/photo-1599556476310-ef48e7d9e0a0?q=80&w=1920&auto=format&fit=crop"/></div>
-          </div>
-          <div class="content-grid">
-            <div class="content-card">
-              <h3>Organização da frente de serviço</h3>
-              <ul class="key-points">
-                <li>Etiquetas nas extremidades e no quadro</li>
-                <li>Rotas limpas, sem esmagamentos, sem cruzar hidráulica indevida</li>
-                <li>Conferência de materiais antes de subir</li>
-              </ul>
-            </div>
-            <div class="content-card">
-              <h3>Qualidade visual</h3>
-              <p class="text-body">Caixas limpas, margem de sobras mínima, tampa fecha sem esforço — acabamento comunica profissionalismo.</p>
-            </div>
-          </div>
-        `
-      },
-      {
-        title: 'Proteções e QDC',
-        icon: '🛡️',
-        content: `
-          <h1 class="slide-title">Proteções e QDC (Quadro de Distribuição)</h1>
-          <div class="content-grid">
-            <div class="content-card">
-              <h3>Papel de cada dispositivo</h3>
-              <ul class="key-points">
-                <li><strong>Disjuntor:</strong> protege condutor contra sobrecorrente/curto</li>
-                <li><strong>DR:</strong> protege pessoas; testar regularmente</li>
-                <li><strong>DPS:</strong> protege contra surtos; condutores curtos ao PE e barramento</li>
-              </ul>
-            </div>
-            <div class="img-card"><img alt="Quadro elétrico" src="https://images.unsplash.com/photo-1621905251345-3ffaf43b5c02?q=80&w=1920&auto=format&fit=crop"/></div>
-          </div>
-          <div class="content-grid">
-            <div class="content-card">
-              <h3>Acabamento e inspeção</h3>
-              <ul class="key-points">
-                <li>Torque conforme fabricante (registrar)</li>
-                <li>Etiqueta dos circuitos no espelho</li>
-                <li>Limpeza e reserva organizada</li>
-              </ul>
-            </div>
-            <div class="content-card">
-              <h3>Dica de segurança</h3>
-              <p class="text-body">Nunca atuar em partes energizadas — ajudante não realiza manobras sem autorização expressa.</p>
-            </div>
-          </div>
-        `
-      },
-      {
-        title: 'Qualidade e Boas Práticas',
-        icon: '✅',
-        content: `
-          <h1 class="slide-title">Qualidade visível: boas práticas</h1>
-          <div class="content-grid">
-            <div class="content-card">
-              <h3>Padronização</h3>
-              <ul class="key-points">
-                <li>Rotas retas, curvas suaves, sem zigue‑zague</li>
-                <li>Separação de circuitos (iluminação, TUG, TUE)</li>
-                <li>Etiquetas consistentes (fonte legível / posição padrão)</li>
-              </ul>
-            </div>
-            <div class="content-card">
-              <h3>Acabamento</h3>
-              <ul class="key-points">
-                <li>Caixas: emendas seguras, tampa fecha sem esmagar condutor</li>
-                <li>Cabos sem feridas, isolamento preservado</li>
-                <li>Limpeza final da frente de serviço</li>
-              </ul>
-            </div>
-          </div>
-        `
-      },
-      {
-        title: 'Verificação de Conhecimento',
-        icon: '📝',
-        content: `
-          <h1 class="slide-title">Mini‑quiz (rápido)</h1>
-          <div class="content-grid">
-            <div class="content-card">
-              <h3>Perguntas</h3>
-              <ol class="key-points" style="list-style:decimal inside">
-                <li>Qual dispositivo protege pessoas contra corrente de fuga? (Dica: botão "T")</li>
-                <li>Em qual condutor o interruptor deve atuar?</li>
-                <li>Cite uma boa prática na passagem de cabos em eletroduto.</li>
-                <li>Antes de iniciar um serviço, cite um item obrigatório.</li>
-              </ol>
-            </div>
-            <div class="content-card">
-              <h3>Gabarito</h3>
-              <ul class="key-points">
-                <li><strong>DR</strong></li>
-                <li><strong>Fase</strong></li>
-                <li>Respeitar raio de curvatura e taxa de ocupação</li>
-                <li>Bloqueio/sinalização e EPI adequado</li>
-              </ul>
-            </div>
-          </div>
-        `
-      },
-      {
-        title: 'Checklists Práticos',
-        icon: '🧾',
-        content: `
-          <h1 class="slide-title">Checklists de bolso</h1>
-          <div class="content-grid">
-            <div class="content-card">
-              <h3>Antes de energizar</h3>
-              <ul class="key-points">
-                <li>Fixações conferidas; condutores sem feridas</li>
-                <li>DR testado (botão T) quando aplicável</li>
-                <li>Torque registrado no QDC</li>
-                <li>Etiquetas legíveis nas pontas</li>
-              </ul>
-            </div>
-            <div class="content-card">
-              <h3>Passagem de cabos</h3>
-              <ul class="key-points">
-                <li>Curvas suaves; guia e lubrificante quando preciso</li>
-                <li>Sem esmagar; sem cruzar com hidráulica indevida</li>
-                <li>Sobra mínima e organizada</li>
-              </ul>
-            </div>
-          </div>
-        `
-      },
-      {
-        title: 'Encerramento',
-        icon: '🏁',
-        content: `
-          <h1 class="slide-title">Teoria concluída → Vamos para a bancada</h1>
-          <p class="text-lead">Próximo passo: montar circuito simples + paralelo, TUG com DR e DPS no mini‑QDC.</p>
-          <ul class="key-points">
-            <li>Critérios de aceitação: funcionamento, continuidade/isolação e acabamento</li>
-            <li>Dúvidas anotadas vão para a estação de prática</li>
-            <li>Qualidade = Segurança + Padrão</li>
-          </ul>
-        `
-      }
-    ];
-
-    // Gera navegação a partir do array de slides
-    const navList = document.getElementById('navList');
-    slides.forEach((s, i) => {
-      const li = document.createElement('li');
-      li.className = 'nav-item' + (i === 0 ? ' active' : '');
-      li.setAttribute('role', 'button');
-      li.setAttribute('tabindex', '0');
-      li.innerHTML = `<span class="dot" aria-hidden="true"></span> ${s.title}`;
-      li.addEventListener('click', () => navigateTo(i));
-      li.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') navigateTo(i); });
-      navList.appendChild(li);
-    });
-
-    const slideContent = document.getElementById('slideContent');
-    const slideIndicator = document.getElementById('slideIndicator');
-    const progressFill = document.getElementById('progressFill');
-    const pageHint = document.getElementById('pageHint');
-
-    let currentSlide = 0;
-
-    function updateSlide(){
-      slideContent.innerHTML = slides[currentSlide].content;
-      slideIndicator.textContent = `${currentSlide+1}/${slides.length}`;
-      progressFill.style.width = `${((currentSlide+1)/slides.length)*100}%`;
-      pageHint.textContent = `Página ${currentSlide+1} de ${slides.length}`;
-      document.title = `${slides[currentSlide].title} — Curso Básico (TV)`;
-      // Atualiza estado do menu
-      Array.from(navList.children).forEach((el, idx)=> el.classList.toggle('active', idx === currentSlide));
-      // Foco acessível para leitura em TV/PC
-      slideContent.focus({preventScroll:true});
+</section>
+<section class="safety-banner">
+  <div class="container">
+    <div class="safety-banner__inner panel">
+      <span class="safety-banner__icon">🛡️</span>
+      <div>
+        <h3>Ênfase em Trabalho com Energia Desligada</h3>
+        <p>Este curso foi desenvolvido com foco nos procedimentos corretos de desenergização (LOTO), NR-10 e nas 5 regras de ouro da segurança elétrica. <strong>Segurança não é opcional.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="modulos">
+  <div class="container">
+    <h2 class="section-title">Conteúdo do Curso</h2>
+    <p class="section-subtitle">7 módulos progressivos, do básico ao profissional</p>
+    <div class="modules-grid" id="modulesGrid"></div>
+    <div class="modules-cta"><a href="#" class="btn btn-primary btn-lg" id="modulesCta">⚡ Começar o Módulo 1</a></div>
+  </div>
+</section>
+<section class="section-alt" id="sobre">
+  <div class="container">
+    <h2 class="section-title">Por que este curso?</h2>
+    <p class="section-subtitle">Desenvolvido para o eletricista que quer aprender do jeito certo</p>
+    <div class="features-grid">
+      <div class="feature panel"><span class="feature__icon">🛡️</span><h3>Foco em Segurança</h3><p>NR-10, LOTO e as 5 Regras de Ouro em cada etapa do aprendizado.</p></div>
+      <div class="feature panel"><span class="feature__icon">📱</span><h3>Mobile First</h3><p>Projetado para celular. Estude na obra, no ônibus, em casa.</p></div>
+      <div class="feature panel"><span class="feature__icon">💾</span><h3>Progresso Salvo</h3><p>Retome de onde parou a qualquer momento, no mesmo aparelho.</p></div>
+      <div class="feature panel"><span class="feature__icon">🏆</span><h3>Certificado</h3><p>Gere e imprima seu certificado ao concluir todos os módulos com aprovação.</p></div>
+      <div class="feature panel"><span class="feature__icon">📋</span><h3>NBR 5410</h3><p>Conteúdo baseado na norma brasileira vigente para instalações residenciais.</p></div>
+      <div class="feature panel"><span class="feature__icon">🆓</span><h3>100% Gratuito</h3><p>Sem mensalidade, sem cadastro em plataformas externas, sem custo.</p></div>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__brand">⚡ Eletricista Predial</div>
+    <p class="footer__copy">Curso gratuito para eletricistas que querem aprender certo e trabalhar com segurança.</p>
+  </div>
+</footer>
+<div class="modal-overlay hidden" id="registerModal" role="dialog" aria-modal="true" aria-label="Identificação">
+  <div class="modal panel">
+    <h2 class="modal-title">⚡ Identificação</h2>
+    <p class="modal-subtitle">Informe seus dados para iniciar o curso. O progresso ficará salvo neste dispositivo.</p>
+    <div class="form-group">
+      <label class="form-label" for="inputNome">Nome completo</label>
+      <input class="form-input" type="text" id="inputNome" placeholder="Seu nome completo" autocomplete="name">
+      <span class="form-error" id="errNome">Por favor, informe seu nome completo.</span>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="inputCPF">CPF</label>
+      <input class="form-input" type="text" id="inputCPF" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" autocomplete="off">
+      <span class="form-error" id="errCPF">CPF inválido. Verifique e tente novamente.</span>
+      <span class="form-hint">Seu CPF é usado apenas para identificação local — não é enviado a servidores.</span>
+    </div>
+    <button class="btn btn-primary btn-full btn-lg" id="registerBtn" style="margin-top:.5rem;">Iniciar Curso →</button>
+  </div>
+</div>
+<script src="app.js"></script>
+<script src="conteudo.js"></script>
+<script>
+(function() {
+  'use strict';
+  document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('navMobile').classList.toggle('open');
+  });
+  function buildModules() {
+    const p = CourseApp.getProgress();
+    const grid = document.getElementById('modulesGrid');
+    grid.innerHTML = COURSE_DATA.modules.map(mod => {
+      const pct = p.modulePercent(mod.id);
+      const badge = p.isQuizPassed(mod.id)
+        ? '<span class="badge badge-done">✓ Concluído</span>'
+        : pct > 0 ? '<span class="badge badge-current">Em andamento</span>'
+        : '<span class="badge badge-locked">Não iniciado</span>';
+      return `<div class="module-card panel" onclick="handleCta('m${mod.id}')">
+        <div class="module-card__header">
+          <span class="module-card__icon">${mod.icon}</span>
+          <div class="module-card__meta">${badge}<span class="module-card__lessons">${mod.lessons.length} lições + quiz</span></div>
+        </div>
+        <h3 class="module-card__title">Módulo ${mod.id} — ${mod.title}</h3>
+        <p class="module-card__desc">${mod.description}</p>
+        <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+      </div>`;
+    }).join('');
+  }
+  function handleCta(hash) {
+    if (CourseApp.hasUser()) { location.href = 'curso.html#' + hash; }
+    else { openModal(hash); }
+  }
+  window.handleCta = handleCta;
+  function updateCtas() {
+    const p = CourseApp.getProgress();
+    const label = p.totalDone > 0 ? '▶ Continuar de Onde Parei' : '⚡ Começar Agora';
+    document.getElementById('ctaBtn').textContent = label;
+    document.getElementById('modulesCta').textContent = p.totalDone > 0 ? '▶ Continuar Curso' : '⚡ Começar o Módulo 1';
+    document.getElementById('ctaBtn').onclick = function(e) { e.preventDefault(); handleCta(p.totalDone > 0 ? getResumeHash(p) : 'm1'); };
+    document.getElementById('modulesCta').onclick = function(e) { e.preventDefault(); handleCta(p.totalDone > 0 ? getResumeHash(p) : 'm1'); };
+    document.getElementById('navCta').onclick = function(e) { if (!CourseApp.hasUser()) { e.preventDefault(); openModal('m1'); } };
+  }
+  function getResumeHash(p) {
+    for (const mod of COURSE_DATA.modules) {
+      for (const l of mod.lessons) { if (!p.isLessonDone(mod.id, l.id)) return `m${mod.id}/l${l.id}`; }
+      if (!p.isQuizPassed(mod.id)) return `m${mod.id}/quiz`;
     }
-
-    function navigateTo(i){ currentSlide = Math.max(0, Math.min(slides.length-1, i)); updateSlide(); }
-
-    // Navegação por teclado
-    document.addEventListener('keydown', (e)=>{
-      if(e.key==='ArrowRight' || e.key==='PageDown') navigateTo(currentSlide+1);
-      if(e.key==='ArrowLeft'  || e.key==='PageUp')   navigateTo(currentSlide-1);
-      if(e.key==='Home') navigateTo(0);
-      if(e.key==='End') navigateTo(slides.length-1);
-    });
-
-    // Inicializa
-    updateSlide();
-  </script>
+    return 'm1';
+  }
+  var pendingHash = 'm1';
+  function openModal(hash) {
+    pendingHash = hash || 'm1';
+    document.getElementById('registerModal').classList.remove('hidden');
+    document.getElementById('inputNome').focus();
+  }
+  document.getElementById('registerModal').addEventListener('click', function(e) { if (e.target === this) this.classList.add('hidden'); });
+  document.getElementById('inputCPF').addEventListener('input', function() { this.value = CourseApp.formatCPF(this.value); });
+  document.getElementById('registerBtn').addEventListener('click', function() {
+    const nome = document.getElementById('inputNome').value.trim();
+    const cpf  = document.getElementById('inputCPF').value.trim();
+    let ok = true;
+    if (nome.length < 3) { document.getElementById('errNome').classList.add('show'); ok = false; }
+    else { document.getElementById('errNome').classList.remove('show'); }
+    if (!CourseApp.validateCPF(cpf)) { document.getElementById('errCPF').classList.add('show'); ok = false; }
+    else { document.getElementById('errCPF').classList.remove('show'); }
+    if (!ok) return;
+    CourseApp.setUser(nome, cpf);
+    location.href = 'curso.html#' + pendingHash;
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !document.getElementById('registerModal').classList.contains('hidden')) {
+      document.getElementById('registerBtn').click();
+    }
+  });
+  buildModules();
+  updateCtas();
+})();
+</script>
 </body>
 </html>
-
