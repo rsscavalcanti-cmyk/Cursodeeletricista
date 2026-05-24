@@ -9,8 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>(function(){ var t=localStorage.getItem('eletricista_theme')||'dark'; document.documentElement.setAttribute('data-theme',t); })();</script>
 </head>
 <body>
+
+<!-- NAVBAR -->
 <nav class="navbar">
   <div class="container">
     <div class="nav-brand">⚡ Eletricista Predial</div>
@@ -19,7 +22,10 @@
       <a href="#sobre">Sobre o Curso</a>
       <a href="curso.html" class="btn btn-primary btn-sm" id="navCta">Acessar Curso</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    <div style="display:flex;align-items:center;gap:0.5rem;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    </div>
   </div>
   <div class="nav-mobile" id="navMobile">
     <a href="#modulos" onclick="document.getElementById('navMobile').classList.remove('open')">Módulos</a>
@@ -27,11 +33,19 @@
     <a href="curso.html" class="btn btn-primary">⚡ Começar Agora</a>
   </div>
 </nav>
+
+<!-- HERO -->
 <section class="hero">
   <div class="container">
     <div class="hero-badge">⚡ Curso Gratuito &middot; Online &middot; Certificado &middot; 100% em Português</div>
-    <h1 class="hero-title">Eletricista Predial<br><span class="hero-accent">com Energia Desligada</span></h1>
-    <p class="hero-subtitle">Aprenda os procedimentos corretos de segurança, ferramentas, instalações residenciais e boas práticas — do zero ao certificado, no seu ritmo.</p>
+    <h1 class="hero-title">
+      Eletricista Predial<br>
+      <span class="hero-accent">com Energia Desligada</span>
+    </h1>
+    <p class="hero-subtitle">
+      Aprenda os procedimentos corretos de segurança, ferramentas, instalações residenciais
+      e boas práticas — do zero ao certificado, no seu ritmo.
+    </p>
     <div class="hero-stats">
       <div class="stat">📚 <strong>7 módulos</strong> completos</div>
       <div class="stat">📝 <strong>30+ lições</strong> práticas</div>
@@ -44,45 +58,82 @@
     </div>
   </div>
 </section>
+
+<!-- SAFETY BANNER -->
 <section class="safety-banner">
   <div class="container">
     <div class="safety-banner__inner panel">
       <span class="safety-banner__icon">🛡️</span>
       <div>
         <h3>Ênfase em Trabalho com Energia Desligada</h3>
-        <p>Este curso foi desenvolvido com foco nos procedimentos corretos de desenergização (LOTO), NR-10 e nas 5 regras de ouro da segurança elétrica. <strong>Segurança não é opcional.</strong></p>
+        <p>Este curso foi desenvolvido com foco nos procedimentos corretos de desenergização (LOTO),
+           NR-10 e nas 5 regras de ouro da segurança elétrica. <strong>Segurança não é opcional.</strong></p>
       </div>
     </div>
   </div>
 </section>
+
+<!-- MODULES -->
 <section class="section" id="modulos">
   <div class="container">
     <h2 class="section-title">Conteúdo do Curso</h2>
     <p class="section-subtitle">7 módulos progressivos, do básico ao profissional</p>
     <div class="modules-grid" id="modulesGrid"></div>
-    <div class="modules-cta"><a href="#" class="btn btn-primary btn-lg" id="modulesCta">⚡ Começar o Módulo 1</a></div>
+    <div class="modules-cta">
+      <a href="#" class="btn btn-primary btn-lg" id="modulesCta">⚡ Começar o Módulo 1</a>
+    </div>
   </div>
 </section>
+
+<!-- FEATURES -->
 <section class="section-alt" id="sobre">
   <div class="container">
     <h2 class="section-title">Por que este curso?</h2>
     <p class="section-subtitle">Desenvolvido para o eletricista que quer aprender do jeito certo</p>
     <div class="features-grid">
-      <div class="feature panel"><span class="feature__icon">🛡️</span><h3>Foco em Segurança</h3><p>NR-10, LOTO e as 5 Regras de Ouro em cada etapa do aprendizado.</p></div>
-      <div class="feature panel"><span class="feature__icon">📱</span><h3>Mobile First</h3><p>Projetado para celular. Estude na obra, no ônibus, em casa.</p></div>
-      <div class="feature panel"><span class="feature__icon">💾</span><h3>Progresso Salvo</h3><p>Retome de onde parou a qualquer momento, no mesmo aparelho.</p></div>
-      <div class="feature panel"><span class="feature__icon">🏆</span><h3>Certificado</h3><p>Gere e imprima seu certificado ao concluir todos os módulos com aprovação.</p></div>
-      <div class="feature panel"><span class="feature__icon">📋</span><h3>NBR 5410</h3><p>Conteúdo baseado na norma brasileira vigente para instalações residenciais.</p></div>
-      <div class="feature panel"><span class="feature__icon">🆓</span><h3>100% Gratuito</h3><p>Sem mensalidade, sem cadastro em plataformas externas, sem custo.</p></div>
+      <div class="feature panel">
+        <span class="feature__icon">🛡️</span>
+        <h3>Foco em Segurança</h3>
+        <p>NR-10, LOTO e as 5 Regras de Ouro em cada etapa do aprendizado.</p>
+      </div>
+      <div class="feature panel">
+        <span class="feature__icon">📱</span>
+        <h3>Mobile First</h3>
+        <p>Projetado para celular. Estude na obra, no ônibus, em casa.</p>
+      </div>
+      <div class="feature panel">
+        <span class="feature__icon">💾</span>
+        <h3>Progresso Salvo</h3>
+        <p>Retome de onde parou a qualquer momento, no mesmo aparelho.</p>
+      </div>
+      <div class="feature panel">
+        <span class="feature__icon">🏆</span>
+        <h3>Certificado</h3>
+        <p>Gere e imprima seu certificado ao concluir todos os módulos com aprovação.</p>
+      </div>
+      <div class="feature panel">
+        <span class="feature__icon">📋</span>
+        <h3>NBR 5410</h3>
+        <p>Conteúdo baseado na norma brasileira vigente para instalações residenciais.</p>
+      </div>
+      <div class="feature panel">
+        <span class="feature__icon">🄓</span>
+        <h3>100% Gratuito</h3>
+        <p>Sem mensalidade, sem cadastro em plataformas externas, sem custo.</p>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer__brand">⚡ Eletricista Predial</div>
     <p class="footer__copy">Curso gratuito para eletricistas que querem aprender certo e trabalhar com segurança.</p>
   </div>
 </footer>
+
+<!-- REGISTER MODAL -->
 <div class="modal-overlay hidden" id="registerModal" role="dialog" aria-modal="true" aria-label="Identificação">
   <div class="modal panel">
     <h2 class="modal-title">⚡ Identificação</h2>
@@ -101,14 +152,29 @@
     <button class="btn btn-primary btn-full btn-lg" id="registerBtn" style="margin-top:.5rem;">Iniciar Curso →</button>
   </div>
 </div>
+
 <script src="app.js"></script>
 <script src="conteudo.js"></script>
 <script>
 (function() {
   'use strict';
+
+  // theme
+  CourseApp.initTheme();
+  var themeBtn = document.getElementById('themeToggle');
+  function updateThemeBtn() { themeBtn.textContent = CourseApp.getTheme() === 'dark' ? '🌙' : '☀️'; }
+  updateThemeBtn();
+  themeBtn.addEventListener('click', function() {
+    CourseApp.setTheme(CourseApp.getTheme() === 'dark' ? 'light' : 'dark');
+    updateThemeBtn();
+  });
+
+  // hamburger
   document.getElementById('hamburger').addEventListener('click', function() {
     document.getElementById('navMobile').classList.toggle('open');
   });
+
+  // Build module cards
   function buildModules() {
     const p = CourseApp.getProgress();
     const grid = document.getElementById('modulesGrid');
@@ -116,8 +182,9 @@
       const pct = p.modulePercent(mod.id);
       const badge = p.isQuizPassed(mod.id)
         ? '<span class="badge badge-done">✓ Concluído</span>'
-        : pct > 0 ? '<span class="badge badge-current">Em andamento</span>'
-        : '<span class="badge badge-locked">Não iniciado</span>';
+        : pct > 0
+          ? '<span class="badge badge-current">Em andamento</span>'
+          : '<span class="badge badge-locked">Não iniciado</span>';
       return `<div class="module-card panel" onclick="handleCta('m${mod.id}')">
         <div class="module-card__header">
           <span class="module-card__icon">${mod.icon}</span>
@@ -129,52 +196,94 @@
       </div>`;
     }).join('');
   }
+
+  // CTA logic
   function handleCta(hash) {
-    if (CourseApp.hasUser()) { location.href = 'curso.html#' + hash; }
-    else { openModal(hash); }
+    if (CourseApp.hasUser()) {
+      location.href = 'curso.html#' + hash;
+    } else {
+      openModal(hash);
+    }
   }
   window.handleCta = handleCta;
+
   function updateCtas() {
     const p = CourseApp.getProgress();
     const label = p.totalDone > 0 ? '▶ Continuar de Onde Parei' : '⚡ Começar Agora';
     document.getElementById('ctaBtn').textContent = label;
     document.getElementById('modulesCta').textContent = p.totalDone > 0 ? '▶ Continuar Curso' : '⚡ Começar o Módulo 1';
-    document.getElementById('ctaBtn').onclick = function(e) { e.preventDefault(); handleCta(p.totalDone > 0 ? getResumeHash(p) : 'm1'); };
-    document.getElementById('modulesCta').onclick = function(e) { e.preventDefault(); handleCta(p.totalDone > 0 ? getResumeHash(p) : 'm1'); };
-    document.getElementById('navCta').onclick = function(e) { if (!CourseApp.hasUser()) { e.preventDefault(); openModal('m1'); } };
+
+    document.getElementById('ctaBtn').onclick = function(e) {
+      e.preventDefault();
+      handleCta(p.totalDone > 0 ? getResumeHash(p) : 'm1');
+    };
+    document.getElementById('modulesCta').onclick = function(e) {
+      e.preventDefault();
+      handleCta(p.totalDone > 0 ? getResumeHash(p) : 'm1');
+    };
+    document.getElementById('navCta').onclick = function(e) {
+      if (!CourseApp.hasUser()) { e.preventDefault(); openModal('m1'); }
+    };
   }
+
   function getResumeHash(p) {
     for (const mod of COURSE_DATA.modules) {
-      for (const l of mod.lessons) { if (!p.isLessonDone(mod.id, l.id)) return `m${mod.id}/l${l.id}`; }
+      for (const l of mod.lessons) {
+        if (!p.isLessonDone(mod.id, l.id)) return `m${mod.id}/l${l.id}`;
+      }
       if (!p.isQuizPassed(mod.id)) return `m${mod.id}/quiz`;
     }
     return 'm1';
   }
+
+  // Modal
   var pendingHash = 'm1';
   function openModal(hash) {
     pendingHash = hash || 'm1';
     document.getElementById('registerModal').classList.remove('hidden');
     document.getElementById('inputNome').focus();
   }
-  document.getElementById('registerModal').addEventListener('click', function(e) { if (e.target === this) this.classList.add('hidden'); });
-  document.getElementById('inputCPF').addEventListener('input', function() { this.value = CourseApp.formatCPF(this.value); });
+
+  document.getElementById('registerModal').addEventListener('click', function(e) {
+    if (e.target === this) this.classList.add('hidden');
+  });
+
+  // CPF mask
+  document.getElementById('inputCPF').addEventListener('input', function() {
+    this.value = CourseApp.formatCPF(this.value);
+  });
+
   document.getElementById('registerBtn').addEventListener('click', function() {
     const nome = document.getElementById('inputNome').value.trim();
     const cpf  = document.getElementById('inputCPF').value.trim();
     let ok = true;
-    if (nome.length < 3) { document.getElementById('errNome').classList.add('show'); ok = false; }
-    else { document.getElementById('errNome').classList.remove('show'); }
-    if (!CourseApp.validateCPF(cpf)) { document.getElementById('errCPF').classList.add('show'); ok = false; }
-    else { document.getElementById('errCPF').classList.remove('show'); }
+
+    if (nome.length < 3) {
+      document.getElementById('errNome').classList.add('show');
+      ok = false;
+    } else {
+      document.getElementById('errNome').classList.remove('show');
+    }
+
+    if (!CourseApp.validateCPF(cpf)) {
+      document.getElementById('errCPF').classList.add('show');
+      ok = false;
+    } else {
+      document.getElementById('errCPF').classList.remove('show');
+    }
+
     if (!ok) return;
     CourseApp.setUser(nome, cpf);
     location.href = 'curso.html#' + pendingHash;
   });
+
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Enter' && !document.getElementById('registerModal').classList.contains('hidden')) {
       document.getElementById('registerBtn').click();
     }
   });
+
+  // Init
   buildModules();
   updateCtas();
 })();

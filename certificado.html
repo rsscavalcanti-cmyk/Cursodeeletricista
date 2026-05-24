@@ -8,20 +8,37 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>(function(){ var t=localStorage.getItem('eletricista_theme')||'dark'; document.documentElement.setAttribute('data-theme',t); })();</script>
 </head>
 <body>
 <div class="cert-body-wrapper">
   <div class="cert-actions no-print">
     <a href="curso.html" class="btn btn-secondary">← Voltar ao Curso</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema" style="border-radius:var(--radius-md);">🌙</button>
     <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
   </div>
-  <div id="certContent"></div>
+
+  <div id="certContent">
+    <!-- populated by JS -->
+  </div>
 </div>
+
 <script src="app.js"></script>
 <script src="conteudo.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  CourseApp.initTheme();
+  var themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) {
+    themeBtn.textContent = CourseApp.getTheme() === 'dark' ? '🌙' : '☀️';
+    themeBtn.addEventListener('click', function() {
+      CourseApp.setTheme(CourseApp.getTheme() === 'dark' ? 'light' : 'dark');
+      themeBtn.textContent = CourseApp.getTheme() === 'dark' ? '🌙' : '☀️';
+    });
+  }
+
   const p = CourseApp.getProgress();
+
   if (!p.courseComplete) {
     document.getElementById('certContent').innerHTML = `
       <div class="cert-frame cert-locked">
@@ -32,30 +49,53 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>`;
     return;
   }
+
   const mods = COURSE_DATA ? COURSE_DATA.modules.length : 7;
+  const scores = p.quizScores;
   const avg = p.averageScore;
+
   document.getElementById('certContent').innerHTML = `
     <div class="cert-frame">
       <div class="cert-corner cert-corner--tl"></div>
       <div class="cert-corner cert-corner--tr"></div>
       <div class="cert-corner cert-corner--bl"></div>
       <div class="cert-corner cert-corner--br"></div>
+
       <span class="cert-logo">⚡</span>
       <p class="cert-label">Certificado de Conclusão</p>
-      <h1 class="cert-course-title">Eletricista Predial<br>com Ênfase em Energia Desligada</h1>
+      <h1 class="cert-course-title">
+        Eletricista Predial<br>com Ênfase em Energia Desligada
+      </h1>
       <p class="cert-certifies">Certificamos que</p>
       <h2 class="cert-student-name">${escapeHTML(p.studentName)}</h2>
-      <p class="cert-body-text">concluiu com aproveitamento o curso completo de <strong>Eletricista Predial com Ênfase em Trabalho com Energia Desligada</strong>, composto por ${mods} módulos com lições teóricas e práticas, abrangendo NR-10, EPIs, procedimento LOTO, as 5 Regras de Ouro, NBR 5410, ferramentas isoladas, instalações residenciais, identificação de circuitos e boas práticas profissionais.</p>
+      <p class="cert-body-text">
+        concluiu com aproveitamento o curso completo de
+        <strong>Eletricista Predial com Ênfase em Trabalho com Energia Desligada</strong>,
+        composto por ${mods} módulos com lições teóricas e práticas,
+        abrangendo NR-10, EPIs, procedimento LOTO, as 5 Regras de Ouro,
+        NBR 5410, ferramentas isoladas, instalações residenciais,
+        identificação de circuitos e boas práticas profissionais.
+      </p>
       <div class="cert-stats">
-        <div class="cert-stat"><strong>${escapeHTML(p.completionDate || '—')}</strong><span>Data de conclusão</span></div>
-        <div class="cert-stat"><strong>${avg}%</strong><span>Aproveitamento médio</span></div>
-        <div class="cert-stat"><strong>${mods} módulos</strong><span>Concluídos</span></div>
+        <div class="cert-stat">
+          <strong>${escapeHTML(p.completionDate || '—')}</strong>
+          <span>Data de conclusão</span>
+        </div>
+        <div class="cert-stat">
+          <strong>${avg}%</strong>
+          <span>Aproveitamento médio</span>
+        </div>
+        <div class="cert-stat">
+          <strong>${mods} módulos</strong>
+          <span>Concluídos</span>
+        </div>
       </div>
       <div class="cert-divider"></div>
       <p class="cert-sig-label">Curso Eletricista Predial — cursodeeletricista.com.br</p>
       <p class="cert-id">Certificado nº ${escapeHTML(p.certificateId || '—')} &nbsp;·&nbsp; CPF: ${escapeHTML(p.cpf || '—')}</p>
     </div>`;
 });
+
 function escapeHTML(s) {
   if (!s) return '';
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
