@@ -1,183 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Curso Eletricista Predial — Energia Desligada</title>
-<meta name="description" content="Curso completo e gratuito de Eletricista Predial com ênfase em trabalho com energia desligada. 7 módulos, quizzes e certificado.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curso Livre — Eletricista Predial com Energia Desligada</title>
+<meta name="description" content="Curso livre introdutório de instalações elétricas residenciais com atividades somente desenergizadas, imagens, recursos complementares e certificado.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="enhancements.css">
 </head>
 <body>
-<nav class="navbar">
-  <div class="container">
-    <div class="nav-brand">⚡ Eletricista Predial</div>
-    <div class="nav-links">
-      <a href="#modulos">Módulos</a>
-      <a href="#sobre">Sobre o Curso</a>
-      <a href="curso.html" class="btn btn-primary btn-sm" id="navCta">Acessar Curso</a>
-    </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
-  </div>
-  <div class="nav-mobile" id="navMobile">
-    <a href="#modulos" onclick="document.getElementById('navMobile').classList.remove('open')">Módulos</a>
-    <a href="#sobre" onclick="document.getElementById('navMobile').classList.remove('open')">Sobre o Curso</a>
-    <a href="curso.html" class="btn btn-primary">⚡ Começar Agora</a>
-  </div>
-</nav>
-<section class="hero">
-  <div class="container">
-    <div class="hero-badge">⚡ Curso Gratuito &middot; Online &middot; Certificado &middot; 100% em Português</div>
-    <h1 class="hero-title">Eletricista Predial<br><span class="hero-accent">com Energia Desligada</span></h1>
-    <p class="hero-subtitle">Aprenda os procedimentos corretos de segurança, ferramentas, instalações residenciais e boas práticas — do zero ao certificado, no seu ritmo.</p>
-    <div class="hero-stats">
-      <div class="stat">📚 <strong>7 módulos</strong> completos</div>
-      <div class="stat">📝 <strong>30+ lições</strong> práticas</div>
-      <div class="stat">📋 <strong>7 quizzes</strong> de fixação</div>
-      <div class="stat">🏆 <strong>Certificado</strong> ao concluir</div>
-    </div>
-    <div class="hero-cta">
-      <a href="#" class="btn btn-primary btn-lg" id="ctaBtn">⚡ Começar Agora</a>
-      <a href="#modulos" class="btn btn-secondary btn-lg">Ver Módulos</a>
-    </div>
-  </div>
-</section>
-<section class="safety-banner">
-  <div class="container">
-    <div class="safety-banner__inner panel">
-      <span class="safety-banner__icon">🛡️</span>
-      <div>
-        <h3>Ênfase em Trabalho com Energia Desligada</h3>
-        <p>Este curso foi desenvolvido com foco nos procedimentos corretos de desenergização (LOTO), NR-10 e nas 5 regras de ouro da segurança elétrica. <strong>Segurança não é opcional.</strong></p>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="section" id="modulos">
-  <div class="container">
-    <h2 class="section-title">Conteúdo do Curso</h2>
-    <p class="section-subtitle">7 módulos progressivos, do básico ao profissional</p>
-    <div class="modules-grid" id="modulesGrid"></div>
-    <div class="modules-cta"><a href="#" class="btn btn-primary btn-lg" id="modulesCta">⚡ Começar o Módulo 1</a></div>
-  </div>
-</section>
-<section class="section-alt" id="sobre">
-  <div class="container">
-    <h2 class="section-title">Por que este curso?</h2>
-    <p class="section-subtitle">Desenvolvido para o eletricista que quer aprender do jeito certo</p>
-    <div class="features-grid">
-      <div class="feature panel"><span class="feature__icon">🛡️</span><h3>Foco em Segurança</h3><p>NR-10, LOTO e as 5 Regras de Ouro em cada etapa do aprendizado.</p></div>
-      <div class="feature panel"><span class="feature__icon">📱</span><h3>Mobile First</h3><p>Projetado para celular. Estude na obra, no ônibus, em casa.</p></div>
-      <div class="feature panel"><span class="feature__icon">💾</span><h3>Progresso Salvo</h3><p>Retome de onde parou a qualquer momento, no mesmo aparelho.</p></div>
-      <div class="feature panel"><span class="feature__icon">🏆</span><h3>Certificado</h3><p>Gere e imprima seu certificado ao concluir todos os módulos com aprovação.</p></div>
-      <div class="feature panel"><span class="feature__icon">📋</span><h3>NBR 5410</h3><p>Conteúdo baseado na norma brasileira vigente para instalações residenciais.</p></div>
-      <div class="feature panel"><span class="feature__icon">🆓</span><h3>100% Gratuito</h3><p>Sem mensalidade, sem cadastro em plataformas externas, sem custo.</p></div>
-    </div>
-  </div>
-</section>
-<footer class="footer">
-  <div class="container">
-    <div class="footer__brand">⚡ Eletricista Predial</div>
-    <p class="footer__copy">Curso gratuito para eletricistas que querem aprender certo e trabalhar com segurança.</p>
-  </div>
-</footer>
-<div class="modal-overlay hidden" id="registerModal" role="dialog" aria-modal="true" aria-label="Identificação">
-  <div class="modal panel">
-    <h2 class="modal-title">⚡ Identificação</h2>
-    <p class="modal-subtitle">Informe seus dados para iniciar o curso. O progresso ficará salvo neste dispositivo.</p>
-    <div class="form-group">
-      <label class="form-label" for="inputNome">Nome completo</label>
-      <input class="form-input" type="text" id="inputNome" placeholder="Seu nome completo" autocomplete="name">
-      <span class="form-error" id="errNome">Por favor, informe seu nome completo.</span>
-    </div>
-    <div class="form-group">
-      <label class="form-label" for="inputCPF">CPF</label>
-      <input class="form-input" type="text" id="inputCPF" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" autocomplete="off">
-      <span class="form-error" id="errCPF">CPF inválido. Verifique e tente novamente.</span>
-      <span class="form-hint">Seu CPF é usado apenas para identificação local — não é enviado a servidores.</span>
-    </div>
-    <button class="btn btn-primary btn-full btn-lg" id="registerBtn" style="margin-top:.5rem;">Iniciar Curso →</button>
-  </div>
-</div>
-<script src="app.js"></script>
-<script src="conteudo.js"></script>
-<script>
-(function() {
-  'use strict';
-  document.getElementById('hamburger').addEventListener('click', function() {
-    document.getElementById('navMobile').classList.toggle('open');
-  });
-  function buildModules() {
-    const p = CourseApp.getProgress();
-    const grid = document.getElementById('modulesGrid');
-    grid.innerHTML = COURSE_DATA.modules.map(mod => {
-      const pct = p.modulePercent(mod.id);
-      const badge = p.isQuizPassed(mod.id)
-        ? '<span class="badge badge-done">✓ Concluído</span>'
-        : pct > 0 ? '<span class="badge badge-current">Em andamento</span>'
-        : '<span class="badge badge-locked">Não iniciado</span>';
-      return `<div class="module-card panel" onclick="handleCta('m${mod.id}')">
-        <div class="module-card__header">
-          <span class="module-card__icon">${mod.icon}</span>
-          <div class="module-card__meta">${badge}<span class="module-card__lessons">${mod.lessons.length} lições + quiz</span></div>
-        </div>
-        <h3 class="module-card__title">Módulo ${mod.id} — ${mod.title}</h3>
-        <p class="module-card__desc">${mod.description}</p>
-        <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
-      </div>`;
-    }).join('');
-  }
-  function handleCta(hash) {
-    if (CourseApp.hasUser()) { location.href = 'curso.html#' + hash; }
-    else { openModal(hash); }
-  }
-  window.handleCta = handleCta;
-  function updateCtas() {
-    const p = CourseApp.getProgress();
-    const label = p.totalDone > 0 ? '▶ Continuar de Onde Parei' : '⚡ Começar Agora';
-    document.getElementById('ctaBtn').textContent = label;
-    document.getElementById('modulesCta').textContent = p.totalDone > 0 ? '▶ Continuar Curso' : '⚡ Começar o Módulo 1';
-    document.getElementById('ctaBtn').onclick = function(e) { e.preventDefault(); handleCta(p.totalDone > 0 ? getResumeHash(p) : 'm1'); };
-    document.getElementById('modulesCta').onclick = function(e) { e.preventDefault(); handleCta(p.totalDone > 0 ? getResumeHash(p) : 'm1'); };
-    document.getElementById('navCta').onclick = function(e) { if (!CourseApp.hasUser()) { e.preventDefault(); openModal('m1'); } };
-  }
-  function getResumeHash(p) {
-    for (const mod of COURSE_DATA.modules) {
-      for (const l of mod.lessons) { if (!p.isLessonDone(mod.id, l.id)) return `m${mod.id}/l${l.id}`; }
-      if (!p.isQuizPassed(mod.id)) return `m${mod.id}/quiz`;
-    }
-    return 'm1';
-  }
-  var pendingHash = 'm1';
-  function openModal(hash) {
-    pendingHash = hash || 'm1';
-    document.getElementById('registerModal').classList.remove('hidden');
-    document.getElementById('inputNome').focus();
-  }
-  document.getElementById('registerModal').addEventListener('click', function(e) { if (e.target === this) this.classList.add('hidden'); });
-  document.getElementById('inputCPF').addEventListener('input', function() { this.value = CourseApp.formatCPF(this.value); });
-  document.getElementById('registerBtn').addEventListener('click', function() {
-    const nome = document.getElementById('inputNome').value.trim();
-    const cpf  = document.getElementById('inputCPF').value.trim();
-    let ok = true;
-    if (nome.length < 3) { document.getElementById('errNome').classList.add('show'); ok = false; }
-    else { document.getElementById('errNome').classList.remove('show'); }
-    if (!CourseApp.validateCPF(cpf)) { document.getElementById('errCPF').classList.add('show'); ok = false; }
-    else { document.getElementById('errCPF').classList.remove('show'); }
-    if (!ok) return;
-    CourseApp.setUser(nome, cpf);
-    location.href = 'curso.html#' + pendingHash;
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' && !document.getElementById('registerModal').classList.contains('hidden')) {
-      document.getElementById('registerBtn').click();
-    }
-  });
-  buildModules();
-  updateCtas();
-})();
-</script>
-</body>
-</html>
+<nav class="navbar"><div class="container"><div class="nav-brand">⚡ Eletricista Predial</div><div class="nav-links"><a href="#modulos">Módulos</a><a href="#materiais">Materiais</a><a href="#trilha">Trilha</a><button class="btn btn-secondary btn-sm theme-toggle" data-theme-toggle>☀️ Tema claro</button><a href="curso.html" class="btn btn-primary btn-sm" id="navCta">Acessar Curso</a></div><button class="hamburger" id="hamburger" aria-label="Abrir menu">☰</button></div><div class="nav-mobile" id="navMobile"><button class="btn btn-secondary theme-toggle" data-theme-toggle>☀️ Tema claro</button><a href="#modulos">Módulos</a><a href="#materiais">Materiais</a><a href="#trilha">Trilha</a><a href="curso.html" class="btn btn-primary" id="mobileCta">Começar Curso</a></div></nav>
+<section class="hero hero-v2"><div class="container hero-layout"><div class="hero-copy"><span class="scope-chip">🛡️ Somente com energia desligada</span><h1 class="hero-title" style="margin-top:1.1rem">Eletricista Predial<br><span class="hero-accent">com Energia Desligada</span></h1><p class="hero-subtitle">Aprenda fundamentos de instalações residenciais com segurança, ferramentas, materiais, documentação e procedimentos de desenergização — sem orientar intervenções em circuitos energizados.</p><div class="hero-stats"><div class="stat">📚 <strong>7 módulos</strong></div><div class="stat">📝 <strong>24 lições + 7 avaliações</strong></div><div class="stat">🎯 <strong>80% mínimo</strong></div><div class="stat">🏆 <strong>Certificado livre</strong></div></div><div class="hero-cta"><a href="#" class="btn btn-primary btn-lg" id="ctaBtn">⚡ Começar Agora</a><a href="#modulos" class="btn btn-secondary btn-lg">Ver Módulos</a></div></div><img class="hero-art" src="assets/hero-seguranca.svg" alt="Quadro desligado, bloqueado e instrumento indicando ausência de tensão"></div></section>
+<section class="safety-banner"><div class="container"><div class="course-boundary"><strong>Limites formativos e de segurança</strong>Este é um <b>curso livre introdutório</b>. Toda prática orientada ocorre após seccionamento, bloqueio, sinalização e verificação de ausência de tensão. O certificado não substitui o treinamento NR-10 de 40 horas, formação profissional, autorização de trabalho ou responsabilidade técnica.</div></div></section>
+<section class="section" id="modulos"><div class="container"><h2 class="section-title">Conteúdo do Curso</h2><p class="section-subtitle">Uma sequência segura, do reconhecimento do risco à documentação final.</p><div class="modules-grid" id="modulesGrid"></div><div class="modules-cta"><a href="#" class="btn btn-primary btn-lg" id="modulesCta">⚡ Começar o Módulo 1</a></div></div></section>
+<section class="section-alt" id="materiais"><div class="container"><h2 class="section-title">Ferramentas e materiais ilustrados</h2><p class="section-subtitle">Referências visuais para o aluno reconhecer itens antes das atividades desenergizadas.</p><div class="gallery-grid"><article class="gallery-card panel"><img src="assets/kit-ferramentas.svg" alt="Chave e alicate isolados e instrumento de medição"><div class="gallery-card__text"><h3>Ferramentas isoladas</h3><p>Inspeção, integridade e finalidade; isolamento nunca substitui desligamento e bloqueio.</p></div></article><article class="gallery-card panel"><img src="assets/loto.svg" alt="Cadeado e etiqueta de bloqueio no quadro"><div class="gallery-card__text"><h3>Bloqueio LOTO</h3><p>Dispositivo de impedimento de reenergização e identificação do responsável.</p></div></article><article class="gallery-card panel"><img src="assets/materiais-eletricos.svg" alt="Cabos, tomada, disjuntor e DR"><div class="gallery-card__text"><h3>Materiais residenciais</h3><p>Condutores, tomada, proteção e aplicação conforme projeto e requisitos técnicos.</p></div></article><article class="gallery-card panel"><img src="assets/multimetro-zero.svg" alt="Instrumento indicando ausência de tensão"><div class="gallery-card__text"><h3>Ausência de tensão</h3><p>Confirmação segura após seccionamento e bloqueio; não é exercício energizado.</p></div></article></div></div></section>
+<section class="section" id="trilha"><div class="container"><h2 class="section-title">Trilha complementar inspirada na formação profissional</h2><p class="section-subtitle">Organização pedagógica compatível com a progressão comum de cursos livres do SENAI, sem vínculo institucional e sem reproduzir conteúdo proprietário.</p><div class="study-track"><article class="track-step panel"><span class="track-step__num">Etapa 01</span><h3>Segurança e fundamentos</h3><p>Riscos, desenergização, bloqueio, ferramentas e leitura inicial dos componentes.</p></article><article class="track-step panel"><span class="track-step__num">Etapa 02</span><h3>Instalações residenciais</h3><p>Materiais, circuitos, proteções, montagem desenergizada, identificação e documentação.</p></article><article class="track-step panel"><span class="track-step__num">Etapa 03</span><h3>Formação posterior</h3><p>NR-10 oficial, qualificação profissional, comandos elétricos e automação predial em oferta reconhecida.</p></article></div><p class="footnote">A incorporação aqui é metodológica: o curso direciona o aluno a buscar capacitação formal complementar. Conteúdos normativos devem ser conferidos na documentação oficial vigente e nos cursos oferecidos pela unidade SENAI escolhida.</p></div></section>
+<section class="section-alt" id="sobre"><div class="container"><h2 class="section-title">Por que este curso?</h2><div class="features-grid"><div class="feature panel"><span class="feature__icon">🛡️</span><h3>Energia desligada</h3><p>Nenhum exercício orienta atuação em circuito energizado.</p></div><div class="feature panel"><span class="feature__icon">🌓</span><h3>Tema claro ou escuro</h3><p>Escolha o modo visual mais confortável para estudar.</p></div><div class="feature panel"><span class="feature__icon">🎬</span><h3>Vídeos complementares</h3><p>Cada módulo inclui pesquisas guiadas para aprofundamento.</p></div><div class="feature panel"><span class="feature__icon">🏆</span><h3>Certificado transparente</h3><p>Certificado de curso livre, com os limites informados.</p></div></div></div></section>
+<footer class="footer"><div class="container"><div class="footer__brand">⚡ Eletricista Predial</div><p class="footer__copy">Curso livre introdutório — atividades orientadas exclusivamente com a instalação desenergizada.</p></div></footer>
+<div class="modal-overlay hidden" id="registerModal" role="dialog" aria-modal="true" aria-label="Identificação"><div class="modal panel"><h2 class="modal-title">⚡ Identificação</h2><p class="modal-subtitle">Informe seus dados para salvar o progresso neste dispositivo.</p><div class="form-group"><label class="form-label" for="inputNome">Nome completo</label><input class="form-input" type="text" id="inputNome" placeholder="Seu nome completo" autocomplete="name"><span class="form-error" id="errNome">Informe seu nome completo.</span></div><div class="form-group"><label class="form-label" for="inputCPF">CPF</label><input class="form-input" type="text" id="inputCPF" placeholder="000.000.000-00" inputmode="numeric" maxlength="14"><span class="form-error" id="errCPF">CPF inválido.</span><span class="form-hint">Usado apenas localmente neste dispositivo.</span></div><button class="btn btn-primary btn-full btn-lg" id="registerBtn">Iniciar Curso →</button></div></div>
+<script src="app-v2.js"></script><script src="conteudo.js"></script><script src="conteudo-revisao.js"></script>
+<script>(function(){'use strict';const $=id=>document.getElementById(id);$('hamburger').onclick=()=>$('navMobile').classList.toggle('open');function resume(p){for(const m of COURSE_DATA.modules){for(const l of m.lessons)if(!p.isLessonDone(m.id,l.id))return `m${m.id}/l${l.id}`;if(!p.isQuizPassed(m.id))return `m${m.id}/quiz`;}return'm1';}function open(hash){pending=hash||'m1';$('registerModal').classList.remove('hidden');$('inputNome').focus();}let pending='m1';function go(hash){if(CourseApp.hasUser())location.href='curso.html#'+hash;else open(hash);}window.handleCta=go;function build(){const p=CourseApp.getProgress();$('modulesGrid').innerHTML=COURSE_DATA.modules.map(m=>{const r=COURSE_ENHANCEMENTS.modules[m.id],pct=p.modulePercent(m.id),badge=p.isQuizPassed(m.id)?'<span class="badge badge-done">✓ Concluído</span>':pct?'<span class="badge badge-current">Em andamento</span>':'<span class="badge badge-locked">Não iniciado</span>';return `<article class="module-card panel" onclick="handleCta('m${m.id}')"><img class="module-card__thumb" src="${r.image}" alt="${r.alt}"><div class="module-card__header"><span class="module-card__icon">${m.icon}</span><div class="module-card__meta">${badge}<span class="module-card__lessons">${m.lessons.length} lições + quiz</span></div></div><h3 class="module-card__title">Módulo ${m.id} — ${m.title}</h3><p class="module-card__desc">${m.description}</p><div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div></article>`;}).join('');const hash=p.totalDone?resume(p):'m1',txt=p.totalDone?'▶ Continuar Curso':'⚡ Começar Agora';$('ctaBtn').textContent=txt;$('modulesCta').textContent=txt;$('ctaBtn').onclick=e=>{e.preventDefault();go(hash)};$('modulesCta').onclick=e=>{e.preventDefault();go(hash)};[$('navCta'),$('mobileCta')].forEach(a=>a.onclick=e=>{if(!CourseApp.hasUser()){e.preventDefault();open('m1')}});} $('registerModal').onclick=e=>{if(e.target===$('registerModal'))$('registerModal').classList.add('hidden')};$('inputCPF').oninput=function(){this.value=CourseApp.formatCPF(this.value)};$('registerBtn').onclick=()=>{const n=$('inputNome').value.trim(),c=$('inputCPF').value.trim();let ok=true;$('errNome').classList.toggle('show',n.length<3);if(n.length<3)ok=false;$('errCPF').classList.toggle('show',!CourseApp.validateCPF(c));if(!CourseApp.validateCPF(c))ok=false;if(ok){CourseApp.setUser(n,c);location.href='curso.html#'+pending;}};build();})();</script>
+</body></html>
