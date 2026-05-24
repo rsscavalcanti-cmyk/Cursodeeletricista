@@ -61,7 +61,7 @@ var _M4 =     {
 <ol class="steps-list">
 <li>Use <strong>alicate decapador</strong> ou estilete para remover o isolamento — nunca dente ou faca</li>
 <li>Remova apenas o necessário: cerca de 1 cm para conexões em borne, 2-3 cm para emendas</li>
-<li>Verifique se não cortou nenhum fio do condutor — cabo torcido perde capacidade</li>
+<li>Verifique se não cortou nenhum fio do condutor — cabo torçado perde capacidade</li>
 <li>Para cabos multifilares: torça os fios entre si antes de conectar</li>
 </ol>
 </div>
@@ -70,12 +70,33 @@ var _M4 =     {
 <div class="key-points-card panel">
 <div class="key-point"><span class="key-point__icon">🔩</span><div><strong>Borne de pressão (parafuso)</strong><p>Insira o cabo desencapado até o fim, aperte o parafuso com chave de fenda. Puxe levemente para testar a fixação. Parafuso frouxo = resistência = calor.</p></div></div>
 <div class="key-point"><span class="key-point__icon">🔌</span><div><strong>Conector Wago (push-in)</strong><p>Empurre o cabo desencapado até travar. Puxe para confirmar. Mais rápido e confiável que parafuso em muitas aplicações.</p></div></div>
-<div class="key-point"><span class="key-point__icon">🔄</span><div><strong>Emenda torcida</strong><p>Torça os fios e use conector de emenda (tipo porca de porcelana ou Wago). Nunca deixe emenda sem isolamento adequado.</p></div></div>
+<div class="key-point"><span class="key-point__icon">🔄</span><div><strong>Emenda torçada</strong><p>Torça os fios e use conector de emenda (tipo porca de porcelana ou Wago). Nunca deixe emenda sem isolamento adequado.</p></div></div>
 </div>
 </div>
 <div class="alert alert-danger"><strong>⚡ PROIBIDO:</strong> Emenda com apenas fita isolante em volta dos fios sem conector. A fita pode soltar com o calor, deixando os fios expostos. Use sempre conector adequado, depois proteja com fita.</div>
 <div class="alert alert-warning"><strong>⚠️ Atenção:</strong> Toda emenda deve ser feita dentro de uma caixa de passagem (octogonal ou retangular), nunca dentro do eletroduto ou enterrada na parede.</div>
-<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Use decapador — nunca dente ou faca para remover isolamento</li><li>Parafuso frouxo causa aquecimento — aperte bem e teste</li><li>Wago é confiável e rápido para emendas</li><li>Nunca deixe emenda sem conector adequado</li><li>Toda emenda: dentro de caixa de passagem</li></ul></div>`
+<div class="lesson-section">
+<h2 class="lesson-section-title">🔬 Resistência de Emenda — Testando a Qualidade</h2>
+<p>Uma emenda bem feita tem resistência elétrica muito baixa. Uma emenda ruim aquece com o tempo e pode causar incêndio. Meça com multímetro em modo resistência (Ω) após a emenda, com o circuito sem tensão:</p>
+<table><thead><tr><th>Leitura (Ω)</th><th>Avaliação</th></tr></thead><tbody>
+<tr><td>&lt; 0,1 Ω</td><td>✅ Excelente — emenda de qualidade profissional</td></tr>
+<tr><td>0,1 a 1 Ω</td><td>⚠️ Aceitável — revisar aperto do conector</td></tr>
+<tr><td>&gt; 1 Ω</td><td>❌ Problema — refazer a emenda; vai aquecer sob carga</td></tr>
+</tbody></table>
+<div class="alert alert-warning"><strong>⚠️ Por que importa:</strong> Potência dissipada é P = I² × R. Com 20A passando por uma emenda de 2Ω: P = 400 × 2 = 800W gerados naquele ponto — suficiente para iniciar um incêndio.</div>
+</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">🌡️ Compatibilidade de Temperatura do Conector</h2>
+<p>Cada componente elétrico é especificado para uma temperatura máxima de trabalho. Misturar especificações incompatíveis anula a proteção térmica do conjunto:</p>
+<ul class="lesson-list">
+<li>Cabo residencial padrão: <strong>70°C</strong> (isolamento PVC ou XLPE típico)</li>
+<li>Conectores podem ser especificados para 60°C, 70°C ou 105°C</li>
+<li><strong>Regra:</strong> o conector deve ser igual ou superior à temperatura do cabo</li>
+<li>Conector de 60°C em cabo de 70°C: o conector degrada antes do cabo — falha prematura</li>
+</ul>
+<div class="alert alert-info"><strong>💡 Onde verificar:</strong> A especificação de temperatura vem gravada no corpo do conector ou na embalagem. Prefira conectores com 105°C — funcionam em toda aplicação residencial.</div>
+</div>
+<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Use decapador — nunca dente ou faca para remover isolamento</li><li>Parafuso frouxo causa aquecimento — aperte bem e teste puxando o cabo</li><li>Emenda bem feita tem resistência &lt; 0,1Ω — meça com multímetro em Ω</li><li>Conector deve suportar temperatura igual ou superior ao cabo (70°C mínimo)</li><li>Toda emenda: dentro de caixa de passagem, com conector adequado</li></ul></div>`
         },
         {
           id: 3,
@@ -243,7 +264,38 @@ var _M5 =     {
 <li>Remova o jumper após identificar</li>
 </ol>
 </div>
-<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Continuidade só com energia desligada — obrigatório</li><li>Teste as pontas entre si antes de usar (confirmar funcionamento)</li><li>Bipe = condutor íntegro. Sem bipe = ruptura ou mau contato</li><li>Jumper no quadro ajuda a identificar pares de cabos</li><li>Borne frouxo pode dar leitura intermitente — apertar e retestar</li></ul></div>`
+<div class="lesson-section">
+<h2 class="lesson-section-title">⚠️ Bipe Intermitente — Conexão Precária</h2>
+<p>Se o multímetro bipa, para e bipa de novo sem razão aparente, a conexão está precária. Não confunda com continuidade real:</p>
+<ul class="lesson-list">
+<li><strong>Causa mais comum:</strong> borne frouxo ou fio parcialmente rompido dentro do isolamento</li>
+<li><strong>Diagnóstico:</strong> com as pontas no lugar, mexa suavemente o cabo ao longo do percurso — o bipe para exatamente no ponto da ruptura</li>
+<li><strong>Borne frouxo:</strong> aperte o borne e reteste — se estabilizar, era a conexão</li>
+<li><strong>Fio rompido internamente:</strong> substitua o cabo — a ruptura parcial vai progredir sob carga</li>
+</ul>
+</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">🔍 Detectar Curto-Circuito Antes de Energizar</h2>
+<p>Antes de ligar qualquer circuito novo ou reformado, sempre verifique se há curto entre fase e neutro. Um curto não detectado vai disparar o disjuntor na melhor hipótese — e queimar cabos na pior:</p>
+<ol class="steps-list">
+<li>Mantenha o circuito sem tensão e sem nada conectado nas tomadas</li>
+<li>Selecione o multímetro em modo resistência (Ω)</li>
+<li>Meça entre o fio de fase e o neutro do circuito</li>
+<li>Leitura esperada: <strong>"OL" ou ∞</strong> — circuito aberto, correto</li>
+<li>Leitura baixa (< 100Ω): há curto em algum ponto — <strong>NÃO energize</strong> até localizar e corrigir</li>
+</ol>
+<div class="alert alert-danger"><strong>⚡ CRÍTICO:</strong> Energizar um circuito com curto fase-neutro não detectado pode queimar cabos, danificar o disjuntor ou iniciar incêndio nos pontos de menor seção da fiação.</div>
+</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">📊 Valores de Referência — Continuidade de Condutores</h2>
+<table><thead><tr><th>Leitura de Resistência</th><th>Avaliação</th></tr></thead><tbody>
+<tr><td>&lt; 1 Ω</td><td>✅ Excelente — condutor e conexões em ótimo estado</td></tr>
+<tr><td>1 a 5 Ω</td><td>⚠️ Investigar — possível borne parcialmente frouxo ou oxidação</td></tr>
+<tr><td>&gt; 5 Ω</td><td>❌ Problema grave — substituir condutor ou refazer todas as conexões</td></tr>
+<tr><td>OL / ∞</td><td>❌ Ruptura total — cabo cortado ou borne completamente solto</td></tr>
+</tbody></table>
+</div>
+<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Continuidade só com energia desligada — obrigatório</li><li>Bipe intermitente = borne frouxo ou fio parcialmente rompido — mexa o cabo para localizar</li><li>Antes de energizar: medir fase-neutro em Ω — deve marcar OL (∞). Leitura baixa = curto</li><li>Bom condutor: &lt; 1Ω. Investigar: 1–5Ω. Problema: &gt; 5Ω</li><li>Jumper no quadro ajuda a identificar pares de cabos sem etiqueta</li></ul></div>`
         },
         {
           id: 3,
