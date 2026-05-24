@@ -30,25 +30,25 @@ var _M1 =     {
 <div class="concept-grid">
 <div class="concept-card panel"><span class="concept-card__icon">⚡</span><h3>Zona de Risco</h3><p>Área ao redor de partes energizadas onde existe risco de contato acidental.</p></div>
 <div class="concept-card panel"><span class="concept-card__icon">🔒</span><h3>Trabalho Desenergizado</h3><p>Serviço realizado com a instalação sem energia. É o procedimento mais seguro.</p></div>
-<div class="concept-card panel"><span class="concept-card__icon">📋</span><h3>Prontuário</h3><p>Documentação obrigatória de todas as instalações elétricas da edificação.</p></div>
+<div class="concept-card panel"><span class="concept-card__icon">📋</span><h3>Prontúrio</h3><p>Documentação obrigatória de todas as instalações elétricas da edificação.</p></div>
 <div class="concept-card panel"><span class="concept-card__icon">🦺</span><h3>EPI e EPC</h3><p>Equipamentos de Proteção Individual e Coletiva obrigatórios no trabalho.</p></div>
 </div>
 </div>
-<div class="alert alert-success"><strong>✅ Na prática:</strong> Sempre que iniciar um trabalho elétrico, a primeira pergunta é: <em>"Ésta instalação está desenergizada e verificada?"</em> Se a resposta não for um "sim" confirmado, pare e siga o procedimento correto.</div>
+<div class="alert alert-success"><strong>✅ Na prática:</strong> Sempre que iniciar um trabalho elétrico, a primeira pergunta é: <em>"Esta instalação está desenergizada e verificada?"</em> Se a resposta não for um "sim" confirmado, pare e siga o procedimento correto.</div>
 <div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>A NR-10 é <strong>obrigatória</strong> para todo eletricista no Brasil</li><li>Ela protege trabalhadores que interagem com instalações elétricas</li><li>Trabalho desenergizado é sempre o procedimento mais seguro</li><li>Empresas são responsáveis pelo cumprimento da norma</li><li>O treinamento NR-10 básico exige mínimo de 40 horas</li></ul></div>`
         },
         {
           id: 2,
           title: 'EPIs obrigatórios na obra elétrica',
-          duration: '~10 min',
+          duration: '~12 min',
           content: `
 <p class="lesson-intro">EPI — Equipamento de Proteção Individual — é o conjunto de dispositivos que protege o trabalhador de riscos que não podem ser eliminados. Na eletricidade, o EPI correto pode ser a diferença entre a vida e a morte.</p>
 <div class="lesson-section">
 <h2 class="lesson-section-title">🦺 EPIs Obrigatórios para Eletricista</h2>
 <div class="epi-grid">
 <div class="epi-card panel"><span class="epi-card__icon">⛑️</span><div><h3>Capacete Classe B</h3><p>Proteção contra impactos <strong>e tensões até 20.000 V</strong>. Identificado pela cor azul ou marcação "B".</p></div></div>
-<div class="epi-card panel"><span class="epi-card__icon">🧤</span><div><h3>Luvas Isolantes</h3><p>Borracha isolante com luva de couro sobreposta. A borracha isola; o couro protege a borracha de rasgos.</p></div></div>
-<div class="epi-card panel"><span class="epi-card__icon">🥾</span><div><h3>Botina DiElétrica</h3><p>Sola isolante, <strong>sem biqueira metálica</strong>. Isola o trabalhador do solo.</p></div></div>
+<div class="epi-card panel"><span class="epi-card__icon">🧎</span><div><h3>Luvas Isolantes</h3><p>Borracha isolante com luva de couro sobreposta. A borracha isola; o couro protege a borracha de rasgos.</p></div></div>
+<div class="epi-card panel"><span class="epi-card__icon">🥾</span><div><h3>Botina Dielétrica</h3><p>Sola isolante, <strong>sem biqueira metálica</strong>. Isola o trabalhador do solo.</p></div></div>
 <div class="epi-card panel"><span class="epi-card__icon">🥽</span><div><h3>Óculos de Proteção</h3><p>Proteção contra faíscas, arco elétrico e respingos. Lente incolor para ambientes fechados.</p></div></div>
 <div class="epi-card panel"><span class="epi-card__icon">👕</span><div><h3>Vestimenta</h3><p>Manga longa de algodão ou fibra antichama. Nunca use sintético (pega fogo e derrete na pele).</p></div></div>
 <div class="epi-card panel"><span class="epi-card__icon">🛡️</span><div><h3>Protetor Facial</h3><p>Obrigatório em trabalhos com risco de arco elétrico. Complementa os óculos.</p></div></div>
@@ -56,7 +56,7 @@ var _M1 =     {
 </div>
 <div class="alert alert-danger"><strong>⚠️ ATENÇÃO:</strong> Nunca use EPI com prazo de validade vencido, com defeito visível ou rachado. Descarte imediatamente e solicite substituição. Um EPI danificado é pior do que nenhum — dá falsa sensação de segurança.</div>
 <div class="lesson-section">
-<h2 class="lesson-section-title">🧤 Como Verificar as Luvas Isolantes</h2>
+<h2 class="lesson-section-title">🧎 Como Verificar as Luvas Isolantes</h2>
 <ol class="steps-list">
 <li>Inspecione visualmente a luva inteira procurando cortes, furos ou rachados</li>
 <li>Enrole a luva da ponta dos dedos em direção ao punho — pressione o ar para dentro</li>
@@ -65,8 +65,28 @@ var _M1 =     {
 <li>Sempre coloque a luva de couro por cima da borracha antes de usar</li>
 </ol>
 </div>
-<div class="alert alert-warning"><strong>⚠️ Atenção:</strong> As luvas isolantes têm <strong>classes de tensão</strong>. Para instalações residenciais (127V/220V), use no mínimo a Classe 00 (testada em 500V) ou Classe 0 (testada em 1000V).</div>
-<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Capacete Classe B protege contra choque até 20.000 V</li><li>Luvas isolantes: sempre inspecionar antes de usar (teste do ar)</li><li>Botina diElétrica: sem biqueira metálica, sola isolante</li><li>Roupas de algodão ou antichama — nunca sintético</li><li>EPI com defeito = descarte imediato</li></ul></div>`
+<div class="lesson-section">
+<h2 class="lesson-section-title">🧎 Classes de Luvas Isolantes (IEC 60903)</h2>
+<p>Luvas isolantes são classificadas por tensão máxima de uso. Escolher a classe errada pode ser fatal — a luva certa para a tensão certa:</p>
+<table><thead><tr><th>Classe</th><th>Tensão de teste</th><th>Tensão de uso</th><th>Cor</th><th>Aplicação</th></tr></thead><tbody>
+<tr><td><strong>00</strong></td><td>2.500 V</td><td>até 500 V</td><td>Bege</td><td>Residencial 127/220V — mínimo aceitável</td></tr>
+<tr><td><strong>0</strong></td><td>5.000 V</td><td>até 1.000 V</td><td>Vermelha</td><td>Baixa tensão — recomendado para residencial</td></tr>
+<tr><td><strong>1</strong></td><td>10.000 V</td><td>até 7.500 V</td><td>Branca</td><td>Média tensão</td></tr>
+<tr><td><strong>2</strong></td><td>20.000 V</td><td>até 17.000 V</td><td>Amarela</td><td>Média tensão</td></tr>
+<tr><td><strong>3</strong></td><td>30.000 V</td><td>até 26.500 V</td><td>Verde</td><td>Alta tensão</td></tr>
+<tr><td><strong>4</strong></td><td>40.000 V</td><td>até 36.000 V</td><td>Laranja</td><td>Alta tensão especial</td></tr>
+</tbody></table>
+<div class="alert alert-warning"><strong>⚠️ Na prática residencial:</strong> Use no mínimo Classe 00 para 127V/220V. Prefira Classe 0 — a margem extra de segurança protege você de tensões transitórias e erros de leitura do multímetro.</div>
+</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">🥽 Óculos vs. Protetor Facial — Quando Usar Cada Um</h2>
+<div class="key-points-card panel">
+<div class="key-point"><span class="key-point__icon">🥽</span><div><strong>Óculos de proteção</strong><p>Protegem os olhos de partículas, faíscas pequenas e respingos. Use em toda instalação de baixa tensão com energia desligada.</p></div></div>
+<div class="key-point"><span class="key-point__icon">🛡️</span><div><strong>Protetor facial (face shield)</strong><p>Protege o rosto inteiro de arco elétrico, explosão de QDC e flashover. <strong>Obrigatório</strong> ao manusear quadro energizado, trocar fusíveis ou qualquer operação com risco de arco elétrico.</p></div></div>
+</div>
+<p style="font-size:.875rem;color:var(--text-muted);margin-top:.75rem;">O protetor facial não substitui os óculos — use os dois juntos quando houver risco de arco.</p>
+</div>
+<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Capacete Classe B protege contra choque até 20.000 V</li><li>Luvas: Classe 00 mínimo para 127/220V — prefira Classe 0</li><li>Inspecionar luvas antes de cada uso (teste do ar + data de validade)</li><li>Protetor facial obrigatório ao manusear quadro energizado</li><li>EPI com defeito = descarte imediato, sem exceção</li></ul></div>`
         },
         {
           id: 3,
@@ -136,37 +156,61 @@ var _M1 =     {
         },
         {
           id: 5,
-          title: 'As 5 Regras de Ouro da Segurança Elétrica',
-          duration: '~7 min',
+          title: 'Perigos ocultos: capacitores, falso zero e aterramento temporário',
+          duration: '~9 min',
           content: `
-<p class="lesson-intro">As 5 Regras de Ouro são o padrão internacional de segurança para trabalho em instalações elétricas. São simples, mas seguidas à risca, eliminam quase todos os riscos de acidente.</p>
+<p class="lesson-intro">Você desligou o disjuntor, o multímetro marcou zero — e mesmo assim levou um choque. Como é possível? Existem três situações que fazem a instalação parecer segura quando não está. Conhecê-las é o que separa o eletricista experiente do iniciante.</p>
 <div class="lesson-section">
-<h2 class="lesson-section-title">⭐ As 5 Regras de Ouro</h2>
-<div class="loto-steps">
-<div class="loto-step"><span class="loto-step-num active">1</span><div class="loto-step-content"><strong>Desligar</strong><span>Desligue todos os dispositivos de corte que alimentam o local de trabalho.</span></div></div>
-<div class="loto-step"><span class="loto-step-num active">2</span><div class="loto-step-content"><strong>Bloquear contra re-ligação</strong><span>Bloqueie os dispositivos de corte com cadeado e etiqueta LOTO.</span></div></div>
-<div class="loto-step"><span class="loto-step-num active">3</span><div class="loto-step-content"><strong>Verificar ausência de tensão</strong><span>Teste com instrumento adequado (multímetro) em todos os pontos do circuito.</span></div></div>
-<div class="loto-step"><span class="loto-step-num active">4</span><div class="loto-step-content"><strong>Aterrar e curto-circuitar</strong><span>Instale aterramento temporário se necessário, especialmente em instalações de médio/alta tensão.</span></div></div>
-<div class="loto-step"><span class="loto-step-num active">5</span><div class="loto-step-content"><strong>Proteger e sinalizar a zona de trabalho</strong><span>Coloque barreiras físicas, cones, fitas e placas de sinalização ao redor da área.</span></div></div>
+<h2 class="lesson-section-title">⚡ Perigo 1 — O Falso Zero do Multímetro</h2>
+<p>O multímetro pode indicar zero mesmo com tensão presente. As causas mais comuns:</p>
+<div class="key-points-card panel">
+<div class="key-point"><span class="key-point__icon">🔋</span><div><strong>Bateria fraca</strong><p>Um medidor com bateria descarregada pode mostrar leituras instáveis ou zero incorreto. Sintoma: display piscando ou leitura que oscila sem sentido. Solução: sempre verifique o indicador de bateria antes de usar.</p></div></div>
+<div class="key-point"><span class="key-point__icon">🎛️</span><div><strong>Escala errada</strong><p>Medindo 220V CA na escala DCV (tensão contínua) → o medidor mostra zero ou valor sem sentido. Sempre selecione ACV (tensão alternada) e escala acima da tensão esperada.</p></div></div>
+<div class="key-point"><span class="key-point__icon">🔌</span><div><strong>Ponta de prova danificada</strong><p>Ponta com cabo rompido internamente pode mostrar zero mesmo com tensão. Teste: toque as duas pontas — deve biper ou marcar 0 Ω. Se não biper, descarte as pontas.</p></div></div>
 </div>
+<div class="alert alert-danger"><strong>⚡ Protocolo anti-falso zero:</strong> Após medir e obter zero, <strong>confirme o instrumento</strong> tocando as pontas em uma tomada com tensão conhecida. Se marcar a tensão correta, o medidor está funcionando. Só então confie no zero anterior.</div>
 </div>
-<div class="alert alert-danger"><strong>⚡ PERIGO CRÍTICO:</strong> <strong>Nunca presuma</strong> que uma instalação está desenergizada. Mesmo que você mesmo tenha desligado o disjuntor há 5 minutos, sempre teste com o multímetro antes de tocar qualquer condutor. Capacitores podem guardar carga. Geradores podem estar conectados. Erros humanos acontecem.</div>
 <div class="lesson-section">
-<h2 class="lesson-section-title">🎯 Por que São "de Ouro"?</h2>
-<p>Essas regras foram desenvolvidas após décadas de análise de acidentes elétricos fatais no mundo inteiro. Cada regra existe porque houve uma morte que poderia ter sido evitada se ela fosse seguida.</p>
-<div class="alert alert-success"><strong>✅ Compromisso profissional:</strong> Um eletricista profissional nunca pula as 5 Regras de Ouro, independentemente de: pressão de tempo, tamanho do serviço, confiança na instalação, ou quantas vezes já fez o mesmo serviço antes.</div>
+<h2 class="lesson-section-title">⚡ Perigo 2 — Capacitores com Carga Residual</h2>
+<p>Capacitores armazenam carga elétrica e <strong>continuam perigosos mesmo com o circuito desligado</strong>. Podem manter tensão por segundos, minutos ou horas, dependendo do tamanho e da carga residual.</p>
+<ul class="lesson-list">
+<li>Bancos de capacitores em ar-condicionados de janela e geladeiras industriais</li>
+<li>Capacitores de correção de fator de potência em quadros industriais</li>
+<li>No-breaks e fontes de alimentação ininterrupta (UPS)</li>
+<li>Capacitores de partida de motores (muito comum em compressores)</li>
+</ul>
+<div class="alert alert-warning"><strong>⚠️ Procedimento seguro:</strong> Em equipamentos com capacitores, aguarde no mínimo 5 minutos após desligar antes de abrir. Profissionais usam resistor de descarga (uma resistência conectada nos terminais do capacitor) para drenar a carga com segurança antes de tocar.</div>
 </div>
-<div class="summary-section"><h2>📌 As 5 Regras de Ouro — Resumo</h2><ul class="summary-list"><li><strong>1.</strong> Desligar todos os pontos de alimentação</li><li><strong>2.</strong> Bloquear contra re-ligação (LOTO)</li><li><strong>3.</strong> Verificar ausência de tensão (3 pontos)</li><li><strong>4.</strong> Aterrar e curto-circuitar se necessário</li><li><strong>5.</strong> Proteger e sinalizar a área</li></ul></div>`
+<div class="lesson-section">
+<h2 class="lesson-section-title">⚡ Perigo 3 — Quando Usar o Aterramento Temporário</h2>
+<p>A Regra de Ouro nº 4 ("Aterrar e curto-circuitar") é a menos entendida. Em instalações de baixa tensão residencial, ela raramente é aplicada. Mas existem situações em que é obrigatória:</p>
+<ul class="lesson-list">
+<li>Trabalhos em circuitos longos com possibilidade de indução (próximos a linhas de alta tensão)</li>
+<li>Instalações com geradores ou energia solar que podem re-energizar o circuito</li>
+<li>Sempre em média e alta tensão (fora do escopo deste curso)</li>
+</ul>
+<p><strong>Como fazer o aterramento temporário:</strong></p>
+<ol class="steps-list">
+<li>Use cabo flexível de cobre com seção mínima de 16mm² (para BT residencial)</li>
+<li>Conecte primeiro ao barramento de terra (PE) do quadro</li>
+<li>Conecte ao condutor de fase que será trabalhado — cria um curto intencional fase-terra</li>
+<li>Se houver tensão residual, o DR ou disjuntor irá disparar — confirmando que havia tensão</li>
+<li>Remova o aterramento temporário antes da re-energização (sequência inversa)</li>
+</ol>
+</div>
+<div class="alert alert-info"><strong>📖 Caso real (reconstituído):</strong> Em uma reforma industrial, o eletricista desligou o QDC e mediu zero. Iniciou o trabalho. Recebeu choque. Causa: a instalação tinha um banco de capacitores de 440V em paralelo que não foi identificado no levantamento inicial. Lição: levantamento completo da instalação antes de qualquer serviço, e descarga de capacitores antes de tocar.</div>
+<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Falso zero: bateria fraca, escala errada ou ponta danificada — sempre confirme o instrumento</li><li>Capacitores mantêm carga após desligamento — aguarde e descarregue antes de tocar</li><li>Aterramento temporário: cabo 16mm² mínimo, terra primeiro, depois a fase</li><li>Em instalações com gerador ou solar, LOTO não é suficiente — isole a fonte também</li><li>Dúvida = parar. Nunca avançce com incerteza numa instalação elétrica</li></ul></div>`
         }
       ],
       quiz: {
         questions: [
-          { text: 'O que é a NR-10?', options: [{ text: 'Norma Regulamentadora nº 10 — Segurança em Instalações Elétricas', correct: true }, { text: 'Norma de Resistência Elétrica nº 10', correct: false }, { text: 'Nível de Risco Elétrico categoria 10', correct: false }, { text: 'Norma de Regulação de Equipamentos nº 10', correct: false }], explanation: 'A NR-10 é a Norma Regulamentadora nº 10 do Ministério do Trabalho, que estabelece requisitos mínimos para segurança em instalações elétricas.' },
+          { text: 'Você desligou o disjuntor e o multímetro marcou zero. Antes de tocar no cabo, você toca as pontas do multímetro entre si e ele NÃO bipa. O que isso indica?', options: [{ text: 'O circuito está desenergizado — pode trabalhar', correct: false }, { text: 'A ponta de prova está com defeito — o zero anterior não é confiável', correct: true }, { text: 'O circuito tem aterramento duplo, por isso não bipa', correct: false }, { text: 'O multímetro está na escala correta — tudo normal', correct: false }], explanation: 'Se as pontas não bipam quando tocadas entre si, a função de continuidade não está operando — ponta rompida, bateria fraca ou escala errada. O zero medido anteriormente NÃO é confiável. Troque ou verifique o instrumento antes de trabalhar.' },
           { text: 'Qual capacete é adequado para trabalhos elétricos?', options: [{ text: 'Capacete Classe A (branco)', correct: false }, { text: 'Capacete Classe B (azul — proteção até 20.000 V)', correct: true }, { text: 'Qualquer capacete com aba frontal', correct: false }, { text: 'Capacete de obra padrão sem classificação', correct: false }], explanation: 'O Capacete Classe B é testado para suportar tensões de até 20.000 V, sendo obrigatório em trabalhos elétricos.' },
-          { text: 'O que significa LOTO?', options: [{ text: 'Ligar, Operar, Testar e Orientar', correct: false }, { text: 'Lockout/Tagout — bloqueio e sinalização', correct: true }, { text: 'Laudo Operacional Técnico de Obra', correct: false }, { text: 'Lista de Operações Técnicas Obrigatórias', correct: false }], explanation: 'LOTO vem do inglês Lockout (bloquear com cadeado) e Tagout (sinalizar com etiqueta), impedindo re-energização acidental.' },
+          { text: 'Dois eletricistas trabalham no mesmo circuito em pontos diferentes. O eletricista A já terminou e quer re-energizar. O eletricista B ainda está trabalhando com seu cadeado no disjuntor. O que deve acontecer?', options: [{ text: 'O encarregado pode retirar o cadeado do B e religar', correct: false }, { text: 'A re-energização deve aguardar até que o eletricista B retire seu próprio cadeado', correct: true }, { text: 'O eletricista A retira o cadeado do B, pois B já terminou a sua parte', correct: false }, { text: 'Basta avisar verbalmente o eletricista B antes de religar', correct: false }], explanation: 'Cada eletricista tem seu próprio cadeado pessoal e intransferível. A re-energização só ocorre quando TODOS os cadeados forem retirados por seus próprios donos. Ninguém pode retirar o cadeado de outra pessoa.' },
           { text: 'Qual é a corrente elétrica mínima que pode causar morte?', options: [{ text: 'Acima de 10 amperes', correct: false }, { text: 'Acima de 1 ampere', correct: false }, { text: 'Acima de 50 miliamperes', correct: true }, { text: 'Apenas em alta tensão (acima de 1000V)', correct: false }], explanation: 'Correntes acima de 50 miliamperes (0,05 A) podem causar fibrição ventricular e morte. Isso é muito menos do que consome uma lâmpada LED.' },
           { text: 'Quem pode retirar o cadeado LOTO de um disjuntor?', options: [{ text: 'O encarregado de obra, em qualquer situação', correct: false }, { text: 'Qualquer eletricista presente no local', correct: false }, { text: 'Apenas o trabalhador que colocou o cadeado', correct: true }, { text: 'O eletricista mais experiente da equipe', correct: false }], explanation: 'O cadeado LOTO é pessoal e intransferível. Apenas quem o colocou pode retirá-lo, garantindo que ninguém trabalhe sem sua própria proteção.' },
-          { text: 'Qual é a sequência correta das 5 Regras de Ouro?', options: [{ text: 'Testar → Desligar → Bloquear → Sinalizar → Aterrar', correct: false }, { text: 'Desligar → Bloquear → Verificar tensão → Aterrar → Sinalizar', correct: true }, { text: 'Sinalizar → Bloquear → Desligar → Aterrar → Testar', correct: false }, { text: 'Bloquear → Desligar → Testar → Aterrar → Sinalizar', correct: false }], explanation: 'A sequência correta é: 1-Desligar, 2-Bloquear contra re-ligação, 3-Verificar ausência de tensão, 4-Aterrar/curto-circuitar, 5-Proteger e sinalizar a área.' }
+          { text: 'Qual é a sequência correta das 5 Regras de Ouro?', options: [{ text: 'Testar → Desligar → Bloquear → Sinalizar → Aterrar', correct: false }, { text: 'Desligar → Bloquear → Verificar tensão → Aterrar → Sinalizar', correct: true }, { text: 'Sinalizar → Bloquear → Desligar → Aterrar → Testar', correct: false }, { text: 'Bloquear → Desligar → Testar → Aterrar → Sinalizar', correct: false }], explanation: 'A sequência correta é: 1-Desligar, 2-Bloquear contra re-ligação, 3-Verificar ausência de tensão, 4-Aterrar/curto-circuitar, 5-Proteger e sinalizar a área.' },
+          { text: 'Para trabalhar numa instalação residencial de 220V, qual é a classe mínima aceitável de luvas isolantes?', options: [{ text: 'Qualquer luva de borracha serve, desde que esteja inteira', correct: false }, { text: 'Classe 00 (testada em 2.500V, uso até 500V) — é o mínimo aceitável', correct: true }, { text: 'Classe 2 (testada em 20.000V) — mais proteção é sempre melhor', correct: false }, { text: 'Luvas não são necessárias se a energia estiver desligada', correct: false }], explanation: 'A Classe 00 é o mínimo aceitável para 127/220V. A Classe 0 é preferível pois oferece margem adicional. Luvas de classe inferior não garantem proteção adequada. Luvas de classes superiores são desnecessárias e reduzem a destreza.' }
         ]
       }
     };
