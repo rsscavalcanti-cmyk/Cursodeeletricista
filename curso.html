@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>(function(){ var t=localStorage.getItem('eletricista_theme')||'dark'; document.documentElement.setAttribute('data-theme',t); })();</script>
 </head>
 <body class="curso-body">
 
@@ -24,6 +25,7 @@
       </div>
       <span id="overallPct">0%</span>
     </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">🌙</button>
   </div>
 </header>
 
@@ -42,6 +44,7 @@
 </aside>
 
 <main class="curso-main" id="main">
+  <!-- lesson view -->
   <div id="lessonView" class="lesson-view">
     <div class="lesson-header">
       <div class="lesson-breadcrumb" id="breadcrumb"></div>
@@ -59,10 +62,12 @@
     </div>
   </div>
 
+  <!-- module intro view -->
   <div id="moduleView" class="lesson-view hidden">
     <div class="module-intro-card panel" id="moduleCard"></div>
   </div>
 
+  <!-- quiz view -->
   <div id="quizView" class="quiz-view hidden">
     <div class="quiz-header">
       <h2 class="quiz-title" id="quizTitle"></h2>
@@ -86,6 +91,7 @@
     </div>
   </div>
 
+  <!-- certificate teaser -->
   <div id="certTeaser" class="certificate-teaser panel hidden">
     <span class="certificate-teaser__icon">🏆</span>
     <h2>Parabéns! Curso Concluído!</h2>
@@ -100,10 +106,22 @@
 (function() {
   'use strict';
 
+  // theme toggle
+  CourseApp.initTheme();
+  var themeBtn = document.getElementById('themeToggle');
+  function updateThemeBtn() { themeBtn.textContent = CourseApp.getTheme() === 'dark' ? '🌙' : '☀️'; }
+  updateThemeBtn();
+  themeBtn.addEventListener('click', function() {
+    CourseApp.setTheme(CourseApp.getTheme() === 'dark' ? 'light' : 'dark');
+    updateThemeBtn();
+  });
+
   function qs(sel, ctx) { return (ctx||document).querySelector(sel); }
   function show(el) { el.classList.remove('hidden'); }
   function hide(el) { el.classList.add('hidden'); }
 
+  // ─── routing ───────────────────────────────────────────────────────────────
+  // Hash formats: #m1  (module intro)  |  #m1/l1  (lesson)  |  #m1/quiz  (quiz)
   function parseHash() {
     const h = location.hash.slice(1) || 'm1';
     const parts = h.split('/');
@@ -120,12 +138,14 @@
 
   window.addEventListener('hashchange', render);
   document.addEventListener('DOMContentLoaded', function() {
+    // Redirect to register if no user
     if (!CourseApp.hasUser()) { location.href = 'index.html'; return; }
     buildSidebar();
     render();
     updateOverall();
   });
 
+  // ─── render dispatcher ─────────────────────────────────────────────────────
   function render() {
     const { mId, sub } = parseHash();
     const mod = COURSE_DATA.modules.find(m => m.id === mId);
@@ -151,6 +171,7 @@
     updateOverall();
   }
 
+  // ─── module intro ──────────────────────────────────────────────────────────
   function renderModuleIntro(mod) {
     show(qs('#moduleView'));
     const p = CourseApp.getProgress();
@@ -191,11 +212,13 @@
     const mod = COURSE_DATA.modules.find(m => m.id === mId);
     if (!mod) return;
     const p = CourseApp.getProgress();
+    // Find first uncompleted lesson
     const first = mod.lessons.find(l => !p.isLessonDone(mId, l.id));
     if (first) go(mId, 'l' + first.id);
     else go(mId, 'quiz');
   };
 
+  // ─── lesson render ─────────────────────────────────────────────────────────
   function renderLesson(mod, lesson) {
     show(qs('#lessonView'));
     const p = CourseApp.getProgress();
@@ -215,6 +238,7 @@
 
     document.getElementById('topbarTitle').textContent = `${mod.id}.${lesson.id} ${lesson.title}`;
 
+    // done button
     const doneBtn = document.getElementById('doneBtn');
     if (isDone) {
       doneBtn.textContent = '✓ Concluída';
@@ -230,9 +254,11 @@
       document.getElementById('lessonBadge').innerHTML = '<span class="badge badge-done">✓ Concluída</span>';
       updateOverall();
       updateSidebar(mod.id, 'l' + lesson.id);
+      // Auto advance after brief delay
       setTimeout(() => { navigateNext(mod, lesson); }, 600);
     };
 
+    // prev/next
     const { prevRoute, nextRoute } = getNavRoutes(mod, lesson);
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -251,20 +277,36 @@
     const allMods = COURSE_DATA.modules;
     const mIdx = allMods.findIndex(m => m.id === mod.id);
     const lIdx = mod.lessons.findIndex(l => l.id === lesson.id);
+
     let prevRoute = null, nextRoute = null;
-    if (lIdx > 0) prevRoute = `#m${mod.id}/l${mod.lessons[lIdx-1].id}`;
-    else if (mIdx > 0) { const pm = allMods[mIdx-1]; prevRoute = `#m${pm.id}/quiz`; }
-    if (lIdx < mod.lessons.length - 1) nextRoute = `#m${mod.id}/l${mod.lessons[lIdx+1].id}`;
-    else nextRoute = `#m${mod.id}/quiz`;
+
+    if (lIdx > 0) {
+      prevRoute = `#m${mod.id}/l${mod.lessons[lIdx-1].id}`;
+    } else if (mIdx > 0) {
+      const pm = allMods[mIdx-1];
+      prevRoute = `#m${pm.id}/quiz`;
+    }
+
+    if (lIdx < mod.lessons.length - 1) {
+      nextRoute = `#m${mod.id}/l${mod.lessons[lIdx+1].id}`;
+    } else {
+      nextRoute = `#m${mod.id}/quiz`;
+    }
+
     return { prevRoute, nextRoute };
   }
 
+  // ─── quiz ──────────────────────────────────────────────────────────────────
   function renderQuiz(mod) {
     show(qs('#quizView'));
     document.getElementById('quizTitle').textContent = `📝 Quiz — Módulo ${mod.id}: ${mod.title}`;
     document.getElementById('topbarTitle').textContent = `Quiz — Módulo ${mod.id}`;
+
     const questions = mod.quiz.questions;
-    let current = 0, answers = new Array(questions.length).fill(null), submitted = false;
+    let current = 0;
+    let answers = new Array(questions.length).fill(null);
+    let submitted = false;
+
     hide(document.getElementById('quizResult'));
     show(document.getElementById('quizFooter'));
 
@@ -272,29 +314,40 @@
       const q = questions[idx];
       document.getElementById('quizProgressText').textContent = `Questão ${idx+1} de ${questions.length}`;
       document.getElementById('quizProgressFill').style.width = `${((idx+1)/questions.length)*100}%`;
+
       document.getElementById('quizBody').innerHTML = `
         <div class="question-card panel anim-fade">
           <p class="question-number">Questão ${idx+1} de ${questions.length}</p>
           <p class="question-text">${q.text}</p>
           <div class="question-options" id="opts">
-            ${q.options.map((o,i) => `<button class="question-option ${answers[idx]===i?'selected':''}" data-i="${i}">${String.fromCharCode(65+i)}) ${o.text}</button>`).join('')}
+            ${q.options.map((o,i) => `
+              <button class="question-option ${answers[idx]===i?'selected':''}" data-i="${i}">${String.fromCharCode(65+i)}) ${o.text}</button>
+            `).join('')}
           </div>
           <div class="question-feedback hidden" id="qfb"></div>
         </div>`;
+
       document.getElementById('opts').querySelectorAll('.question-option').forEach(btn => {
         btn.addEventListener('click', function() {
           if (submitted) return;
           answers[idx] = parseInt(this.dataset.i, 10);
-          document.getElementById('opts').querySelectorAll('.question-option').forEach(b => b.classList.toggle('selected', b === this));
+          document.getElementById('opts').querySelectorAll('.question-option')
+            .forEach(b => b.classList.toggle('selected', b === this));
         });
       });
-      document.getElementById('confirmBtn').textContent = 'Confirmar Resposta';
+
+      const confirmBtn = document.getElementById('confirmBtn');
+      confirmBtn.textContent = 'Confirmar Resposta';
       submitted = false;
     }
 
     document.getElementById('confirmBtn').onclick = function() {
       if (!submitted) {
-        if (answers[current] === null) return;
+        if (answers[current] === null) {
+          this.classList.add('anim-fade');
+          return;
+        }
+        // show feedback
         submitted = true;
         const q = questions[current];
         const correct = q.options[answers[current]].correct;
@@ -303,6 +356,7 @@
           ? `<div class="alert alert-success">✅ <strong>Correto!</strong> ${q.explanation}</div>`
           : `<div class="alert alert-danger">❌ <strong>Incorreto.</strong> ${q.explanation}</div>`;
         fb.classList.remove('hidden');
+        // style options
         document.getElementById('opts').querySelectorAll('.question-option').forEach((btn, i) => {
           btn.disabled = true;
           if (q.options[i].correct) btn.classList.add('correct');
@@ -311,7 +365,11 @@
         this.textContent = current < questions.length - 1 ? 'Próxima Questão →' : 'Ver Resultado';
       } else {
         current++;
-        if (current < questions.length) renderQ(current); else showResult();
+        if (current < questions.length) {
+          renderQ(current);
+        } else {
+          showResult();
+        }
       }
     };
 
@@ -321,28 +379,52 @@
       const total = questions.length;
       const passed = CourseApp.saveQuiz(mod.id, score, total);
       const pct = Math.round((score/total)*100);
+
       document.getElementById('quizScore').textContent = `${score}/${total} — ${pct}%`;
       document.getElementById('quizMsg').textContent = passed
         ? `🎉 Aprovado! Mínimo de 60% atingido. Módulo concluído!`
         : `😓 Você precisa de pelo menos 60% para avançar. Tente novamente!`;
       document.getElementById('quizMsg').style.color = passed ? 'var(--green)' : 'var(--red)';
+
       const result = document.getElementById('quizResult');
-      show(result); result.classList.add('anim-fade');
+      show(result);
+      result.classList.add('anim-fade');
+
       const nextModBtn = document.getElementById('nextModBtn');
       if (!passed) {
-        nextModBtn.disabled = true; nextModBtn.textContent = 'Repetir para avançar';
+        nextModBtn.disabled = true;
+        nextModBtn.textContent = 'Repetir para avançar';
       } else {
         nextModBtn.disabled = false;
         const nextMod = COURSE_DATA.modules.find(m => m.id === mod.id + 1);
-        if (nextMod) { nextModBtn.textContent = `Módulo ${nextMod.id}: ${nextMod.title} →`; nextModBtn.onclick = () => { location.hash = `#m${nextMod.id}`; }; }
-        else { nextModBtn.textContent = '🏆 Ver Certificado'; nextModBtn.onclick = () => { location.href = 'certificado.html'; }; hide(qs('#quizView')); show(document.getElementById('certTeaser')); }
-        updateOverall(); updateSidebar(mod.id, 'quiz');
+        if (nextMod) {
+          nextModBtn.textContent = `Módulo ${nextMod.id}: ${nextMod.title} →`;
+          nextModBtn.onclick = () => { location.hash = `#m${nextMod.id}`; };
+        } else {
+          nextModBtn.textContent = '🏆 Ver Certificado';
+          nextModBtn.onclick = () => { location.href = 'certificado.html'; };
+          // show cert teaser
+          hide(qs('#quizView'));
+          show(document.getElementById('certTeaser'));
+        }
+        updateOverall();
+        updateSidebar(mod.id, 'quiz');
       }
-      document.getElementById('retryBtn').onclick = () => { hide(result); show(document.getElementById('quizFooter')); current = 0; answers = new Array(questions.length).fill(null); submitted = false; renderQ(0); };
+
+      document.getElementById('retryBtn').onclick = () => {
+        hide(result);
+        show(document.getElementById('quizFooter'));
+        current = 0;
+        answers = new Array(questions.length).fill(null);
+        submitted = false;
+        renderQ(0);
+      };
     }
+
     renderQ(0);
   }
 
+  // ─── sidebar ───────────────────────────────────────────────────────────────
   function buildSidebar() {
     const nav = document.getElementById('sidebarNav');
     nav.innerHTML = COURSE_DATA.modules.map(mod => `
@@ -353,10 +435,18 @@
           <span class="sidebar-module__chevron">▶</span>
         </button>
         <div class="sidebar-lessons hidden" id="sl-${mod.id}">
-          ${mod.lessons.map(l => `<a class="sidebar-lesson" href="#m${mod.id}/l${l.id}" id="sl-${mod.id}-${l.id}"><span class="sidebar-lesson-icon">○</span><span>${mod.id}.${l.id} ${l.title}</span></a>`).join('')}
-          <a class="sidebar-lesson sidebar-lesson-quiz" href="#m${mod.id}/quiz" id="sl-${mod.id}-quiz"><span class="sidebar-lesson-icon">📝</span><span>Quiz do Módulo ${mod.id}</span></a>
+          ${mod.lessons.map(l => `
+            <a class="sidebar-lesson" href="#m${mod.id}/l${l.id}" id="sl-${mod.id}-${l.id}">
+              <span class="sidebar-lesson-icon">○</span>
+              <span>${mod.id}.${l.id} ${l.title}</span>
+            </a>`).join('')}
+          <a class="sidebar-lesson sidebar-lesson-quiz" href="#m${mod.id}/quiz" id="sl-${mod.id}-quiz">
+            <span class="sidebar-lesson-icon">📝</span>
+            <span>Quiz do Módulo ${mod.id}</span>
+          </a>
         </div>
       </div>`).join('');
+
     nav.querySelectorAll('.sidebar-module__header').forEach(btn => {
       btn.addEventListener('click', function() {
         const mid = this.dataset.mid;
@@ -367,7 +457,13 @@
         lessons.classList.toggle('hidden', expanded);
       });
     });
-    nav.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => { if (window.innerWidth < 1024) closeSidebar(); }); });
+
+    // close sidebar on lesson click (mobile)
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (window.innerWidth < 1024) closeSidebar();
+      });
+    });
   }
 
   function updateSidebar(activeMid, activeSub) {
@@ -389,8 +485,12 @@
         qEl.querySelector('.sidebar-lesson-icon').textContent = passed ? '✓' : '📝';
       }
     });
+
+    // expand active module
     const btn = document.querySelector(`.sidebar-module__header[data-mid="${activeMid}"]`);
-    if (btn && btn.getAttribute('aria-expanded') !== 'true') btn.click();
+    if (btn && btn.getAttribute('aria-expanded') !== 'true') {
+      btn.click();
+    }
   }
 
   function updateOverall() {
@@ -401,8 +501,17 @@
     document.getElementById('sidebarProgress').textContent = `${p.totalDone} de ${p.totalLessons} lições`;
   }
 
-  function openSidebar() { document.getElementById('sidebar').classList.add('open'); document.getElementById('overlay').classList.add('visible'); document.body.style.overflow = 'hidden'; }
-  function closeSidebar() { document.getElementById('sidebar').classList.remove('open'); document.getElementById('overlay').classList.remove('visible'); document.body.style.overflow = ''; }
+  // ─── sidebar toggle ────────────────────────────────────────────────────────
+  function openSidebar() {
+    document.getElementById('sidebar').classList.add('open');
+    document.getElementById('overlay').classList.add('visible');
+    document.documentElement.style.setProperty('--sidebar-open', '1');
+  }
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlay').classList.remove('visible');
+    document.documentElement.style.removeProperty('--sidebar-open');
+  }
   document.getElementById('sidebarToggle').addEventListener('click', openSidebar);
   document.getElementById('sidebarClose').addEventListener('click', closeSidebar);
   document.getElementById('overlay').addEventListener('click', closeSidebar);
