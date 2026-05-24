@@ -1,0 +1,6 @@
+html[data-theme="light"] { --bg-primary:#f7f8fb; --bg-secondary:#eef2f8; --bg-panel:rgba(255,255,255,.94); --bg-panel-hover:#fff; --bg-input:#f2f5fa; --border-dim:#dde4ee; --border-mid:#ccd6e3; --border-bright:#aabbd0; --text-primary:#152238; --text-secondary:#475569; --text-muted:#64748b; --accent:#b86400; --accent-dim:rgba(217,119,6,.12); --accent-bright:#d97706; --blue:#2563eb; --blue-dim:rgba(37,99,235,.1); --green:#15803d; --green-dim:rgba(21,128,61,.1); --red:#b91c1c; --red-dim:rgba(185,28,28,.1); --glass-border:1px solid #dde4ee; }
+html[data-theme="light"] .navbar { background:rgba(255,255,255,.95); }
+html[data-theme="light"] .sidebar-overlay { background:rgba(15,23,42,.3); }
+html[data-theme="light"] .modal-overlay { background:rgba(15,23,42,.4); }
+html[data-theme="light"] .hero::before { background:radial-gradient(circle,rgba(217,119,6,.13),transparent 70%); }
+.theme-toggle { min-width:126px; }
