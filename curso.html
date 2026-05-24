@@ -101,6 +101,11 @@
 </main>
 
 <script src="app.js"></script>
+<script src="conteudo-part1.js"></script>
+<script src="conteudo-part2.js"></script>
+<script src="conteudo-part3.js"></script>
+<script src="conteudo-part4.js"></script>
+<script src="conteudo-part5.js"></script>
 <script src="conteudo.js"></script>
 <script>
 (function() {
@@ -120,7 +125,7 @@
   function show(el) { el.classList.remove('hidden'); }
   function hide(el) { el.classList.add('hidden'); }
 
-  // ─── routing ───────────────────────────────────────────────────────────────
+  // ─── routing ───────────────────────────────────────────────────────────────────
   // Hash formats: #m1  (module intro)  |  #m1/l1  (lesson)  |  #m1/quiz  (quiz)
   function parseHash() {
     const h = location.hash.slice(1) || 'm1';
@@ -145,7 +150,7 @@
     updateOverall();
   });
 
-  // ─── render dispatcher ─────────────────────────────────────────────────────
+  // ─── render dispatcher ────────────────────────────────────────────────────────────────
   function render() {
     const { mId, sub } = parseHash();
     const mod = COURSE_DATA.modules.find(m => m.id === mId);
@@ -171,7 +176,7 @@
     updateOverall();
   }
 
-  // ─── module intro ──────────────────────────────────────────────────────────
+  // ─── module intro ────────────────────────────────────────────────────────────────────
   function renderModuleIntro(mod) {
     show(qs('#moduleView'));
     const p = CourseApp.getProgress();
@@ -218,7 +223,7 @@
     else go(mId, 'quiz');
   };
 
-  // ─── lesson render ─────────────────────────────────────────────────────────
+  // ─── lesson render ────────────────────────────────────────────────────────────────────
   function renderLesson(mod, lesson) {
     show(qs('#lessonView'));
     const p = CourseApp.getProgress();
@@ -296,7 +301,7 @@
     return { prevRoute, nextRoute };
   }
 
-  // ─── quiz ──────────────────────────────────────────────────────────────────
+  // ─── quiz ───────────────────────────────────────────────────────────────────────────
   function renderQuiz(mod) {
     show(qs('#quizView'));
     document.getElementById('quizTitle').textContent = `📝 Quiz — Módulo ${mod.id}: ${mod.title}`;
@@ -424,7 +429,7 @@
     renderQ(0);
   }
 
-  // ─── sidebar ───────────────────────────────────────────────────────────────
+  // ─── sidebar ───────────────────────────────────────────────────────────────────────────
   function buildSidebar() {
     const nav = document.getElementById('sidebarNav');
     nav.innerHTML = COURSE_DATA.modules.map(mod => `
@@ -501,7 +506,7 @@
     document.getElementById('sidebarProgress').textContent = `${p.totalDone} de ${p.totalLessons} lições`;
   }
 
-  // ─── sidebar toggle ────────────────────────────────────────────────────────
+  // ─── sidebar toggle ─────────────────────────────────────────────────────────────────────────
   function openSidebar() {
     document.getElementById('sidebar').classList.add('open');
     document.getElementById('overlay').classList.add('visible');
