@@ -57,7 +57,35 @@ var _M3 =     {
 </div>
 </div>
 <div class="alert alert-danger"><strong>⚡ Nunca:</strong> Colocar um disjuntor maior para "parar de disparar". Se o disjuntor dispara com frequência, o circuito está sobrecarregado. A solução é redistribuir cargas ou aumentar o cabo — nunca apenas o disjuntor.</div>
-<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Corrente (A) = Potência (W) ÷ Tensão (V)</li><li>Disjuntor deve proteger o cabo — nunca ultrapassar sua capacidade</li><li>Cabo subdimensionado aquece e causa incêndio</li><li>Disjuntor disparando = circuito sobrecarregado (não troque por um maior)</li><li>Sempre use cabo de cobre — alumínio é proibido em instalações novas</li></ul></div>`
+<div class="lesson-section">
+<h2 class="lesson-section-title">⚡ Além de I = P/V: Fator de Potência</h2>
+<p>A fórmula I = P/V é exata para <strong>cargas resistivas</strong> (chuveiro, forno, lâmpadas incandescentes). Para <strong>cargas com motor</strong> (ar-condicionado, compressor, bomba d'água), o fator de potência (FP) faz a corrente real ser maior que o cálculo simples indica.</p>
+<p>Corrente real: <strong>I = P ÷ (V × FP)</strong></p>
+<div class="key-points-card panel">
+<div class="key-point"><span class="key-point__icon">❄️</span><div><strong>Exemplo — AC 9.000 BTU, 880W, 127V, FP 0,85</strong><p>Sem FP: I = 880 ÷ 127 = <em>6,9A</em> (incorreto)<br>Com FP: I = 880 ÷ (127 × 0,85) = <strong>8,1A</strong> (correto)<br>Ignorar o FP subdimensiona o circuito em ~17%</p></div></div>
+<div class="key-point"><span class="key-point__icon">🔄</span><div><strong>FP típico por tipo de carga</strong><p>Carga resistiva (chuveiro, forno): FP = 1,0 — use I = P/V<br>Motor pequeno (bomba, compressor): FP = 0,80–0,85<br>Ar-condicionado split: FP = 0,85–0,92</p></div></div>
+</div>
+</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">🚀 Corrente de Partida (Inrush)</h2>
+<p>Ao ser acionado, um motor ou compressor puxa <strong>3 a 5 vezes</strong> a corrente nominal por aproximadamente 200ms antes de estabilizar. Esse pico chama-se corrente de partida ou inrush.</p>
+<ul class="lesson-list">
+<li>Disjuntor curva B dispara com 3–5× In — coincide exatamente com a corrente de partida de compressores</li>
+<li>Resultado: o disjuntor viaja toda vez que o AC liga, mesmo com circuito corretamente dimensionado</li>
+<li>Solução: usar <strong>disjuntor curva C</strong> (tolera 5–10× In sem disparar), não aumentar a corrente nominal</li>
+</ul>
+</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">📉 Queda de Tensão — Cálculo e Limite NBR 5410</h2>
+<p>Em circuitos longos, a resistência do cabo causa queda de tensão. A NBR 5410 limita a <strong>5% máximo para tomadas</strong> (7% para iluminação).</p>
+<p>Fórmula: <strong>ΔV = (2 × L × I × 0,0172) ÷ S</strong></p>
+<p>Onde: L = comprimento em metros | I = corrente em A | S = seção em mm² | 0,0172 = resistividade do cobre (Ω·mm²/m)</p>
+<div class="key-points-card panel">
+<div class="key-point"><span class="key-point__icon">📏</span><div><strong>Exemplo — 30m de 2,5mm², 20A, em rede 127V</strong><p>ΔV = (2 × 30 × 20 × 0,0172) ÷ 2,5 = 20,64 ÷ 2,5 = <strong>8,3V</strong><br>Percentual: 8,3 ÷ 127 = <strong>6,5%</strong> — acima do limite de 5% ✗<br>Solução — subir para 4,0mm²: ΔV = 20,64 ÷ 4,0 = 5,2V = 4,1% ✓</p></div></div>
+</div>
+<div class="alert alert-warning"><strong>⚠️ Quando calcular:</strong> Circuitos longos em sobrados, galpões e áreas externas. Em apartamentos com circuitos curtos (< 10m) a queda raramente é crítica, mas em instalações com 20m+ sempre verifique.</div>
+</div>
+<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>I = P/V é exato apenas para cargas resistivas — motores exigem dividir por FP também</li><li>FP de motores/AC: 0,80–0,92 — ignorar pode subdimensionar em até 25%</li><li>Corrente de partida de compressores: 3–5× In por ~200ms → use curva C no disjuntor</li><li>Queda de tensão: limite de 5% para tomadas (fórmula: ΔV = 2×L×I×0,0172 ÷ S)</li><li>Disjuntor disparando = sobrecarga — nunca troque por um maior sem revisar o cabo</li></ul></div>`
         },
         {
           id: 3,
@@ -94,7 +122,7 @@ var _M3 =     {
 <div class="wire-row"><div class="wire-dot" style="background:#f87171"></div><div class="wire-name">Fase (L)</div><div class="wire-desc">Cabo preto/vermelho → pino superior direito</div></div>
 </div>
 </div>
-<div class="alert alert-danger"><strong>⚡ Atenção:</strong> Tomada sem o fio terra não protege contra choque em equipamentos com carcarsa metálica (geladeira, máquina de lavar). O terra é obrigatório — não é opcional.</div>
+<div class="alert alert-danger"><strong>⚡ Atenção:</strong> Tomada sem o fio terra não protege contra choque em equipamentos com carcaça metálica (geladeira, máquina de lavar). O terra é obrigatório — não é opcional.</div>
 <div class="alert alert-info"><strong>💡 Tomadas em banheiros:</strong> Devem ser instaladas a no mínimo 60 cm do chuveiro, com DR obrigatório no circuito. Nunca instale tomada dentro do box.</div>
 <div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Tomadas padrão: 1,10 m do piso acabado</li><li>Padrão NBR 14136 — pinos redondos — obrigatório em obras novas</li><li>Toda tomada nova: 2P+T com fio terra conectado</li><li>10A para uso geral; 20A para equipamentos maiores</li><li>Banheiro: DR obrigatório, tomada a ≥ 60 cm do chuveiro</li></ul></div>`
         },
@@ -129,12 +157,33 @@ var _M3 =     {
 <div class="wiring-diagram">
 <div class="wire-row"><div class="wire-dot" style="background:#f87171"></div><div class="wire-name">Fase → Interruptor → Luminária</div><div class="wire-desc">Cabo de fase passa pelo interruptor antes da luminária</div></div>
 <div class="wire-row"><div class="wire-dot" style="background:#60a5fa"></div><div class="wire-name">Neutro → direto para Luminária</div><div class="wire-desc">Não passa pelo interruptor</div></div>
-<div class="wire-row"><div class="wire-dot" style="background:#22c55e"></div><div class="wire-name">Terra → carcarsa da Luminária</div><div class="wire-desc">Se a luminária tiver borne de terra</div></div>
+<div class="wire-row"><div class="wire-dot" style="background:#22c55e"></div><div class="wire-name">Terra → carcaça da Luminária</div><div class="wire-desc">Se a luminária tiver borne de terra</div></div>
 </div>
 </div>
 <div class="alert alert-danger"><strong>⚡ Erro grave:</strong> Instalar o interruptor no neutro. A luminária parece desligada, mas a fase continua presente no porta-lâmpada. Quem trocar a lâmpada pode levar um choque. <strong>Interruptor SEMPRE na fase.</strong></div>
-<div class="alert alert-info"><strong>💡 Interruptor paralelo:</strong> Cada paralelo (3 vias) tem 3 bornes — 1 comum e 2 travessões. Os dois travessões se cruzam entre os dois interruptores. O circuito fecha quando os dois interruptores apontam para o mesmo travessão.</div>
-<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Simples: um ponto de controle. Paralelo: dois pontos. Intermediário: três ou mais</li><li>Interruptor sempre interrompe a FASE — nunca o neutro</li><li>Corredor/escada: paralelo nos dois extremos</li><li>Dimmer só com lâmpadas compatíveis — nunca fluorescente comum</li><li>Intermediário sempre entre dois paralelos, nunca isolado</li></ul></div>`
+<div class="lesson-section">
+<h2 class="lesson-section-title">🔄 Ligação do Interruptor Paralelo (3 Vias)</h2>
+<p>O interruptor paralelo tem <strong>3 bornes</strong>: um Comum (C) e dois travessões (T1 e T2). O segredo está no cruzamento dos travessões entre os dois interruptores — formando um "X":</p>
+<div class="wiring-diagram">
+<div class="wire-row"><div class="wire-dot" style="background:#f87171"></div><div class="wire-name">Fase → C do Int. A</div><div class="wire-desc">A fase entra pelo borne Comum do primeiro interruptor</div></div>
+<div class="wire-row"><div class="wire-dot" style="background:#fbbf24"></div><div class="wire-name">T1 do Int. A → T2 do Int. B</div><div class="wire-desc">Primeiro travessão cruza: T1-A conecta ao T2-B</div></div>
+<div class="wire-row"><div class="wire-dot" style="background:#a78bfa"></div><div class="wire-name">T2 do Int. A → T1 do Int. B</div><div class="wire-desc">Segundo travessão cruza: T2-A conecta ao T1-B (formando o X)</div></div>
+<div class="wire-row"><div class="wire-dot" style="background:#f87171"></div><div class="wire-name">C do Int. B → Luminária</div><div class="wire-desc">Do Comum do segundo interruptor sai o retorno para a luminária</div></div>
+<div class="wire-row"><div class="wire-dot" style="background:#60a5fa"></div><div class="wire-name">Neutro → direto para Luminária</div><div class="wire-desc">O neutro nunca passa pelos interruptores</div></div>
+</div>
+<p><strong>Como funciona:</strong> cada interruptor conecta C a T1 ou a T2. A luz acende quando os dois apontam para o mesmo travessão (ambos em T1 ou ambos em T2). Qualquer mudança de posição inverte o estado.</p>
+</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">🔀 Interruptor Intermediário (4 Vias) — Terceiro Ponto</h2>
+<p>Para adicionar um <strong>terceiro (ou mais) ponto de controle</strong>, insere-se um interruptor intermediário entre os dois paralelos. O intermediário tem 4 bornes e inverte os travessões quando acionado — por isso vai sempre no meio.</p>
+<ul class="lesson-list">
+<li><strong>Extremidade 1:</strong> interruptor paralelo (3 vias)</li>
+<li><strong>Meio:</strong> um ou mais interruptores intermediários (4 vias)</li>
+<li><strong>Extremidade 2:</strong> interruptor paralelo (3 vias)</li>
+</ul>
+<div class="alert alert-warning"><strong>⚠️ Erro de instalação:</strong> Usar um intermediário sozinho (sem os dois paralelos nas extremidades) não funciona. O intermediário inverte os travessões, mas precisa dos paralelos para completar o circuito.</div>
+</div>
+<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Simples: um ponto de controle. Paralelo: dois pontos. Intermediário: três ou mais</li><li>Interruptor sempre interrompe a FASE — nunca o neutro</li><li>Paralelo: 3 bornes (C, T1, T2) — travessões cruzados entre os dois interruptores</li><li>Intermediário sempre entre dois paralelos, nunca isolado</li><li>Dimmer só com lâmpadas compatíveis — nunca fluorescente comum</li></ul></div>`
         },
         {
           id: 5,
@@ -167,7 +216,7 @@ var _M3 =     {
 <h2 class="lesson-section-title">⚡ Aterramento — O Que Está Enterrado no Chão</h2>
 <p>O sistema de aterramento é composto pelo eletrodo (haste de cobre) conectado ao barramento de terra do QDC:</p>
 <div class="key-points-card panel">
-<div class="key-point"><span class="key-point__icon">🪠</span><div><strong>Haste de aterramento</strong><p>Haste de aço cobreado, mínimo 2,40 m de comprimento, cravada verticalmente no solo. Em solos de alta resistividade, podem ser necessárias mais de uma haste em paralelo.</p></div></div>
+<div class="key-point"><span class="key-point__icon">🪝</span><div><strong>Haste de aterramento</strong><p>Haste de aço cobreado, mínimo 2,40 m de comprimento, cravada verticalmente no solo. Em solos de alta resistividade, podem ser necessárias mais de uma haste em paralelo.</p></div></div>
 <div class="key-point"><span class="key-point__icon">📏</span><div><strong>Resistência de aterramento</strong><p>Deve ser medida com terrômetro e registrada. O valor exigido para residências é <strong>≤ 100 Ω</strong>. Valores maiores exigem hastes adicionais ou tratamento do solo.</p></div></div>
 <div class="key-point"><span class="key-point__icon">🔗</span><div><strong>Cabo de aterramento</strong><p>Liga a haste ao barramento de terra do QDC. Bitola mínima: 16 mm² de cobre (nu ou com isolamento verde-amarelo).</p></div></div>
 </div>
@@ -190,12 +239,13 @@ var _M3 =     {
       ],
       quiz: {
         questions: [
-          { text: 'Qual é a altura padrão de tomadas em residências?', options: [{ text: '0,30 m', correct: false }, { text: '1,10 m', correct: true }, { text: '1,50 m', correct: false }, { text: '2,00 m', correct: false }], explanation: 'A NBR 5410 estabelece 1,10 m do piso acabado como altura padrão para tomadas residenciais, facilitando o uso e reduzindo riscos para crianças.' },
+          { text: 'Uma tomada foi instalada em um banheiro, fora do boxe, a 1,50 m do piso. Que proteção é obrigatória pela NBR 5410?', options: [{ text: 'DR de 30mA no circuito dessa tomada', correct: true }, { text: 'DPS tipo 2 no quadro de distribuição', correct: false }, { text: 'Nenhuma proteção adicional — a altura de 1,50m já garante segurança', correct: false }, { text: 'Disjuntor curva C dedicado para o banheiro', correct: false }], explanation: 'A NBR 5410 exige DR de 30mA em todos os circuitos de banheiro, independentemente da altura da tomada ou da distância do chuveiro. Altura adequada e localização fora do boxe são requisitos de instalação, mas não substituem o DR.' },
           { text: 'Um chuveiro elétrico de 5500 W em 220V requer qual bitola mínima de cabo?', options: [{ text: '2,5 mm²', correct: false }, { text: '4,0 mm²', correct: false }, { text: '6,0 mm²', correct: true }, { text: '10 mm²', correct: false }], explanation: 'I = 5500W ÷ 220V = 25A. A bitola 6,0 mm² suporta até 36A, sendo a mínima adequada para esse circuito.' },
           { text: 'Onde é obrigatório instalar DR em residências?', options: [{ text: 'Apenas no quarto principal', correct: false }, { text: 'Em toda a instalação sem exceção', correct: false }, { text: 'Banheiros, áreas externas, garagem e piscina', correct: true }, { text: 'Apenas na cozinha e banheiro', correct: false }], explanation: 'A NBR 5410 exige DR especificamente em ambientes com risco de umidade e contato com água: banheiros, áreas externas, garagem, piscinas e saunas.' },
           { text: 'Onde as emendas de cabos podem ser feitas?', options: [{ text: 'Dentro do eletroduto, bem enroladas com fita', correct: false }, { text: 'Enterradas na parede com massa corrida por cima', correct: false }, { text: 'Somente dentro de caixas de passagem', correct: true }, { text: 'Em qualquer ponto acessível da instalação', correct: false }], explanation: 'A NBR 5410 proíbe emendas fora de caixas de passagem. Emendas enterradas na parede ou dentro de eletrodutos são irregulares e perigosas.' },
           { text: 'Qual é a carga máxima permitida por circuito de tomadas gerais (TUG)?', options: [{ text: '1000 W', correct: false }, { text: '1500 W', correct: true }, { text: '2000 W', correct: false }, { text: '3000 W', correct: false }], explanation: 'A NBR 5410 limita cada circuito TUG a 1500 W. Acima disso, deve-se criar um novo circuito de tomadas ou um circuito de uso específico (TUE).' },
-          { text: 'Se um disjuntor dispara com frequência, qual é a solução correta?', options: [{ text: 'Substituir por um disjuntor de amperagem maior', correct: false }, { text: 'Redistribuir cargas ou aumentar o cabo do circuito', correct: true }, { text: 'Apertar as conexões do disjuntor', correct: false }, { text: 'Usar um estabilizador para reduzir variações de tensão', correct: false }], explanation: 'Disjuntor que dispara frequentemente indica sobrecarga no circuito. Aumentar apenas o disjuntor sem aumentar o cabo deixa o cabo desprotegido e pode causar incêndio.' }
+          { text: 'Se um disjuntor dispara com frequência, qual é a solução correta?', options: [{ text: 'Substituir por um disjuntor de amperagem maior', correct: false }, { text: 'Redistribuir cargas ou aumentar o cabo do circuito', correct: true }, { text: 'Apertar as conexões do disjuntor', correct: false }, { text: 'Usar um estabilizador para reduzir variações de tensão', correct: false }], explanation: 'Disjuntor que dispara frequentemente indica sobrecarga no circuito. Aumentar apenas o disjuntor sem aumentar o cabo deixa o cabo desprotegido e pode causar incêndio.' },
+          { text: 'Um ar-condicionado de 1,5 HP (aproximadamente 1.100W) opera a 127V com fator de potência 0,85. Qual é a corrente real que o circuito deve suportar?', options: [{ text: '8,7A — calculado como I = 1100 ÷ 127', correct: false }, { text: '10,2A — calculado como I = 1100 ÷ (127 × 0,85)', correct: true }, { text: '5,0A — o fator de potência reduz a corrente em cargas com motor', correct: false }, { text: '13,5A — calculado com tensão de 220V', correct: false }], explanation: 'Para cargas com motor, a corrente real é I = P ÷ (V × FP) = 1.100 ÷ (127 × 0,85) = 1.100 ÷ 107,95 ≈ 10,2A. Ignorar o FP resultaria em 8,7A — subdimensionando o circuito em ~15%.' }
         ]
       }
     };
