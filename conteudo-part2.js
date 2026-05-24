@@ -70,7 +70,35 @@ var _M2 =     {
 </div>
 <div class="alert alert-danger"><strong>⚡ CRÍTICO:</strong> Uma leitura de 0V em apenas um ponto <strong>NÃO garante segurança</strong>. Sempre teste nos 3 pares de pontos. Neutro com tensão pode existir por falha de aterramento. Fio de terra com tensão pode existir por ligação incorreta.</div>
 <div class="alert alert-warning"><strong>⚠️ Erro comum:</strong> Deixar o seletor na posição DCV (corrente contínua) ao medir CA (corrente alternada). O display marcará zero mesmo com tensão presente. Sempre confirme que está em ACV antes de medir.</div>
-<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Selecionar ACV — nunca DCV para medir instalações</li><li>Testar o multímetro em fonte conhecida antes de confiar nele</li><li>Medir nos 3 pares: Fase-Neutro, Fase-Terra, Neutro-Terra</li><li>Todos devem marcar 0V para declarar seguro</li><li>Ponta preta = referência (COM); vermelha = ponto de medição</li></ul></div>`
+<div class="lesson-section">
+<h2 class="lesson-section-title">📡 Seleção de Escala: Autorange vs. Manual</h2>
+<p>Multímetros modernos têm <strong>autorange</strong> — selecionam a escala automaticamente. Os modelos mais antigos exigem seleção manual. Entender a diferença evita erros e possíveis danos ao instrumento.</p>
+<div class="key-points-card panel">
+<div class="key-point"><span class="key-point__icon">🔄</span><div><strong>Autorange</strong><p>Ajusta a escala automaticamente. Mais prático em campo — prefira sempre que disponível. A leitura pode levar 1 ciclo a mais para estabilizar após trocar de ponto.</p></div></div>
+<div class="key-point"><span class="key-point__icon">⚙️</span><div><strong>Manual — escala abaixo da tensão</strong><p>O display mostrará <strong>"OL"</strong> (overload) ou <strong>"1"</strong> na ponta esquerda. <em>Nunca interprete OL como zero</em> — significa que a tensão excede a faixa selecionada. Em alguns modelos, aplicar tensão acima da escala pode danificar o instrumento permanentemente.</p></div></div>
+</div>
+</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">🔋 Bateria Fraca — Sintomas e Verificação</h2>
+<p>Bateria fraca é causa frequente de leituras instáveis ou falsas — especialmente perigosa porque você pode confiar em uma leitura de zero que não é zero.</p>
+<ul class="lesson-list">
+<li><strong>Sintoma visível:</strong> símbolo de bateria no display, dígitos piscando ou instáveis</li>
+<li><strong>Sintoma sutil:</strong> leitura que oscila sem razão mesmo com as pontas paradas em ponto fixo</li>
+<li><strong>Verificação:</strong> teste em tomada energizada conhecida — se a leitura divergir do esperado ou variar muito, troque a bateria antes de prosseguir</li>
+</ul>
+<div class="alert alert-warning"><strong>⚠️ Hábito profissional:</strong> Verifique a bateria no início da jornada de trabalho, não no momento em que você vai fazer uma medição crítica.</div>
+</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">⏱️ Protocolo Anti-Falso-Zero Completo</h2>
+<p>Medidores digitais levam <strong>1 a 2 ciclos da rede (20–40 ms)</strong> para estabilizar. Retirar a ponta imediatamente pode capturar um valor de transição. Siga este protocolo completo:</p>
+<ol class="steps-list">
+<li>Teste em fonte conhecida e energizada — confirma que o instrumento está funcionando</li>
+<li>Vá ao ponto de trabalho e meça os 3 pares (F-N, F-T, N-T), aguardando ao menos 2 segundos em cada ponto</li>
+<li><strong>Após medir zero, toque as duas pontas entre si</strong> — deve bipar ou marcar próximo de 0Ω, confirmando que os cabos e pontas estão íntegros e que o zero anterior foi real</li>
+<li>Somente após este passo declare o circuito sem tensão e inicie o trabalho</li>
+</ol>
+</div>
+<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Selecionar ACV — nunca DCV para medir instalações</li><li>Testar o multímetro em fonte conhecida antes de confiar nele</li><li>Medir nos 3 pares: Fase-Neutro, Fase-Terra, Neutro-Terra, esperando 2s em cada</li><li>"OL" no display significa tensão acima da faixa selecionada — não é zero</li><li>Bateria fraca gera leituras falsas — verifique no início da jornada</li><li>Toque as pontas entre si após medir zero para confirmar integridade do instrumento</li></ul></div>`
         },
         {
           id: 3,
@@ -122,11 +150,40 @@ var _M2 =     {
 <div class="lesson-section">
 <h2 class="lesson-section-title">📦 Componentes Principais</h2>
 <div class="key-points-card panel">
-<div class="key-point"><span class="key-point__icon">⚡</span><div><strong>Disjuntor Termomагнético</strong><p>Protege os cabos contra sobrecarga e curto-circuito. O termomагнético desliga por aquecimento (sobrecarga) ou por campo magnético (curto). Não protege contra choque elétrico.</p></div></div>
+<div class="key-point"><span class="key-point__icon">⚡</span><div><strong>Disjuntor Termomagnético</strong><p>Protege os cabos contra sobrecarga e curto-circuito. O termomagnético desliga por aquecimento (sobrecarga) ou por campo magnético (curto). Não protege contra choque elétrico.</p></div></div>
 <div class="key-point"><span class="key-point__icon">🛡️</span><div><strong>DR — Dispositivo Residual</strong><p>Protege pessoas contra choque elétrico por corrente de fuga. Detecta diferença entre a corrente que vai e a que volta. Obrigatório pela NBR 5410 nos banheiros, área externa e garagem.</p></div></div>
 <div class="key-point"><span class="key-point__icon">🌩️</span><div><strong>DPS — Dispositivo de Proteção contra Surtos</strong><p>Protege equipamentos contra raios e surtos de tensão da rede. Recomendado em todas as instalações residenciais.</p></div></div>
 <div class="key-point"><span class="key-point__icon">🔌</span><div><strong>Barramento</strong><p>Barra condutora onde os disjuntores se conectam. Existem barramentos de fase, neutro e terra.</p></div></div>
 </div>
+</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">⚡ Curvas de Disjuntor: B, C e D</h2>
+<p>A curva do disjuntor define a velocidade com que ele desliga na presença de corrente excessiva. Escolher a curva errada causa falsos desligamentos em motores ou proteção insuficiente em cargas resistivas.</p>
+<table><thead><tr><th>Curva</th><th>Disparo instantâneo</th><th>Aplicação típica</th></tr></thead><tbody>
+<tr><td><strong>B</strong></td><td>3 a 5 × In</td><td>Iluminação, tomadas, cargas resistivas (chuveiro, forno)</td></tr>
+<tr><td><strong>C</strong></td><td>5 a 10 × In</td><td>Ar-condicionado, bomba d'água, compressor — cargas com motor</td></tr>
+<tr><td><strong>D</strong></td><td>10 a 14 × In</td><td>Motores industriais de grande porte, transformadores</td></tr>
+</tbody></table>
+<div class="alert alert-warning"><strong>⚠️ Erro comum:</strong> Instalar disjuntor curva B em circuito de ar-condicionado. A corrente de partida do compressor (3–5× a nominal) pode superar o limiar B e o disjuntor viaja toda vez que o AC liga. A solução correta é trocar para curva C — não aumentar a corrente nominal.</div>
+</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">🌩️ Tipos de DPS: 1, 2 e 3</h2>
+<p>O DPS é classificado por tipo conforme a origem do surto que protege. Instalar o tipo errado significa proteção inadequada ao risco real.</p>
+<div class="key-points-card panel">
+<div class="key-point"><span class="key-point__icon">⚡</span><div><strong>Tipo 1 — Raio direto (apenas em edificações com SPDA)</strong><p>Absorve a descarga que o próprio para-raios desvia para a rede elétrica. Desnecessário em residências sem para-raios instalado.</p></div></div>
+<div class="key-point"><span class="key-point__icon">🔌</span><div><strong>Tipo 2 — Surtos de comutação ⭐ (padrão residencial)</strong><p>Protege contra surtos gerados pela rede da distribuidora (raio em linha próxima, operação de chaves). É o tipo padrão para residências — instalado diretamente no QDC.</p></div></div>
+<div class="key-point"><span class="key-point__icon">🖥️</span><div><strong>Tipo 3 — Proteção de equipamentos</strong><p>Instalado próximo ao equipamento sensível (no-break, estabilizador, filtro de linha com DPS). Complementa o Tipo 2 para equipamentos de alto valor como computadores e TVs.</p></div></div>
+</div>
+</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">🛡️ Sensibilidade do DR: 10mA, 30mA e 300mA</h2>
+<p>A sensibilidade define a corrente de fuga mínima que o DR detecta. Usar sensibilidade errada pode deixar de proteger pessoas.</p>
+<table><thead><tr><th>Sensibilidade</th><th>Aplicação</th></tr></thead><tbody>
+<tr><td><strong>10 mA</strong></td><td>Ambientes úmidos de alto risco: piscinas, saunas, hospitais (UTI)</td></tr>
+<tr><td><strong>30 mA</strong></td><td>Proteção humana padrão — banheiros, área externa, garagem. <strong>Obrigatório pela NBR 5410</strong></td></tr>
+<tr><td><strong>300 mA</strong></td><td>Proteção da instalação apenas — detecta falhas grandes antes de virar incêndio. <em>Não protege contra choque elétrico</em></td></tr>
+</tbody></table>
+<div class="alert alert-danger"><strong>⚡ CRÍTICO:</strong> DR de 300mA não protege contra choque elétrico. 100mA pode ser letal — um DR de 300mA deixaria essa corrente passar sem disparar. Para proteção humana use sempre 30mA ou menos.</div>
 </div>
 <div class="lesson-section">
 <h2 class="lesson-section-title">🧪 Testando o DR</h2>
@@ -144,12 +201,14 @@ var _M2 =     {
       ],
       quiz: {
         questions: [
-          { text: 'O que significa a marcação "1000V" em uma chave de fenda?', options: [{ text: 'A ferramenta foi testada para uso em instalações até 1000V', correct: true }, { text: 'A ferramenta suporta 1000 graus de temperatura', correct: false }, { text: 'O torque máximo da ferramenta é de 1000 Nm', correct: false }, { text: 'A ferramenta foi fabricada no ano 1000 da norma', correct: false }], explanation: 'A marcação "1000V" (norma IEC 60900) indica que a ferramenta foi testada e certificada para uso seguro em instalações elétricas de até 1000V CA.' },
+          { text: 'Você encontra uma chave de fenda com marcação "1000V" mas com uma rachadura visível no cabo isolante. O que deve fazer?', options: [{ text: 'Usar com cuidado, pois a marcação 1000V ainda é válida', correct: false }, { text: 'Verificar a profundidade da rachadura — se superficial, pode continuar usando', correct: false }, { text: 'Descartar imediatamente e marcar como "INUTILIZADA"', correct: true }, { text: 'Cobrir a rachadura com fita isolante e continuar usando', correct: false }], explanation: 'Qualquer defeito no isolamento — rachadura, corte, cola solta — exige descarte imediato. A rachadura invalida a proteção independente da marcação 1000V. Fita isolante sobre ferramenta elétrica danificada é falsa proteção e pode causar choque.' },
           { text: 'Qual cor identifica o condutor de proteção (terra) segundo a NBR 5410?', options: [{ text: 'Azul claro', correct: false }, { text: 'Vermelho', correct: false }, { text: 'Verde ou verde-amarelo', correct: true }, { text: 'Branco', correct: false }], explanation: 'A NBR 5410 determina verde ou verde-amarelo para o condutor de proteção (PE/terra). Azul claro é exclusivo do neutro.' },
           { text: 'Qual é a bitola mínima de cabo para circuito de tomadas gerais (TUG)?', options: [{ text: '1,5 mm²', correct: false }, { text: '2,5 mm²', correct: true }, { text: '4,0 mm²', correct: false }, { text: '6,0 mm²', correct: false }], explanation: 'A NBR 5410 exige mínimo de 2,5 mm² para tomadas de uso geral. Para iluminação, o mínimo é 1,5 mm².' },
-          { text: 'Qual componente do quadro protege as pessoas contra choque elétrico por corrente de fuga?', options: [{ text: 'Disjuntor termomагнético', correct: false }, { text: 'DPS (Dispositivo de Proteção contra Surtos)', correct: false }, { text: 'DR (Dispositivo Diferencial Residual)', correct: true }, { text: 'Barramento de neutro', correct: false }], explanation: 'O DR detecta diferença entre a corrente que entra e a que sai do circuito (corrente de fuga). O disjuntor protege os cabos; o DR protege as pessoas.' },
+          { text: 'Qual componente do quadro protege as pessoas contra choque elétrico por corrente de fuga?', options: [{ text: 'Disjuntor termomagnético', correct: false }, { text: 'DPS (Dispositivo de Proteção contra Surtos)', correct: false }, { text: 'DR (Dispositivo Diferencial Residual)', correct: true }, { text: 'Barramento de neutro', correct: false }], explanation: 'O DR detecta diferença entre a corrente que entra e a que sai do circuito (corrente de fuga). O disjuntor protege os cabos; o DR protege as pessoas.' },
           { text: 'Como verificar se as luvas isolantes estão íntegras?', options: [{ text: 'Verificar visualmente apenas a parte externa', correct: false }, { text: 'Enrolar da ponta dos dedos ao punho pressionando o ar para dentro — verificar se há vazamento', correct: true }, { text: 'Mergulhar em água e verificar bolhas', correct: false }, { text: 'Usar apenas se compradas há menos de 1 ano', correct: false }], explanation: 'O teste de inflação (enrolar e pressionar o ar para dentro) detecta furos invisíveis a olho nu. Se sentir ar saindo, a luva está furada e deve ser descartada.' },
-          { text: 'Ao medir ausência de tensão, quantos pares de pontos devem ser testados?', options: [{ text: 'Apenas 1 par (Fase-Neutro)', correct: false }, { text: '2 pares (Fase-Neutro e Fase-Terra)', correct: false }, { text: '3 pares (Fase-Neutro, Fase-Terra e Neutro-Terra)', correct: true }, { text: 'Apenas verificar se o display marca zero em qualquer ponto', correct: false }], explanation: 'Os 3 pares garantem que não há tensão em nenhuma combinação. Neutro pode estar com tensão por falha no sistema. Medir só um par não garante segurança.' }
+          { text: 'Ao medir ausência de tensão, quantos pares de pontos devem ser testados?', options: [{ text: 'Apenas 1 par (Fase-Neutro)', correct: false }, { text: '2 pares (Fase-Neutro e Fase-Terra)', correct: false }, { text: '3 pares (Fase-Neutro, Fase-Terra e Neutro-Terra)', correct: true }, { text: 'Apenas verificar se o display marca zero em qualquer ponto', correct: false }], explanation: 'Os 3 pares garantem que não há tensão em nenhuma combinação. Neutro pode estar com tensão por falha no sistema. Medir só um par não garante segurança.' },
+          { text: 'Um chuveiro elétrico de 7.500W será instalado em 220V. Qual é a corrente e a bitola mínima de cabo para esse circuito?', options: [{ text: 'I = 34A → cabo 6 mm² + disjuntor 40A', correct: true }, { text: 'I = 34A → cabo 4 mm² + disjuntor 40A', correct: false }, { text: 'I = 59A → cabo 10 mm² + disjuntor 63A', correct: false }, { text: 'I = 34A → cabo 2,5 mm² + disjuntor 20A', correct: false }], explanation: 'Cálculo: I = P/V = 7.500/220 = 34,1A. Pela NBR 5410, o cabo de 6 mm² suporta até 35A em conduto, e o disjuntor deve ser de 40A (próximo comercial acima de 34A). Cabo de 4 mm² (30A) estaria subdimensionado.' },
+          { text: 'Um ar-condicionado com motor compressor desliga o disjuntor toda vez que é acionado, mas funciona normalmente depois. Qual é a causa mais provável e a solução correta?', options: [{ text: 'Disjuntor subdimensionado — aumentar a corrente nominal para o próximo valor', correct: false }, { text: 'Disjuntor curva B instalado em circuito com motor — substituir por curva C', correct: true }, { text: 'Cabo subdimensionado causando queda de tensão no acionamento', correct: false }, { text: 'DR com sensibilidade errada — ajustar para 300mA', correct: false }], explanation: 'O compressor puxa 3 a 5 vezes a corrente nominal nos primeiros 200ms ao ligar (corrente de partida/inrush). O disjuntor curva B dispara com 3–5× In, coincidindo com essa partida. A curva C tolera 5–10× In, resolvendo o problema sem alterar a corrente nominal de proteção.' }
         ]
       }
     };
