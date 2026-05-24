@@ -75,7 +75,7 @@ var _M6 =     {
 <div class="key-points-card panel">
 <div class="key-point"><span class="key-point__icon">📊</span><div><strong>Diagrama unifilar</strong><p>Plastificado e afixado dentro do QDC. Uma cópia digital (foto no celular) para o proprietário.</p></div></div>
 <div class="key-point"><span class="key-point__icon">🏷️</span><div><strong>Etiquetas nos disjuntores</strong><p>"C1 — Ilum. Sala/Quartos", "C7 — Chuveiro". Etiquetas claras evitam erros durante manutenções no escuro.</p></div></div>
-<div class="key-point"><span class="key-point__icon">📝</span><div><strong>Prontúrio da instalação</strong><p>Data da execução, nome do responsável técnico, bitolas usadas, resultado da medição de aterramento e localização dos eletrodutos. Exigido pela NR-10.</p></div></div>
+<div class="key-point"><span class="key-point__icon">📝</span><div><strong>Prontuário da instalação</strong><p>Data da execução, nome do responsável técnico, bitolas usadas, resultado da medição de aterramento e localização dos eletrodutos. Exigido pela NR-10.</p></div></div>
 <div class="key-point"><span class="key-point__icon">📐</span><div><strong>Croqui de percurso dos eletrodutos</strong><p>Esboço da planta indicando por onde passam os eletrodutos na parede. Salva horas de trabalho em reformas futuras.</p></div></div>
 </div>
 </div>
@@ -89,9 +89,9 @@ var _M6 =     {
 <tr><td>Orientações de uso</td><td>✅ Como testar DR, capacidade dos circuitos</td><td>—</td></tr>
 </tbody></table>
 </div>
-<div class="alert alert-warning"><strong>⚠️ NR-10, item 10.2.4:</strong> Toda instalação elétrica deve possuir prontúrio com as características dos equipamentos e das instalações. A ausência do prontúrio em obras fiscalizadas pelo MTE pode resultar em autuação. Mais importante: o prontúrio protege você em caso de acidentes futuros.</div>
+<div class="alert alert-warning"><strong>⚠️ NR-10, item 10.2.4:</strong> Toda instalação elétrica deve possuir prontuário com as características dos equipamentos e das instalações. A ausência do prontuário em obras fiscalizadas pelo MTE pode resultar em autuação. Mais importante: o prontuário protege você em caso de acidentes futuros.</div>
 <div class="alert alert-success"><strong>✅ Diferencial profissional:</strong> Entregue o diagrama ao proprietário, explique o que cada disjuntor protege e como testar o DR mensalmente. Esse gesto simples transforma clientes em divulgadores do seu trabalho.</div>
-<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Diagrama unifilar: cada circuito com bitola, proteção e ambiente</li><li>Plastificado dentro do QDC + cópia para o proprietário</li><li>Etiqueta em cada disjuntor com o circuito que protege</li><li>Prontúrio completo: exigência da NR-10, não é opcional</li><li>Croqui de eletrodutos evita danos em reformas futuras</li></ul></div>`
+<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Diagrama unifilar: cada circuito com bitola, proteção e ambiente</li><li>Plastificado dentro do QDC + cópia para o proprietário</li><li>Etiqueta em cada disjuntor com o circuito que protege</li><li>Prontuário completo: exigência da NR-10, não é opcional</li><li>Croqui de eletrodutos evita danos em reformas futuras</li></ul></div>`
         },
         {
           id: 3,
@@ -122,8 +122,38 @@ var _M6 =     {
 <li>Deixe seu contato para eventuais dúvidas ou ajustes</li>
 </ol>
 </div>
-<div class="alert alert-success"><strong>✅ Profissionalismo:</strong> Um eletricista que entrega uma vistoria documentada, testa tudo na frente do cliente e explica o funcionamento constrói reputação por indicação. Isso vale mais que qualquer divulgação.</div>
-<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Testar todos os pontos antes de entregar</li><li>DR: botão de teste obrigatório na entrega</li><li>Quadro etiquetado e com diagrama plastificado</li><li>Explicar ao proprietário como usar e testar a instalação</li><li>Área limpa = respeito pelo cliente</li></ul></div>`
+<div class="lesson-section">
+<h2 class="lesson-section-title">🔌 Teste de Carga — Antes de Entregar</h2>
+<p>Após o checklist individual, faça um <strong>teste de carga completo</strong>: ligue todos os circuitos simultaneamente por 5 a 10 minutos e monitore o quadro:</p>
+<ul class="lesson-list">
+<li>Após 5 min com tudo ligado, encoste o <strong>dorso da mão</strong> na carcaça de cada disjuntor — deve estar morno, não quente</li>
+<li>Disjuntor muito quente ao toque = possível subdimensionamento ou conexão frouxa</li>
+<li>Se algum disjuntor disparar durante o teste, o circuito está sobrecarregado — redistribua as cargas antes de entregar</li>
+</ul>
+<div class="alert alert-warning"><strong>⚠️ Técnica segura:</strong> Use sempre o dorso da mão para testar temperatura — o dorso recua instintivamente se estiver quente demais. A palma pode fechar involuntariamente sobre o condutor.</div>
+</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">📸 Documentação Fotográfica</h2>
+<p>Tire fotos antes de fechar as caixas e antes de entregar a obra. Essa documentação protege você em disputas futuras:</p>
+<ul class="lesson-list">
+<li><strong>Quadro montado:</strong> foto com todos os disjuntores etiquetados e cabos organizados</li>
+<li><strong>Cada caixa aberta:</strong> conexões internas visíveis antes de fechar</li>
+<li><strong>Instalação geral:</strong> eletrodutos fixados, pontos instalados, acabamento final</li>
+</ul>
+<div class="alert alert-success"><strong>✅ Proteção legal:</strong> Fotos datadas provam como você deixou a instalação. Em reclamações futuras, são sua principal defesa. Guarde por pelo menos 5 anos.</div>
+</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">📅 Retorno de 30 Dias</h2>
+<p>Ofereça ao cliente uma visita de verificação após 30 dias. Ciclos térmicos (aquecimento e resfriamento diário) podem afrouxar bornes gradualmente:</p>
+<ul class="lesson-list">
+<li>Reteste o DR com o botão "T"</li>
+<li>Verifique o aperto dos bornes no QDC — apertar levemente todos os parafusos</li>
+<li>Cheque se há aquecimento anormal em qualquer ponto</li>
+</ul>
+<p>Esse retorno custa pouco tempo e constrói fidelidade — o cliente percebe que você se preocupa com o que entregou.</p>
+</div>
+<div class="alert alert-success"><strong>✅ Profissionalismo:</strong> Um eletricista que entrega vistoria documentada, testa tudo na frente do cliente e retorna para verificação em 30 dias constrói reputação por indicação. Isso vale mais que qualquer divulgação.</div>
+<div class="summary-section"><h2>📌 Pontos Importantes</h2><ul class="summary-list"><li>Teste de carga: todos os circuitos ligados por 5–10 min — disjuntores devem ficar mornos, não quentes</li><li>Fotos datadas de quadro, caixas e instalação geral — protegem o eletricista legalmente</li><li>Retorno de 30 dias: retestar DR e apertar bornes do QDC</li><li>DR: botão de teste obrigatório na entrega</li><li>Área limpa e quadro etiquetado = respeito pelo cliente</li></ul></div>`
         }
       ],
       quiz: {
@@ -163,7 +193,23 @@ var _M7 =     {
 <div class="loto-step"><span class="loto-step-num active">10</span><div class="loto-step-content"><strong>Documente seu trabalho</strong><span>Diagrama, etiquetas e data. Sempre.</span></div></div>
 </div>
 </div>
-<div class="alert alert-success"><strong>✅ Você chegou até aqui!</strong> Completar este curso é o primeiro passo. A segurança real vem da prática diária de todos esses procedimentos, sem pular etapas, mesmo quando há pressão de tempo. Boa prova!</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">⚡ Caso Real: O Custo do "É Rapidinho"</h2>
+<p>Um eletricista experiente foi chamado para trocar um disjuntor num QDC comercial. Por ser troca simples e o cliente ter pressa, não aplicou LOTO — apenas desligou o disjuntor geral com chave. O quadro tinha alimentação independente de uma UPS não mapeada. Ao tocar no barramento, recebeu descarga de 220V pela mão direita. Sobreviveu, mas com sequelas permanentes.</p>
+<p><strong>O que saiu errado:</strong> sem cadeado, qualquer pessoa poderia re-ligar; fonte alternativa não identificada; ausência de medição antes de tocar.</p>
+<div class="alert alert-danger"><strong>⚡ Lição:</strong> O procedimento LOTO correto leva 3 minutos. O "serviço rápido sem procedimento" pode custar uma vida inteira de consequências. Pressão de tempo é um fator de risco — não uma justificativa para pular etapas.</div>
+</div>
+<div class="lesson-section">
+<h2 class="lesson-section-title">😴 O 11º Mandamento: Fadiga é Risco</h2>
+<p>Nenhuma norma fala sobre fadiga explicitamente, mas investigações de acidentes revelam padrões consistentes:</p>
+<ul class="lesson-list">
+<li>Eletricistas cansados cometem erros de verificação — medem no ponto errado ou esquecem de medir</li>
+<li>Eletricistas com pressa pulam o LOTO ou simplificam o protocolo</li>
+<li>A maioria dos acidentes graves ocorre nas últimas horas do turno ou em sextas-feiras à tarde</li>
+</ul>
+<p><strong>Regra prática:</strong> se você está com sono intenso, com fome ou sob pressão extrema de tempo, este não é o momento para conexões em pontos energizados ou verificações críticas de segurança. Pare, recupere-se e retome com atenção plena.</p>
+</div>
+<div class="alert alert-success"><strong>✅ Você chegou até aqui!</strong> Completar este curso é o primeiro passo. A segurança real vem da prática diária de todos esses procedimentos, sem pular etapas — mesmo quando há pressão de tempo. Boa prova!</div>
 <div class="summary-section"><h2>📌 Pontos Finais</h2><ul class="summary-list"><li>Segurança não é burocracia — cada procedimento existe para salvar vidas</li><li>Um acidente elétrico pode ser irreversível — não há segunda chance</li><li>O profissional reconhecido é aquele que faz tudo certo, sempre</li><li>Boa sorte na avaliação final!</li></ul></div>`
         }
       ],
@@ -176,7 +222,8 @@ var _M7 =     {
           { text: 'Qual componente protege pessoas contra choque elétrico, e qual protege os cabos contra superaquecimento?', options: [{ text: 'DR protege cabos; disjuntor protege pessoas', correct: false }, { text: 'Ambos os dois protegem as duas coisas igualmente', correct: false }, { text: 'DR protege pessoas; disjuntor protege cabos', correct: true }, { text: 'DPS protege pessoas; DR protege cabos', correct: false }], explanation: 'O DR (Dispositivo Diferencial Residual) detecta corrente de fuga e protege pessoas contra choque. O disjuntor termomagnético detecta sobrecarga e curto-circuito, protegendo os cabos contra superaquecimento.' },
           { text: 'Por que o interruptor deve sempre interromper a fase, e nunca o neutro?', options: [{ text: 'Porque o neutro nunca tem tensão', correct: false }, { text: 'Porque interromper o neutro deixa a base da lâmpada energizada (com a fase), criando risco de choque ao trocar a lâmpada', correct: true }, { text: 'Porque o neutro é mais espesso e o interruptor não consegue cortá-lo', correct: false }, { text: 'Apenas por convenção — tecnicamente os dois funcionam igual', correct: false }], explanation: 'Se o interruptor cortar o neutro, a fase continua chegando até a base da lâmpada. A lâmpada apaga (circuito aberto no neutro), mas a base fica perigosamente energizada — risco grave de choque ao tocar para trocar a lâmpada.' },
           { text: 'Qual é o valor máximo de potência por circuito de iluminação?', options: [{ text: '500 W', correct: false }, { text: '1000 W', correct: true }, { text: '1500 W', correct: false }, { text: '2000 W', correct: false }], explanation: 'A NBR 5410 limita os circuitos de iluminação a 1000 W cada. Para circuitos de tomadas gerais (TUG), o limite é 1500 W por circuito.' },
-          { text: 'Um fio com isolamento verde-amarelo foi encontrado energizado como fase em uma instalação antiga. O que fazer?', options: [{ text: 'Manter assim, pois instalações antigas têm regras diferentes', correct: false }, { text: 'Desligar o circuito, corrigir a fiação conforme a NBR 5410 e documentar a correção', correct: true }, { text: 'Apenas colocar uma etiqueta avisando que este fio é fase', correct: false }, { text: 'Ignorar — o verde-amarelo como fase não oferece risco adicional', correct: false }], explanation: 'Verde-amarelo como fase é irregularidade grave. Em manutenção futura, outro eletricista pode presumir que é terra e se acidentar. Corrija conforme NBR 5410 e documente o que foi feito.' }
+          { text: 'Um fio com isolamento verde-amarelo foi encontrado energizado como fase em uma instalação antiga. O que fazer?', options: [{ text: 'Manter assim, pois instalações antigas têm regras diferentes', correct: false }, { text: 'Desligar o circuito, corrigir a fiação conforme a NBR 5410 e documentar a correção', correct: true }, { text: 'Apenas colocar uma etiqueta avisando que este fio é fase', correct: false }, { text: 'Ignorar — o verde-amarelo como fase não oferece risco adicional', correct: false }], explanation: 'Verde-amarelo como fase é irregularidade grave. Em manutenção futura, outro eletricista pode presumir que é terra e se acidentar. Corrija conforme NBR 5410 e documente o que foi feito.' },
+          { text: 'Um circuito de tomadas tem 25m de comprimento, cabo 2,5mm² e carrega 16A. Usando ΔV = (2 × L × I × 0,0172) ÷ S, a queda de tensão está dentro do limite de 5% para rede de 127V?', options: [{ text: 'Sim — ΔV ≈ 5,5V (4,3%), dentro do limite de 5%', correct: true }, { text: 'Não — ΔV ≈ 8,3V (6,5%), acima do limite de 5%', correct: false }, { text: 'Sim — distâncias de até 30m nunca excedem o limite em baixa tensão', correct: false }, { text: 'Não — para circuitos de tomadas, o limite é de 3%, não 5%', correct: false }], explanation: 'Cálculo: ΔV = (2 × 25 × 16 × 0,0172) ÷ 2,5 = 13,76 ÷ 2,5 = 5,5V. Em percentual: 5,5 ÷ 127 = 4,3% — abaixo do limite de 5% da NBR 5410 para tomadas. O circuito está conforme a norma.' }
         ]
       }
     };
